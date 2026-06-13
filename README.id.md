@@ -86,6 +86,34 @@ Seluruh hasil indeks dihitung berdasarkan data yang dimasukkan pengguna dan tida
 
 ---
 
+### Kalkulator Multi-Dapil
+
+Versi 1.1.0 menambahkan **Kalkulator Multi-Dapil** untuk mensimulasikan alokasi kursi proporsional di banyak daerah pemilihan dengan menerapkan ambang batas parlemen nasional.
+
+Kalkulator Multi-Dapil:
+
+* mengimpor data suara berbasis dapil dari CSV;
+* mendukung header CSV Bahasa Indonesia dan Bahasa Inggris;
+* menghitung total suara nasional per partai;
+* menerapkan ambang batas parlemen nasional sebelum alokasi kursi per dapil;
+* mengalokasikan kursi secara terpisah di setiap dapil menggunakan lima metode:
+  * Sainte-Laguë;
+  * Sainte-Laguë Modifikasi;
+  * D’Hondt;
+  * Kuota Hare;
+  * Kuota Droop;
+* memberikan 0 kursi di seluruh dapil kepada partai yang tidak lolos ambang batas nasional;
+* menyediakan tabel Ringkasan Nasional;
+* menyediakan tabel Detail Per Dapil dengan filter dapil;
+* menyediakan download CSV untuk hasil nasional dan hasil per dapil;
+* menyertakan validasi untuk dapil yang memiliki total suara 0;
+* menyertakan validasi untuk dapil yang tidak memiliki suara dari partai yang lolos ambang batas nasional;
+* menyediakan tombol reset dan tombol sitasi pada halaman Multi-Dapil.
+
+Urutan perhitungan menjadi penting: ambang batas nasional diterapkan terlebih dahulu, lalu alokasi kursi per dapil dilakukan hanya terhadap partai yang lolos ambang batas.
+
+---
+
 ## Dukungan Bahasa
 
 Aplikasi ini mendukung dua bahasa antarmuka:
@@ -135,6 +163,39 @@ Party B,800000,30
 Party C,500000,20
 Party D,200000,10
 ```
+
+---
+
+### Kalkulator Multi-Dapil
+
+Kalkulator Multi-Dapil menerima file CSV dengan header Bahasa Indonesia berikut:
+
+```csv
+dapil,kursi,partai,suara
+Jabar 1,7,Partai A,100000
+Jabar 1,7,Partai B,85000
+Jabar 2,10,Partai A,150000
+Jabar 2,10,Partai B,90000
+```
+
+Header Bahasa Inggris juga didukung:
+
+```csv
+district,seats,party,votes
+District 1,7,Party A,100000
+District 1,7,Party B,85000
+District 2,10,Party A,150000
+District 2,10,Party B,90000
+```
+
+Kolom wajib:
+
+* `dapil` / `district`: nama daerah pemilihan;
+* `kursi` / `seats`: jumlah kursi di dapil;
+* `partai` / `party`: nama partai;
+* `suara` / `votes`: suara partai di dapil tersebut.
+
+Nilai suara dan kursi harus berupa angka. Dapil yang memiliki kursi tetapi total suara 0 akan ditolak karena alokasi kursi tidak bermakna secara matematis dalam kondisi tersebut.
 
 ---
 
@@ -237,6 +298,34 @@ ENPP = 1 / Σ Seat Share²
 ```
 
 ENPP menggunakan proporsi kursi dalam bentuk desimal, bukan persentase.
+
+---
+
+## Metodologi Multi-Dapil
+
+Kalkulator Multi-Dapil dirancang untuk simulasi ketika alokasi kursi dilakukan secara terpisah di banyak daerah pemilihan, sementara ambang batas parlemen diterapkan secara nasional.
+
+Urutan perhitungannya adalah sebagai berikut:
+
+1. Membaca seluruh data suara berbasis dapil.
+2. Menjumlahkan suara nasional per partai.
+3. Menghitung persentase suara nasional setiap partai.
+4. Menentukan partai yang lolos ambang batas nasional.
+5. Mengalokasikan kursi secara terpisah di setiap dapil hanya untuk partai yang lolos ambang batas nasional.
+6. Memberikan 0 kursi kepada partai yang tidak lolos ambang batas nasional di seluruh dapil.
+7. Menjumlahkan hasil kursi per dapil menjadi total nasional.
+
+Urutan ini menghindari kekeliruan metodologis yang umum terjadi, yaitu mengalokasikan kursi per dapil terlebih dahulu lalu menerapkan ambang batas nasional setelahnya. Dalam alat ini, ambang batas dihitung terlebih dahulu di tingkat nasional, kemudian alokasi kursi per dapil dilakukan hanya terhadap partai yang memenuhi syarat.
+
+Di setiap dapil, kalkulator menerapkan formula alokasi yang dipilih dengan hanya menggunakan suara partai yang lolos ambang batas nasional. Partai yang tidak lolos tetap ditampilkan dalam tabel keluaran untuk transparansi, tetapi perolehan kursinya ditetapkan 0.
+
+Kalkulator Multi-Dapil menyertakan validasi untuk menghentikan perhitungan ketika:
+
+* sebuah dapil memiliki kursi tetapi total suara 0;
+* sebuah dapil memiliki kursi tetapi tidak memiliki suara dari partai yang lolos ambang batas nasional;
+* nilai suara atau kursi dalam CSV yang diunggah tidak valid.
+
+Validasi ini membantu mencegah keluaran yang tidak sah secara matematis atau menyesatkan.
 
 ---
 
@@ -348,6 +437,33 @@ Lalu membuka:
 ```text
 http://localhost:8000
 ```
+
+---
+
+## Riwayat Versi
+
+### v1.1.0 — Pembaruan Kalkulator Multi-Dapil
+
+Rilis ini menambahkan Kalkulator Multi-Dapil dan memperkuat validasi untuk simulasi berbasis daerah pemilihan.
+
+Ditambahkan:
+
+* Kalkulator Multi-Dapil;
+* import CSV dan template CSV untuk data berbasis dapil;
+* perhitungan ambang batas parlemen nasional sebelum alokasi kursi per dapil;
+* alokasi kursi per dapil menggunakan Sainte-Laguë, Sainte-Laguë Modifikasi, D’Hondt, Kuota Hare, dan Kuota Droop;
+* keluaran Ringkasan Nasional;
+* keluaran Detail Per Dapil dengan filter dapil;
+* download CSV untuk hasil Multi-Dapil;
+* kotak informasi ambang batas;
+* tombol reset dan tombol sitasi pada halaman Multi-Dapil.
+
+Diperbaiki:
+
+* validasi untuk dapil yang memiliki kursi tetapi total suara 0;
+* validasi untuk dapil yang tidak memiliki suara dari partai yang lolos ambang batas nasional;
+* validasi nilai suara dan kursi pada import CSV Multi-Dapil;
+* render ulang bahasa untuk panel hasil Multi-Dapil.
 
 ---
 
