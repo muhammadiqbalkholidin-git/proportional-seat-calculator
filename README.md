@@ -86,6 +86,34 @@ All proportionality index results are calculated from user-provided input and do
 
 ---
 
+### Multi-District / Multi-Dapil Calculator
+
+Version 1.1.0 adds a dedicated **Multi-District / Multi-Dapil Calculator** for simulating proportional seat allocation across multiple electoral districts while applying a national parliamentary threshold.
+
+The Multi-District Calculator:
+
+* imports district-level vote data from CSV;
+* supports both Indonesian and English CSV headers;
+* calculates national vote totals by party;
+* applies the national parliamentary threshold before district-level allocation;
+* allocates seats separately in each district using five methods:
+  * Sainte-Laguë;
+  * Modified Sainte-Laguë;
+  * D’Hondt;
+  * Hare Quota;
+  * Droop Quota;
+* assigns 0 seats in all districts to parties that do not pass the national threshold;
+* provides a National Summary table;
+* provides a District Detail table with a district filter;
+* provides CSV downloads for national and district-level results;
+* includes validation for districts with zero total votes;
+* includes validation for districts with no votes from parties passing the national threshold;
+* includes reset and citation buttons on the Multi-District page.
+
+The calculation order is important: the national threshold is applied first, and district-level seat allocation is performed afterward only among eligible parties.
+
+---
+
 ## Supported Languages
 
 The application supports two interface languages:
@@ -135,6 +163,39 @@ Party B,800000,30
 Party C,500000,20
 Party D,200000,10
 ```
+
+---
+
+### Multi-District / Multi-Dapil Calculator
+
+The Multi-District Calculator accepts CSV files with the following English headers:
+
+```csv
+district,seats,party,votes
+District 1,7,Party A,100000
+District 1,7,Party B,85000
+District 2,10,Party A,150000
+District 2,10,Party B,90000
+```
+
+Indonesian headers are also supported:
+
+```csv
+dapil,kursi,partai,suara
+Jabar 1,7,Partai A,100000
+Jabar 1,7,Partai B,85000
+Jabar 2,10,Partai A,150000
+Jabar 2,10,Partai B,90000
+```
+
+Required columns:
+
+* `district` / `dapil`: electoral district name;
+* `seats` / `kursi`: number of seats in the district;
+* `party` / `partai`: party name;
+* `votes` / `suara`: party votes in that district.
+
+Vote and seat values must be numeric. Districts with seats but zero total votes are rejected because seat allocation is not mathematically meaningful in that condition.
 
 ---
 
@@ -237,6 +298,34 @@ ENPP = 1 / Σ Seat Share²
 ```
 
 ENPP uses seat shares in decimal form, not percentages.
+
+---
+
+## Multi-District / Multi-Dapil Methodology
+
+The Multi-District Calculator is designed for simulations in which seat allocation is performed separately across multiple electoral districts, while the parliamentary threshold is applied nationally.
+
+The calculation follows this order:
+
+1. Read all district-level vote data.
+2. Aggregate votes nationally by party.
+3. Calculate each party’s national vote percentage.
+4. Determine which parties pass the national threshold.
+5. Allocate seats separately in each district only among parties that pass the national threshold.
+6. Assign 0 seats to parties that do not pass the national threshold in all districts.
+7. Aggregate district-level seat results into national totals.
+
+This order avoids a common methodological error: allocating seats by district first and applying the national threshold afterward. In this tool, the threshold is calculated first at the national level, and district-level allocation is then performed only among eligible parties.
+
+For each district, the calculator applies the selected allocation formulas using only votes received by parties that pass the national threshold. Parties that fail to pass the threshold remain visible in the output table for transparency, but their seat totals are set to 0.
+
+The Multi-District Calculator includes validation to stop calculation when:
+
+* a district has seats but zero total votes;
+* a district has seats but no votes from parties passing the national threshold;
+* vote or seat values in the uploaded CSV are invalid.
+
+These validation rules help prevent mathematically invalid or misleading outputs.
 
 ---
 
@@ -348,6 +437,33 @@ Then open:
 ```text
 http://localhost:8000
 ```
+
+---
+
+## Version History
+
+### v1.1.0 — Multi-District Calculator Update
+
+This release adds the Multi-District / Multi-Dapil Calculator and strengthens validation for district-level simulations.
+
+Added:
+
+* Multi-District / Multi-Dapil Calculator;
+* CSV import and CSV template for district-level data;
+* national parliamentary threshold calculation before district-level allocation;
+* district-level allocation using Sainte-Laguë, Modified Sainte-Laguë, D’Hondt, Hare Quota, and Droop Quota;
+* National Summary output;
+* District Detail output with district filter;
+* CSV downloads for Multi-District results;
+* threshold information box;
+* reset and citation buttons on the Multi-District page.
+
+Improved:
+
+* validation for districts with seats but zero total votes;
+* validation for districts with no votes from parties passing the national threshold;
+* validation for vote and seat values in Multi-District CSV import;
+* language re-rendering for Multi-District result panels.
 
 ---
 
