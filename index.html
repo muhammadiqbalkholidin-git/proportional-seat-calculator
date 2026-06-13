@@ -16,7 +16,7 @@ nav{background:#fff;border-bottom:1px solid #e2e8f0;padding:0 28px;display:flex;
 .nav-brand{font-weight:700;font-size:0.93rem;color:#1e40af;line-height:1.1}
 .nav-brand small{display:block;font-size:0.63rem;color:#94a3b8;font-weight:400;letter-spacing:0.3px}
 .nav-right{display:flex;align-items:center;gap:6px}
-.nav-links{display:flex;gap:4px}
+.nav-links{display:flex;gap:4px;flex-wrap:wrap}
 .nav-links button{padding:6px 13px;border-radius:8px;border:none;font-size:0.8rem;font-weight:600;cursor:pointer;color:#64748b;background:transparent;font-family:'Open Sans',sans-serif;transition:all .15s}
 .nav-links button:hover{background:#f1f5f9;color:#1e293b}
 .nav-links button.active{background:#eff6ff;color:#1e40af}
@@ -40,6 +40,8 @@ nav{background:#fff;border-bottom:1px solid #e2e8f0;padding:0 28px;display:flex;
 label{font-size:0.77rem;color:#64748b;display:block;margin-bottom:3px;font-weight:600}
 input[type=number],input[type=text]{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;color:#1e293b;padding:7px 10px;font-size:0.87rem;width:100%;font-family:'Open Sans',sans-serif}
 input:focus{outline:none;border-color:#3b82f6;background:#fff}
+select{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;color:#1e293b;padding:7px 10px;font-size:0.87rem;font-family:'Open Sans',sans-serif;cursor:pointer}
+select:focus{outline:none;border-color:#3b82f6}
 .btn{padding:7px 13px;border-radius:8px;border:none;cursor:pointer;font-size:0.8rem;font-weight:700;transition:all .15s;white-space:nowrap;font-family:'Open Sans',sans-serif}
 .bp{background:#3b82f6;color:#fff}.bp:hover{background:#2563eb}
 .bg{background:#22c55e;color:#fff}.bg:hover{background:#16a34a}
@@ -118,6 +120,27 @@ tr:hover td{background:#eff6ff}
 .idx-trace-formula{background:#f5f3ff;border:1px solid #c4b5fd;border-radius:9px;padding:12px 14px;font-family:monospace;font-size:0.81rem;color:#4c1d95;margin:11px 0;line-height:1.8}
 .idx-trace-summary{background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:14px 16px;font-size:0.8rem;color:#475569;line-height:1.9;margin-bottom:11px}
 .idx-trace-summary strong{color:#4c1d95}
+/* MULTI-DAPIL */
+.md-hero{background:linear-gradient(135deg,#064e3b,#065f46 50%,#047857);padding:48px 24px 36px;text-align:center}
+.md-hero h1{font-size:1.45rem;font-weight:700;color:#fff;letter-spacing:-0.4px}
+.md-hero p{font-size:0.82rem;color:#a7f3d0;margin-top:9px;max-width:560px;margin-left:auto;margin-right:auto;line-height:1.6}
+.md-hero .md-note{font-size:0.75rem;color:#6ee7b7;margin-top:8px;max-width:600px;margin-left:auto;margin-right:auto}
+.md-tab{padding:6px 13px;border-radius:8px;border:1px solid #e2e8f0;background:#f8fafc;color:#64748b;cursor:pointer;font-size:0.78rem;font-weight:600;transition:all .15s;font-family:'Open Sans',sans-serif}
+.md-tab.on{background:#ecfdf5;color:#065f46;border-color:#10b981}
+.md-tbl th{background:#065f46;color:#a7f3d0;padding:9px 11px;text-align:center;white-space:nowrap;font-size:0.77rem}
+.md-tbl td{padding:8px 11px;border-bottom:1px solid #f1f5f9;text-align:center;color:#475569;font-size:0.78rem}
+.md-tbl td.tl{text-align:left;font-weight:600;color:#1e293b}
+.md-tbl tr:nth-child(even) td{background:#f8fafc}
+.md-tbl tr:hover td{background:#ecfdf5}
+.md-passed{color:#166534;font-weight:700}
+.md-failed{color:#991b1b;font-weight:700}
+.md-w{background:#dcfce7!important;color:#166534;font-weight:700}
+.md-sum-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin-bottom:16px}
+.md-sum-card{background:#fff;border:1px solid #e2e8f0;border-radius:11px;padding:14px;text-align:center;box-shadow:0 1px 6px #0000000a}
+.md-sum-card .sc-val{font-size:1.2rem;font-weight:700;color:#065f46;line-height:1}
+.md-sum-card .sc-lbl{font-size:0.71rem;color:#64748b;margin-top:4px}
+.md-thresh-box{background:#ecfdf5;border:1px solid #6ee7b7;border-radius:10px;padding:12px 15px;font-size:0.8rem;color:#065f46;margin-bottom:13px;line-height:1.7}
+.md-thresh-box strong{color:#064e3b}
 /* ABOUT */
 .about-hero{background:linear-gradient(135deg,#1e40af,#3b82f6 60%,#60a5fa);padding:52px 28px 44px;text-align:center;position:relative;overflow:hidden}
 .about-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 70% 30%,rgba(255,255,255,0.07),transparent 60%)}
@@ -224,14 +247,12 @@ footer{background:#1e293b;color:#64748b;padding:28px 24px 20px;font-size:0.73rem
 .footer-links a,.footer-links span{color:#60a5fa;cursor:pointer;text-decoration:none;font-size:0.73rem;transition:color .15s}
 .footer-links a:hover,.footer-links span:hover{color:#93c5fd}
 .footer-sep{color:#334155}
-/* Cite button inline */
 .cite-inline-btn{display:inline-flex;align-items:center;gap:5px;padding:4px 11px;border-radius:7px;border:1px solid #e2e8f0;background:#f8fafc;color:#475569;font-size:0.73rem;font-weight:600;cursor:pointer;font-family:'Open Sans',sans-serif;transition:all .15s;margin-left:4px;vertical-align:middle}
 .cite-inline-btn:hover{background:#eff6ff;color:#1e40af;border-color:#3b82f6}
 </style>
 </head>
 <body>
 
-<!-- CITE MODAL (single instance) -->
 <div class="modal-overlay" id="citeModal">
   <div class="modal-box">
     <h3 data-i18n="cite_modal_title">Cara Mengutip Alat Ini</h3>
@@ -265,6 +286,7 @@ footer{background:#1e293b;color:#64748b;padding:28px 24px 20px;font-size:0.73rem
   <div class="nav-right">
     <div class="nav-links">
       <button id="nb-calc" class="active" onclick="goTo('calc')" data-i18n="nav_calc">Kalkulator</button>
+      <button id="nb-multi" onclick="goTo('multi')" data-i18n="nav_multi">Multi-Dapil</button>
       <button id="nb-tutorial" onclick="goTo('tutorial')" data-i18n="nav_tutorial">Tutorial</button>
       <button id="nb-index" onclick="goTo('index')" data-i18n="nav_index">Indeks</button>
       <button id="nb-about" onclick="goTo('about')" data-i18n="nav_about">Profil</button>
@@ -289,9 +311,7 @@ footer{background:#1e293b;color:#64748b;padding:28px 24px 20px;font-size:0.73rem
       <span class="rl" data-i18n="ref_label">ℹ️ Tentang Kalkulator Ini</span> — <span data-i18n="ref_desc">Dibangun berdasarkan teori alokasi kursi proporsional yang diakui secara akademik.</span>
       <div class="rr"><strong data-i18n="ref_sources">Rujukan:</strong> Lijphart (1994). <em>Electoral Systems and Party Systems.</em> OUP · Taagepera &amp; Shugart (1989). <em>Seats and Votes.</em> Yale UP · Gallagher &amp; Mitchell (2008). <em>The Politics of Electoral Systems.</em> OUP · Norris (2004). <em>Electoral Engineering.</em> CUP</div>
     </div>
-    <div style="padding-top:2px">
-      <button class="cite-inline-btn" onclick="openCiteModal()" data-i18n="cite_btn">📎 Cara Mengutip</button>
-    </div>
+    <div style="padding-top:2px"><button class="cite-inline-btn" onclick="openCiteModal()" data-i18n="cite_btn">📎 Cara Mengutip</button></div>
   </div>
   <div class="wrap">
     <div class="card">
@@ -307,7 +327,7 @@ footer{background:#1e293b;color:#64748b;padding:28px 24px 20px;font-size:0.73rem
     </div>
     <div class="card">
       <h2 data-i18n="csv_title">📂 Import Data CSV</h2>
-      <div class="fmt-box"><span data-i18n="csv_fmt">Format: kolom <code>nama</code> dan <code>suara</code>, dipisah koma atau titik koma. Contoh: <code>PDIP,25511655</code></span></div>
+      <div class="fmt-box"><span data-i18n="csv_fmt">Format: kolom <code>nama</code> dan <code>suara</code>, dipisah koma atau titik koma.</span></div>
       <div class="dropzone" id="dropzone" onclick="document.getElementById('csvFile').click()">
         <span>📄</span><p id="dropText" data-i18n="csv_drop">Klik atau seret file CSV ke sini</p>
       </div>
@@ -339,16 +359,77 @@ footer{background:#1e293b;color:#64748b;padding:28px 24px 20px;font-size:0.73rem
         <div class="tab" onclick="switchTab(2)" data-i18n="tab_detail">🔍 Detail</div>
         <div class="tab" onclick="switchTab(3)" data-i18n="tab_trace">🧮 Jejak Hitung</div>
       </div>
-      <div id="t0">
-        <div style="margin-bottom:10px"><button class="btn bg" onclick="downloadCSV()" data-i18n="dl_csv">⬇️ Download CSV</button></div>
-        <div class="ow"><table id="rtbl"></table></div>
-      </div>
-      <div id="t1" class="hidden">
-        <div style="margin-bottom:10px"><button class="btn bg" onclick="downloadPNG()" data-i18n="dl_png">⬇️ Download PNG</button></div>
-        <div class="chartw"><canvas id="myChart"></canvas></div>
-      </div>
+      <div id="t0"><div style="margin-bottom:10px"><button class="btn bg" onclick="downloadCSV()" data-i18n="dl_csv">⬇️ Download CSV</button></div><div class="ow"><table id="rtbl"></table></div></div>
+      <div id="t1" class="hidden"><div style="margin-bottom:10px"><button class="btn bg" onclick="downloadPNG()" data-i18n="dl_png">⬇️ Download PNG</button></div><div class="chartw"><canvas id="myChart"></canvas></div></div>
       <div id="t2" class="hidden"><div id="detailDiv"></div></div>
       <div id="t3" class="hidden"><div id="traceDiv"></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE: MULTI-DAPIL -->
+<div id="page-multi" class="page">
+  <div class="md-hero">
+    <h1 data-i18n="md_title">🗺️ Kalkulator Multi-Dapil</h1>
+    <p data-i18n="md_sub">Hitung alokasi kursi per dapil dengan ambang batas parlemen nasional.</p>
+    <div class="md-note" data-i18n="md_note">Fitur ini menghitung status ambang batas dari total suara nasional terlebih dahulu, lalu mengalokasikan kursi secara terpisah di setiap dapil hanya untuk partai yang lolos ambang batas.</div>
+    <div class="mchips" style="margin-top:14px">
+      <span class="mchip">5 Metode Alokasi</span>
+      <span class="mchip" data-i18n="md_chip_thresh">Ambang Batas Nasional</span>
+      <span class="mchip" data-i18n="md_chip_multi">Multi-Dapil</span>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="card">
+      <h2 data-i18n="md_cfg_title">⚙️ Konfigurasi</h2>
+      <div class="cfg">
+        <div class="f"><label data-i18n="md_thresh_label">Ambang Batas Nasional (%)</label><input type="number" id="mdThresh" value="4" min="0" max="100" step="0.1"></div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:flex-end">
+          <button class="btn bx" onclick="resetMultiDapil()" data-i18n="md_btn_reset">Reset Multi-Dapil</button>
+          <button class="cite-inline-btn" onclick="openCiteModal()" data-i18n="cite_btn">📎 Cara Mengutip</button>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <h2 data-i18n="md_csv_title">📂 Import Data CSV Multi-Dapil</h2>
+      <div class="fmt-box"><span data-i18n="md_csv_fmt">Format: kolom <code>dapil</code>, <code>kursi</code>, <code>partai</code>, <code>suara</code> — dipisah koma atau titik koma.</span></div>
+      <div class="dropzone" id="md-dropzone" onclick="document.getElementById('mdCsvFile').click()">
+        <span>📄</span><p id="mdDropText" data-i18n="csv_drop">Klik atau seret file CSV ke sini</p>
+      </div>
+      <input type="file" id="mdCsvFile" accept=".csv" class="hidden" onchange="handleMdFile(this.files[0])">
+      <div id="mdCsvAlert" class="hidden"></div>
+      <div id="mdCsvPreview" class="hidden">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;flex-wrap:wrap;gap:8px">
+          <span style="font-size:0.8rem;color:#64748b;font-weight:600" id="mdPreviewLabel"></span>
+          <div style="display:flex;gap:8px">
+            <button class="btn bg" onclick="applyMdCSV()" data-i18n="csv_use">✅ Gunakan Data Ini</button>
+            <button class="btn br" onclick="cancelMdCSV()" data-i18n="csv_cancel">✕ Batal</button>
+          </div>
+        </div>
+        <div class="ow"><table class="prev-tbl" id="mdPrevTbl"></table></div>
+      </div>
+      <div style="margin-top:10px"><button class="btn by" onclick="downloadMdTemplate()" data-i18n="md_csv_template_btn">⬇️ Download Template CSV Multi-Dapil</button></div>
+    </div>
+    <div class="card">
+      <button class="btn bcalc" style="background:linear-gradient(135deg,#064e3b,#059669)" onclick="calculateMultiDapil()" data-i18n="md_btn_calc">🗺️ Hitung Alokasi Multi-Dapil</button>
+    </div>
+    <div class="card hidden" id="mdResCard">
+      <h2 data-i18n="md_res_title">📊 Hasil Kalkulator Multi-Dapil</h2>
+      <div id="mdThreshInfoBox"></div>
+      <div class="tabs" style="margin-bottom:13px">
+        <div class="md-tab on" id="mdTab0" onclick="switchMdTab(0)" data-i18n="md_tab_national">📋 Ringkasan Nasional</div>
+        <div class="md-tab" id="mdTab1" onclick="switchMdTab(1)" data-i18n="md_tab_district">🗺️ Detail Per Dapil</div>
+        <div class="md-tab" id="mdTab2" onclick="switchMdTab(2)" data-i18n="md_tab_info">🔍 Detail</div>
+      </div>
+      <div id="mdPanel0"><div id="mdNationalDiv"></div></div>
+      <div id="mdPanel1" class="hidden">
+        <div style="margin-bottom:12px;display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+          <label style="font-size:0.8rem;font-weight:600;color:#065f46" data-i18n="md_filter_label">Pilih Dapil:</label>
+          <select id="mdDistrictFilter" onchange="renderMdDistrictTable()"></select>
+        </div>
+        <div id="mdDistrictDiv"></div>
+      </div>
+      <div id="mdPanel2" class="hidden"><div id="mdInfoDiv"></div></div>
     </div>
   </div>
 </div>
@@ -376,8 +457,8 @@ footer{background:#1e293b;color:#64748b;padding:28px 24px 20px;font-size:0.73rem
       </div>
     </div>
     <div class="msec"><div class="msec-label" data-i18n="tut_c_label">Bagian C</div><h2 data-i18n="tut_c_title">Cara Import CSV</h2><div class="prose"><p data-i18n="tut_c_desc">Impor data dari CSV dengan kolom <code>nama</code> dan <code>suara</code>.</p></div><div class="mnote" style="margin-top:11px" data-i18n="tut_c_note">Pastikan baris pertama adalah baris header.</div></div>
-    <div class="msec"><div class="msec-label" data-i18n="tut_d_label">Bagian D</div><h2 data-i18n="tut_d_title">Membaca Tabel Alokasi</h2><div class="prose"><p data-i18n="tut_d_desc">Tabel membandingkan hasil alokasi dari kelima metode. Sel hijau = partai mendapat kursi. ✗BT = tidak lolos ambang batas.</p></div></div>
-    <div class="msec"><div class="msec-label" data-i18n="tut_e_label">Bagian E</div><h2 data-i18n="tut_e_title">Membaca Grafik</h2><div class="prose"><p data-i18n="tut_e_desc">Grafik batang memvisualisasikan distribusi kursi per metode. Klik legenda untuk menyembunyikan/menampilkan metode.</p></div></div>
+    <div class="msec"><div class="msec-label" data-i18n="tut_d_label">Bagian D</div><h2 data-i18n="tut_d_title">Membaca Tabel Alokasi</h2><div class="prose"><p data-i18n="tut_d_desc">Tabel membandingkan hasil alokasi dari kelima metode. Sel hijau = partai mendapat kursi.</p></div></div>
+    <div class="msec"><div class="msec-label" data-i18n="tut_e_label">Bagian E</div><h2 data-i18n="tut_e_title">Membaca Grafik</h2><div class="prose"><p data-i18n="tut_e_desc">Grafik batang memvisualisasikan distribusi kursi per metode.</p></div></div>
     <div class="msec"><div class="msec-label" data-i18n="tut_f_label">Bagian F</div><h2 data-i18n="tut_f_title">Membaca Tab Detail</h2><div class="prose"><p data-i18n="tut_f_desc">Tab Detail merangkum hasil alokasi per metode beserta deskripsi singkat.</p></div></div>
     <div class="msec"><div class="msec-label" data-i18n="tut_g_label">Bagian G</div><h2 data-i18n="tut_g_title">Membaca Jejak Hitung</h2>
       <div class="mcard"><div class="mcard-hdr"><div class="mnum" style="background:#dbeafe;color:#1e40af">÷</div><div class="mtitle"><h3 data-i18n="tut_g_div_t">Metode Divisor</h3><p data-i18n="tut_g_div_s">Sainte-Laguë · SL Modifikasi · D'Hondt</p></div></div><div class="mcard-body"><p data-i18n="tut_g_desc_div">Setiap baris = satu langkah alokasi berdasarkan quotient tertinggi.</p></div></div>
@@ -393,10 +474,19 @@ footer{background:#1e293b;color:#64748b;padding:28px 24px 20px;font-size:0.73rem
     <div class="msec" id="tut-sec-j">
       <div class="msec-label" data-i18n="tut_j_label">Bagian J</div>
       <h2 data-i18n="tut_j_title">Menggunakan Halaman Indeks</h2>
-      <div class="prose"><p data-i18n="tut_j_desc">Halaman Indeks digunakan untuk menghitung LHI, LSI, dan ENPP berdasarkan data suara dan kursi. Pengguna dapat memasukkan data secara manual atau mengimpor CSV dengan kolom partai, suara, dan kursi. Setelah data dihitung, aplikasi menampilkan ringkasan total, tabel persentase suara dan kursi, nilai indeks, interpretasi singkat, serta Jejak Hitung untuk memeriksa proses perhitungan.</p></div>
+      <div class="prose"><p data-i18n="tut_j_desc">Halaman Indeks digunakan untuk menghitung LHI, LSI, dan ENPP berdasarkan data suara dan kursi.</p></div>
       <div class="fmt-box" style="margin-top:12px">
         <div data-i18n="tut_j_fmt_label" style="font-weight:700;margin-bottom:4px">Format CSV:</div>
         <code id="tut-j-fmt-code">partai,suara,kursi<br>Partai A,1000000,40<br>Partai B,800000,30</code>
+      </div>
+    </div>
+    <div class="msec" id="tut-sec-k">
+      <div class="msec-label" data-i18n="tut_k_label">Bagian K</div>
+      <h2 data-i18n="tut_k_title">Menggunakan Kalkulator Multi-Dapil</h2>
+      <div class="prose"><p data-i18n="tut_k_desc">Kalkulator Multi-Dapil digunakan untuk menghitung alokasi kursi berbasis dapil dengan ambang batas nasional.</p></div>
+      <div class="fmt-box" style="margin-top:12px">
+        <div data-i18n="tut_k_fmt_label" style="font-weight:700;margin-bottom:4px">Format CSV:</div>
+        <code>dapil,kursi,partai,suara<br>Jabar 1,7,Partai A,100000<br>Jabar 1,7,Partai B,85000<br>Jabar 2,10,Partai A,150000<br>Jabar 2,10,Partai B,90000</code>
       </div>
     </div>
   </div>
@@ -407,16 +497,10 @@ footer{background:#1e293b;color:#64748b;padding:28px 24px 20px;font-size:0.73rem
   <div class="idx-hero">
     <h1 data-i18n="idx_title">📐 Indeks Proporsionalitas</h1>
     <p data-i18n="idx_sub">Hitung indeks disproporsionalitas dan jumlah efektif partai parlemen berdasarkan data suara dan kursi.</p>
-    <div class="mchips">
-      <span class="mchip">LHI · Loosemore-Hanby</span>
-      <span class="mchip">LSI · Gallagher Index</span>
-      <span class="mchip">ENPP</span>
-    </div>
+    <div class="mchips"><span class="mchip">LHI · Loosemore-Hanby</span><span class="mchip">LSI · Gallagher Index</span><span class="mchip">ENPP</span></div>
   </div>
   <div class="wrap" style="max-width:900px">
-    <div style="margin-bottom:12px;display:flex;justify-content:flex-end">
-      <button class="cite-inline-btn" onclick="openCiteModal()" data-i18n="cite_btn">📎 Cara Mengutip</button>
-    </div>
+    <div style="margin-bottom:12px;display:flex;justify-content:flex-end"><button class="cite-inline-btn" onclick="openCiteModal()" data-i18n="cite_btn">📎 Cara Mengutip</button></div>
     <div class="card">
       <h2 data-i18n="idx_csv_title">📂 Import Data CSV</h2>
       <div class="fmt-box"><span data-i18n="idx_csv_fmt">Format: kolom <code>partai</code>, <code>suara</code>, <code>kursi</code> — dipisah koma atau titik koma.</span></div>
@@ -472,17 +556,15 @@ footer{background:#1e293b;color:#64748b;padding:28px 24px 20px;font-size:0.73rem
     </div>
   </div>
   <div class="amain">
-    <div class="asec">
-      <div class="asec-label" data-i18n="about_bio_label">Biografi</div>
+    <div class="asec"><div class="asec-label" data-i18n="about_bio_label">Biografi</div>
       <div class="bio-card">
-        <p data-i18n="bio_p1">Muhammad Iqbal Kholidin adalah peneliti pemilu yang berfokus pada reformasi sistem pemilu dan advokasi kebijakan berbasis bukti. Bidang kerjanya meliputi desain sistem pemilu, tata kelola pemilu dan partai politik, pemantauan integritas pemilu, serta dampak kerangka pemilu terhadap stabilitas demokrasi dan kepercayaan institusional.</p>
-        <p data-i18n="bio_p2">Dengan pendekatan empiris berbasis data, ia melakukan analisis kebijakan dan penelitian pemilu untuk berkontribusi dalam diskusi tentang tata kelola pemilu, ketahanan demokrasi, dan akuntabilitas politik. Dalam perannya, ia juga terlibat dalam penyusunan kajian penelitian untuk mendukung permohonan uji materi terkait regulasi pemilu di Mahkamah Konstitusi Republik Indonesia (MK).</p>
+        <p data-i18n="bio_p1">Muhammad Iqbal Kholidin adalah peneliti pemilu yang berfokus pada reformasi sistem pemilu dan advokasi kebijakan berbasis bukti.</p>
+        <p data-i18n="bio_p2">Dengan pendekatan empiris berbasis data, ia melakukan analisis kebijakan dan penelitian pemilu untuk berkontribusi dalam diskusi tentang tata kelola pemilu, ketahanan demokrasi, dan akuntabilitas politik.</p>
         <p data-i18n="bio_p3">Ia merupakan salah satu penulis proyek penelitian kolaboratif lintas negara yang diterbitkan oleh Nature Portfolio (Scientific Data) berjudul <em>"Indonesia Election Archive: Institutions, candidates and results"</em>.</p>
         <p data-i18n="bio_p4">Tulisan analisisnya tentang ekonomi politik pemilu dimuat di platform New Mandala (Australian National University). Ia juga berkontribusi artikel opini di Kompas.com dan detik.com.</p>
       </div>
     </div>
-    <div class="asec">
-      <div class="asec-label" data-i18n="about_focus_label">Bidang Keahlian</div>
+    <div class="asec"><div class="asec-label" data-i18n="about_focus_label">Bidang Keahlian</div>
       <div class="focus-grid">
         <div class="focus-item"><div class="focus-icon">🗳️</div><h3 data-i18n="focus1_t">Desain Sistem Pemilu</h3><p data-i18n="focus1_d">Analisis komparatif sistem proporsional, mayoritarian, dan campuran</p></div>
         <div class="focus-item"><div class="focus-icon">⚖️</div><h3 data-i18n="focus2_t">Integritas Pemilu</h3><p data-i18n="focus2_d">Pemantauan proses pemilu dan pendampingan uji materi di Mahkamah Konstitusi</p></div>
@@ -492,17 +574,15 @@ footer{background:#1e293b;color:#64748b;padding:28px 24px 20px;font-size:0.73rem
         <div class="focus-item"><div class="focus-icon">🤝</div><h3 data-i18n="focus6_t">Partisipasi Inklusif</h3><p data-i18n="focus6_d">Penelitian partisipasi politik pemuda dan layanan publik bagi penyandang disabilitas</p></div>
       </div>
     </div>
-    <div class="asec">
-      <div class="asec-label" data-i18n="about_pub_label">Publikasi &amp; Kontribusi Terpilih</div>
+    <div class="asec"><div class="asec-label" data-i18n="about_pub_label">Publikasi &amp; Kontribusi Terpilih</div>
       <div class="pub-list">
         <div class="pub-item"><span class="pub-badge bj">Journal</span><div class="pub-content"><h3>Indonesia Election Archive: Institutions, candidates and results</h3><p>Nature Portfolio — Scientific Data · Cross-national collaborative research, Indonesian elections 1999–2024</p></div></div>
         <div class="pub-item"><span class="pub-badge bm">Platform</span><div class="pub-content"><h3>Electoral Political Economy in Indonesia</h3><p>New Mandala · Australian National University</p></div></div>
         <div class="pub-item"><span class="pub-badge bpp">Policy</span><div class="pub-content"><h3>Electoral Disputes, Mixed-Member Systems &amp; Political Finance Reform</h3><p data-i18n="pub3_p">Referensi diskusi kebijakan dalam wacana legislatif dan yudisial</p></div></div>
-        <div class="pub-item"><span class="pub-badge bo">Opinion</span><div class="pub-content"><h3 data-i18n="pub4_t">Artikel Opini tentang Isu Pemilu</h3><p>Kompas.com · detik.com · Electoral governance, democratic participation, institutional reform</p></div></div>
+        <div class="pub-item"><span class="pub-badge bo">Opinion</span><div class="pub-content"><h3 data-i18n="pub4_t">Artikel Opini tentang Isu Pemilu</h3><p>Kompas.com · detik.com</p></div></div>
       </div>
     </div>
-    <div class="asec">
-      <div class="asec-label" data-i18n="about_tool_label">Tentang Alat Ini</div>
+    <div class="asec"><div class="asec-label" data-i18n="about_tool_label">Tentang Alat Ini</div>
       <div class="tool-box">
         <p data-i18n="tool_p1">The <strong>Proportional Electoral Seat Calculator</strong> adalah alat terbuka dan transparan yang dikembangkan untuk mendukung pemahaman publik tentang bagaimana kursi dialokasikan dalam berbagai metode representasi proporsional.</p>
         <p style="margin-top:10px" data-i18n="tool_p2">Dibangun di atas metode yang diakui secara akademik — Sainte-Laguë, SL Modifikasi, D'Hondt, Kuota Hare, dan Kuota Droop.</p>
@@ -533,6 +613,7 @@ footer{background:#1e293b;color:#64748b;padding:28px 24px 20px;font-size:0.73rem
         <li><a onclick="scrollToSec('m5')" data-i18n="toc5">5. Glosarium</a></li>
         <li><a onclick="scrollToSec('m6')" data-i18n="toc6">6. Referensi</a></li>
         <li><a onclick="scrollToSec('m7')" data-i18n="toc7">7. Metodologi Indeks Proporsionalitas</a></li>
+        <li><a onclick="scrollToSec('m8')" data-i18n="toc8">8. Metodologi Kalkulator Multi-Dapil</a></li>
       </ul>
     </div>
     <div class="msec" id="m1"><div class="msec-label" data-i18n="sec1_label">Bagian 1</div><h2 data-i18n="sec1_title">Gambaran Umum</h2><div class="prose"><p data-i18n="sec1_p1">Kalkulator ini merupakan implementasi komputasional dari lima metode alokasi kursi yang paling banyak digunakan dalam sistem pemilihan umum proporsional.</p><p data-i18n="sec1_p2">Seluruh perhitungan dilakukan secara lokal di browser pengguna (<strong>client-side</strong>) menggunakan JavaScript murni. Tidak ada data yang dikirim ke server eksternal.</p><p data-i18n="sec1_p3">Kalkulator ini dibangun untuk keperluan riset, pendidikan pemilu, dan diskusi kebijakan publik.</p></div></div>
@@ -586,24 +667,29 @@ footer{background:#1e293b;color:#64748b;padding:28px 24px 20px;font-size:0.73rem
         <div class="ref-item">Farrell, D.M. (2011). <em>Electoral Systems: A Comparative Introduction.</em> 2nd ed. Palgrave Macmillan.</div>
         <div class="ref-item">Sainte-Laguë, A. (1910). <em>La représentation proportionnelle et la méthode des moindres carrés.</em> Annales ENS, 27, 529–542.</div>
         <div class="ref-item">D'Hondt, V. (1882). <em>Système pratique et raisonné de représentation proportionnelle.</em> Brussels.</div>
-        <div class="ref-item">Loosemore, J. &amp; Hanby, V.J. (1971). The theoretical limits of maximum distortion: Some analytic expressions for electoral systems. <em>British Journal of Political Science, 1</em>(4), 467–477.</div>
+        <div class="ref-item">Loosemore, J. &amp; Hanby, V.J. (1971). The theoretical limits of maximum distortion. <em>British Journal of Political Science, 1</em>(4), 467–477.</div>
         <div class="ref-item">Gallagher, M. (1991). Proportionality, disproportionality and electoral systems. <em>Electoral Studies, 10</em>(1), 33–51.</div>
-        <div class="ref-item">Laakso, M. &amp; Taagepera, R. (1979). Effective number of parties: A measure with application to West Europe. <em>Comparative Political Studies, 12</em>(1), 3–27.</div>
+        <div class="ref-item">Laakso, M. &amp; Taagepera, R. (1979). Effective number of parties. <em>Comparative Political Studies, 12</em>(1), 3–27.</div>
       </div>
     </div>
-    <!-- SECTION 7: NEW -->
     <div class="msec" id="m7">
       <div class="msec-label" data-i18n="sec7_label">Bagian 7</div>
       <h2 data-i18n="sec7_title">Metodologi Indeks Proporsionalitas</h2>
-      <div class="prose">
-        <p data-i18n="sec7_p1">LHI dan LSI digunakan untuk mengukur disproporsionalitas antara persentase suara dan persentase kursi. LHI atau Loosemore-Hanby Index menghitung setengah dari total deviasi absolut antara vote percent dan seat percent. LSI atau Least Squares Index, yang juga dikenal sebagai Gallagher Index, menghitung akar dari setengah jumlah kuadrat deviasi antara vote percent dan seat percent. ENPP atau Effective Number of Parliamentary Parties mengukur jumlah efektif partai parlemen berdasarkan distribusi kursi.</p>
-      </div>
+      <div class="prose"><p data-i18n="sec7_p1">LHI dan LSI digunakan untuk mengukur disproporsionalitas antara persentase suara dan persentase kursi. ENPP mengukur jumlah efektif partai parlemen berdasarkan distribusi kursi.</p></div>
       <div class="formula" style="margin-top:14px">LHI = 0.5 × Σ |Vote % − Seat %|
-
 LSI = √(0.5 × Σ (Vote % − Seat %)²)
-
 ENPP = 1 / Σ Seat Share²</div>
-      <div class="mnote" data-i18n="sec7_note">LHI dan LSI menggunakan persentase, sedangkan ENPP menggunakan proporsi kursi dalam bentuk desimal. Seluruh hasil pada halaman Indeks dihitung dari data yang diinput pengguna dan tidak merepresentasikan hasil resmi pemilihan umum mana pun.</div>
+      <div class="mnote" data-i18n="sec7_note">LHI dan LSI menggunakan persentase, sedangkan ENPP menggunakan proporsi kursi dalam bentuk desimal.</div>
+    </div>
+    <div class="msec" id="m8">
+      <div class="msec-label" data-i18n="sec8_label">Bagian 8</div>
+      <h2 data-i18n="sec8_title">Metodologi Kalkulator Multi-Dapil</h2>
+      <div class="prose"><p data-i18n="sec8_p1">Pada kalkulator multi-dapil, ambang batas dihitung pada tingkat nasional berdasarkan total suara setiap partai dari seluruh dapil. Partai yang mencapai atau melampaui ambang batas nasional dinyatakan lolos. Setelah status ambang batas ditentukan, alokasi kursi dilakukan secara terpisah di setiap dapil menggunakan metode alokasi kursi yang tersedia. Partai yang tidak lolos ambang batas nasional tidak diikutkan dalam alokasi kursi di seluruh dapil.</p></div>
+      <div class="formula" style="margin-top:14px">Suara Nasional Partai X = Σ Suara Partai X di seluruh dapil
+% Nasional Partai X = Suara Nasional X / Total Suara Nasional × 100
+Lolos jika % Nasional ≥ Ambang Batas
+Alokasi kursi di tiap dapil → hanya partai yang lolos</div>
+      <div class="mnote" data-i18n="sec8_note">Seluruh hasil pada halaman Multi-Dapil dihitung dari data yang diinput pengguna dan tidak merepresentasikan hasil resmi pemilihan umum mana pun.</div>
     </div>
   </div>
 </div>
@@ -614,6 +700,8 @@ ENPP = 1 / Σ Seat Share²</div>
     <div class="footer-attr" data-i18n="footer_attr">Dikembangkan secara mandiri oleh Muhammad Iqbal Kholidin — Peneliti Pemilu.</div>
     <div class="footer-links">
       <span onclick="goTo('calc')" data-i18n="nav_calc">Kalkulator</span>
+      <span class="footer-sep">·</span>
+      <span onclick="goTo('multi')" data-i18n="nav_multi">Multi-Dapil</span>
       <span class="footer-sep">·</span>
       <span onclick="goTo('tutorial')" data-i18n="nav_tutorial">Tutorial</span>
       <span class="footer-sep">·</span>
@@ -633,12 +721,9 @@ ENPP = 1 / Σ Seat Share²</div>
 </footer>
 
 <script>
-/* ================================================================
-   STRINGS
-================================================================ */
 const STRINGS={
   id:{
-    nav_calc:'Kalkulator',nav_about:'Profil',nav_meth:'Metodologi',nav_tutorial:'Tutorial',nav_index:'Indeks',
+    nav_calc:'Kalkulator',nav_about:'Profil',nav_meth:'Metodologi',nav_tutorial:'Tutorial',nav_index:'Indeks',nav_multi:'Multi-Dapil',
     calc_title:'🗳️ Kalkulator Kursi Pemilu Proporsional',
     calc_sub:"Sainte-Laguë · SL Modifikasi · D'Hondt · Kuota Hare · Kuota Droop",
     ref_label:'ℹ️ Tentang Kalkulator Ini',ref_desc:'Dibangun berdasarkan teori alokasi kursi proporsional yang diakui secara akademik.',
@@ -646,7 +731,7 @@ const STRINGS={
     cfg_title:'⚙️ Konfigurasi',cfg_seats:'Jumlah Kursi',cfg_thresh:'Ambang Batas (%)',
     btn_preset:'Preset DPR 2024',btn_reset:'Reset',
     csv_title:'📂 Import Data CSV',
-    csv_fmt:'Format: kolom <code>nama</code> dan <code>suara</code>, dipisah koma atau titik koma. Contoh: <code>PDIP,25511655</code>',
+    csv_fmt:'Format: kolom <code>nama</code> dan <code>suara</code>, dipisah koma atau titik koma.',
     csv_drop:'Klik atau seret file CSV ke sini',
     csv_use:'✅ Gunakan Data Ini',csv_cancel:'✕ Batal',csv_template:'⬇️ Download Template CSV',
     party_title:'🏛️ Data Partai',party_hint:'(edit manual atau import CSV)',
@@ -656,8 +741,8 @@ const STRINGS={
     lbl_party:'Nama Partai',lbl_votes:'Suara',lbl_total:'TOTAL KURSI',lbl_pct:'%',lbl_eligible:'Lolos BT',
     about_bio_label:'Biografi',about_focus_label:'Bidang Keahlian',
     about_pub_label:'Publikasi & Kontribusi Terpilih',about_tool_label:'Tentang Alat Ini',
-    bio_p1:'Muhammad Iqbal Kholidin adalah peneliti pemilu yang berfokus pada reformasi sistem pemilu dan advokasi kebijakan berbasis bukti. Bidang kerjanya meliputi desain sistem pemilu, tata kelola pemilu dan partai politik, pemantauan integritas pemilu, serta dampak kerangka pemilu terhadap stabilitas demokrasi dan kepercayaan institusional.',
-    bio_p2:'Dengan pendekatan empiris berbasis data, ia melakukan analisis kebijakan dan penelitian pemilu untuk berkontribusi dalam diskusi tentang tata kelola pemilu, ketahanan demokrasi, dan akuntabilitas politik. Dalam perannya, ia juga terlibat dalam penyusunan kajian penelitian untuk mendukung permohonan uji materi terkait regulasi pemilu di Mahkamah Konstitusi Republik Indonesia (MK).',
+    bio_p1:'Muhammad Iqbal Kholidin adalah peneliti pemilu yang berfokus pada reformasi sistem pemilu dan advokasi kebijakan berbasis bukti.',
+    bio_p2:'Dengan pendekatan empiris berbasis data, ia melakukan analisis kebijakan dan penelitian pemilu untuk berkontribusi dalam diskusi tentang tata kelola pemilu, ketahanan demokrasi, dan akuntabilitas politik.',
     bio_p3:'Ia merupakan salah satu penulis proyek penelitian kolaboratif lintas negara yang diterbitkan oleh Nature Portfolio (Scientific Data) berjudul <em>"Indonesia Election Archive: Institutions, candidates and results"</em>.',
     bio_p4:'Tulisan analisisnya tentang ekonomi politik pemilu dimuat di platform New Mandala (Australian National University). Ia juga berkontribusi artikel opini di Kompas.com dan detik.com.',
     focus1_t:'Desain Sistem Pemilu',focus1_d:'Analisis komparatif sistem proporsional, mayoritarian, dan campuran',
@@ -674,7 +759,8 @@ const STRINGS={
     meth_title:'📖 Metodologi & Transparansi',
     meth_sub:'Dokumentasi lengkap cara kerja sistem, dasar teori ilmiah, dan penjelasan istilah yang digunakan dalam kalkulator ini',
     toc_title:'Daftar Isi',
-    toc1:'1. Gambaran Umum',toc2:'2. Alur Sistem',toc3:'3. Lima Metode',toc4:'4. Perbandingan',toc5:'5. Glosarium',toc6:'6. Referensi',toc7:'7. Metodologi Indeks Proporsionalitas',
+    toc1:'1. Gambaran Umum',toc2:'2. Alur Sistem',toc3:'3. Lima Metode',toc4:'4. Perbandingan',toc5:'5. Glosarium',toc6:'6. Referensi',
+    toc7:'7. Metodologi Indeks Proporsionalitas',toc8:'8. Metodologi Kalkulator Multi-Dapil',
     sec1_label:'Bagian 1',sec1_title:'Gambaran Umum',
     sec1_p1:'Kalkulator ini merupakan implementasi komputasional dari lima metode alokasi kursi yang paling banyak digunakan dalam sistem pemilihan umum proporsional.',
     sec1_p2:'Seluruh perhitungan dilakukan secara lokal di browser pengguna (<strong>client-side</strong>) menggunakan JavaScript murni. Tidak ada data yang dikirim ke server eksternal.',
@@ -712,16 +798,17 @@ const STRINGS={
     g10_d:'Seluruh perhitungan berjalan di browser tanpa mengirim data ke server.',
     sec6_label:'Bagian 6',sec6_title:'Referensi Ilmiah',
     sec7_label:'Bagian 7',sec7_title:'Metodologi Indeks Proporsionalitas',
-    sec7_p1:'LHI dan LSI digunakan untuk mengukur disproporsionalitas antara persentase suara dan persentase kursi. LHI atau Loosemore-Hanby Index menghitung setengah dari total deviasi absolut antara vote percent dan seat percent. LSI atau Least Squares Index, yang juga dikenal sebagai Gallagher Index, menghitung akar dari setengah jumlah kuadrat deviasi antara vote percent dan seat percent. ENPP atau Effective Number of Parliamentary Parties mengukur jumlah efektif partai parlemen berdasarkan distribusi kursi.',
-    sec7_note:'LHI dan LSI menggunakan persentase, sedangkan ENPP menggunakan proporsi kursi dalam bentuk desimal. Seluruh hasil pada halaman Indeks dihitung dari data yang diinput pengguna dan tidak merepresentasikan hasil resmi pemilihan umum mana pun.',
-    // Trace
+    sec7_p1:'LHI dan LSI digunakan untuk mengukur disproporsionalitas antara persentase suara dan persentase kursi. ENPP mengukur jumlah efektif partai parlemen berdasarkan distribusi kursi.',
+    sec7_note:'LHI dan LSI menggunakan persentase, sedangkan ENPP menggunakan proporsi kursi dalam bentuk desimal.',
+    sec8_label:'Bagian 8',sec8_title:'Metodologi Kalkulator Multi-Dapil',
+    sec8_p1:'Pada kalkulator multi-dapil, ambang batas dihitung pada tingkat nasional berdasarkan total suara setiap partai dari seluruh dapil.',
+    sec8_note:'Seluruh hasil pada halaman Multi-Dapil dihitung dari data yang diinput pengguna dan tidak merepresentasikan hasil resmi pemilihan umum mana pun.',
     trace_method_label:'Pilih Metode',trace_note:'Jejak hitung ini menampilkan proses matematis alokasi kursi berdasarkan metode yang dipilih.',
     trace_tie:'Jika terdapat nilai yang sama, sistem mengikuti urutan data input sebagai aturan pemecah seri.',
     trace_showing:'Menampilkan',trace_of:'dari',trace_rows:'baris',
     trace_dl:'⬇️ Download Full Trace CSV',trace_no_result:'Hitung alokasi terlebih dahulu untuk melihat jejak hitung.',
     th_seat_no:'Kursi ke-',th_party:'Partai',th_votes:'Suara',th_prev:'Kursi sebelumnya',th_divisor:'Pembagi',th_quotient:'Quotient',
     th_quota:'Kuota',th_initial:'Kursi awal',th_remainder:'Remainder',th_additional:'Kursi tambahan',th_total_seats:'Total Kursi',
-    // Tutorial
     tut_title:'📘 Tutorial & Panduan Penggunaan',tut_sub:'Pelajari cara menggunakan kalkulator alokasi kursi proporsional ini langkah demi langkah',
     tut_chip1:'Panduan Lengkap',tut_chip2:'Import CSV',tut_chip3:'Jejak Hitung',
     tut_a_label:'Bagian A',tut_a_title:'Apa itu Kalkulator Ini?',tut_a_desc:'Kalkulator ini adalah alat simulasi independen untuk memahami bagaimana suara dikonversi menjadi kursi dalam sistem pemilihan umum proporsional.',
@@ -745,9 +832,11 @@ const STRINGS={
     tut_h_dl3_t:'Download Full Trace CSV',tut_h_dl3_d:'Unduh jejak hitung lengkap untuk metode yang dipilih.',
     tut_i_label:'Bagian I',tut_i_title:'Catatan Penting',tut_i_note:'Kalkulator ini merupakan alat simulasi independen. Hasil tidak merepresentasikan hasil resmi pemilihan umum mana pun.',
     tut_j_label:'Bagian J',tut_j_title:'Menggunakan Halaman Indeks',
-    tut_j_desc:'Halaman Indeks digunakan untuk menghitung LHI, LSI, dan ENPP berdasarkan data suara dan kursi. Pengguna dapat memasukkan data secara manual atau mengimpor CSV dengan kolom partai, suara, dan kursi. Setelah data dihitung, aplikasi menampilkan ringkasan total, tabel persentase suara dan kursi, nilai indeks, interpretasi singkat, serta Jejak Hitung untuk memeriksa proses perhitungan.',
+    tut_j_desc:'Halaman Indeks digunakan untuk menghitung LHI, LSI, dan ENPP berdasarkan data suara dan kursi.',
     tut_j_fmt_label:'Format CSV:',
-    // Index
+    tut_k_label:'Bagian K',tut_k_title:'Menggunakan Kalkulator Multi-Dapil',
+    tut_k_desc:'Kalkulator Multi-Dapil digunakan untuk menghitung alokasi kursi berbasis dapil dengan ambang batas nasional.',
+    tut_k_fmt_label:'Format CSV:',
     idx_title:'📐 Indeks Proporsionalitas',
     idx_sub:'Hitung indeks disproporsionalitas dan jumlah efektif partai parlemen berdasarkan data suara dan kursi.',
     idx_csv_title:'📂 Import Data CSV',
@@ -765,7 +854,7 @@ const STRINGS={
     idx_lhi_meaning:'Mengukur total deviasi absolut antara persentase suara dan persentase kursi.',
     idx_lsi_meaning:'Mengukur deviasi antara persentase suara dan persentase kursi, dengan bobot lebih besar pada deviasi yang besar.',
     idx_enpp_meaning:'Mengukur jumlah efektif partai di parlemen berdasarkan distribusi kursi.',
-    idx_note:'Indeks ini dihitung dari data suara dan kursi yang diinput pengguna. LHI dan LSI mengukur disproporsionalitas antara persentase suara dan persentase kursi, sedangkan ENPP mengukur jumlah efektif partai parlemen berdasarkan distribusi kursi.',
+    idx_note:'Indeks ini dihitung dari data suara dan kursi yang diinput pengguna.',
     idx_dl_results:'⬇️ Download CSV Hasil Indeks',
     idx_trace_total_votes:'Total Suara',idx_trace_total_seats:'Total Kursi',idx_trace_num_parties:'Jumlah Partai',
     idx_trace_col_party:'Partai',idx_trace_col_votes:'Suara',idx_trace_col_seats:'Kursi',
@@ -777,17 +866,48 @@ const STRINGS={
     idx_trace_enpp_formula:'ENPP = 1 / Σ Seat Share²',
     idx_trace_calc:'Ringkasan Perhitungan',
     idx_trace_dl:'⬇️ Download CSV Jejak Hitung',
-    // Cite
+    md_title:'🗺️ Kalkulator Multi-Dapil',
+    md_sub:'Hitung alokasi kursi per dapil dengan ambang batas parlemen nasional.',
+    md_note:'Fitur ini menghitung status ambang batas dari total suara nasional terlebih dahulu, lalu mengalokasikan kursi secara terpisah di setiap dapil hanya untuk partai yang lolos ambang batas.',
+    md_chip_thresh:'Ambang Batas Nasional',md_chip_multi:'Multi-Dapil',
+    md_cfg_title:'⚙️ Konfigurasi',md_thresh_label:'Ambang Batas Nasional (%)',
+    md_btn_reset:'Reset Multi-Dapil',
+    md_csv_title:'📂 Import Data CSV Multi-Dapil',
+    md_csv_fmt:'Format: kolom <code>dapil</code>, <code>kursi</code>, <code>partai</code>, <code>suara</code> — dipisah koma atau titik koma.',
+    md_csv_template_btn:'⬇️ Download Template CSV Multi-Dapil',
+    md_btn_calc:'🗺️ Hitung Alokasi Multi-Dapil',
+    md_res_title:'📊 Hasil Kalkulator Multi-Dapil',
+    md_tab_national:'📋 Ringkasan Nasional',md_tab_district:'🗺️ Detail Per Dapil',md_tab_info:'🔍 Detail',
+    md_filter_label:'Pilih Dapil:',md_filter_all:'Semua',
+    md_col_party:'Partai',md_col_nat_votes:'Total Suara Nasional',md_col_nat_pct:'Vote % Nasional',
+    md_col_thresh:'Status Threshold',md_passed:'Lolos',md_failed:'Tidak Lolos',
+    md_col_dapil:'Dapil',md_col_seats:'Kursi Dapil',md_col_votes:'Suara',
+    md_col_vpct:'Vote % Dapil',md_col_nat_thresh:'Status Threshold Nasional',
+    md_dl_national:'⬇️ Download CSV Ringkasan Nasional',
+    md_dl_district:'⬇️ Download CSV Detail Per Dapil',
+    md_info_districts:'Total dapil',md_info_seats:'Total kursi',md_info_parties:'Total partai',
+    md_info_nat_votes:'Total suara nasional',md_info_thresh:'Ambang batas nasional',
+    md_info_passed:'Partai lolos threshold',md_info_failed:'Partai tidak lolos threshold',
+    md_info_methods:'Metode yang dihitung',
+    md_info_note:'Hasil ini dihitung berdasarkan data yang diinput pengguna. Ambang batas dihitung dari total suara nasional per partai. Alokasi kursi kemudian dilakukan secara terpisah di setiap dapil hanya untuk partai yang lolos ambang batas nasional.',
+    md_thresh_info_label:'Ambang Batas Nasional yang digunakan:',
+    md_thresh_info_note:'Partai yang tidak lolos ambang batas nasional memperoleh 0 kursi di seluruh dapil.',
+    md_err_no_data:'Impor dan terapkan data CSV terlebih dahulu.',
+    md_err_no_pass:'Tidak ada partai yang lolos ambang batas nasional. Kurangi nilai ambang batas.',
+    md_err_total_zero:'Total suara nasional tidak boleh nol.',
+    md_err_dist_zero:'Perhitungan dihentikan. Dapil berikut memiliki kursi tetapi total suara 0:',
+    md_err_elig_zero:'Perhitungan dihentikan. Dapil berikut tidak memiliki suara untuk partai yang lolos ambang batas nasional:',
+    md_err_invalid_vote:'Nilai suara tidak valid pada baris',
+    md_err_invalid_seat:'Jumlah kursi tidak valid pada baris',
     cite_btn:'📎 Cara Mengutip',cite_footer_link:'Cara Mengutip',
     cite_modal_title:'Cara Mengutip Alat Ini',
     cite_copy_apa:'Salin APA',cite_copy_bib:'Salin BibTeX',cite_close:'Tutup',
     cite_copied:'✓ Tersalin!',cite_copied2:'✓ Tersalin!',
-    // Footer
     footer_copy:'© 2026 Muhammad Iqbal Kholidin. All Rights Reserved.',
     footer_attr:'Dikembangkan secara mandiri oleh Muhammad Iqbal Kholidin — Peneliti Pemilu.',
   },
   en:{
-    nav_calc:'Calculator',nav_about:'Profile',nav_meth:'Methodology',nav_tutorial:'Tutorial',nav_index:'Index',
+    nav_calc:'Calculator',nav_about:'Profile',nav_meth:'Methodology',nav_tutorial:'Tutorial',nav_index:'Index',nav_multi:'Multi-District',
     calc_title:'🗳️ Proportional Electoral Seat Calculator',
     calc_sub:"Sainte-Laguë · Modified SL · D'Hondt · Hare Quota · Droop Quota",
     ref_label:'ℹ️ About This Calculator',ref_desc:'Built on academically recognized methods of proportional seat allocation.',
@@ -805,8 +925,8 @@ const STRINGS={
     lbl_party:'Party Name',lbl_votes:'Votes',lbl_total:'TOTAL SEATS',lbl_pct:'%',lbl_eligible:'Passed Threshold',
     about_bio_label:'Biography',about_focus_label:'Areas of Focus',
     about_pub_label:'Selected Publications & Contributions',about_tool_label:'About This Tool',
-    bio_p1:'Muhammad Iqbal Kholidin is an electoral researcher focusing on electoral system reform and evidence-based policy advocacy. His areas of work include electoral system design, electoral and political party governance, election integrity monitoring, and the impact of electoral frameworks on democratic stability and institutional trust.',
-    bio_p2:'Using an empirical and data-driven approach, he conducts policy analysis and electoral research to contribute to discussions on electoral governance, democratic resilience, and political accountability. In his role, he is also involved in preparing research studies to support judicial review petitions related to electoral regulations at the Constitutional Court of the Republic of Indonesia.',
+    bio_p1:'Muhammad Iqbal Kholidin is an electoral researcher focusing on electoral system reform and evidence-based policy advocacy.',
+    bio_p2:'Using an empirical and data-driven approach, he conducts policy analysis and electoral research to contribute to discussions on electoral governance, democratic resilience, and political accountability.',
     bio_p3:'He is one of the authors of a cross-national collaborative research project published by Nature Portfolio (Scientific Data) titled <em>"Indonesia Election Archive: Institutions, candidates and results"</em>.',
     bio_p4:'His analytical writing on the political economy of elections has been published by New Mandala, Australian National University. He also contributes opinion articles to Kompas.com and detik.com.',
     focus1_t:'Electoral System Design',focus1_d:'Comparative analysis of proportional, majoritarian, and mixed electoral systems',
@@ -823,7 +943,8 @@ const STRINGS={
     meth_title:'📖 Methodology & Transparency',
     meth_sub:'Full documentation of how the system works, its scientific foundations, and the terminology used in this calculator',
     toc_title:'Table of Contents',
-    toc1:'1. Overview',toc2:'2. System Flow',toc3:'3. Five Methods',toc4:'4. Comparison',toc5:'5. Glossary',toc6:'6. References',toc7:'7. Proportionality Index Methodology',
+    toc1:'1. Overview',toc2:'2. System Flow',toc3:'3. Five Methods',toc4:'4. Comparison',toc5:'5. Glossary',toc6:'6. References',
+    toc7:'7. Proportionality Index Methodology',toc8:'8. Multi-District Calculator Methodology',
     sec1_label:'Section 1',sec1_title:'Overview',
     sec1_p1:'This calculator is a computational implementation of five of the most widely used seat allocation methods in proportional electoral systems.',
     sec1_p2:"All calculations are performed locally in the user's browser (<strong>client-side</strong>) using pure JavaScript. No data is sent to external servers.",
@@ -861,16 +982,17 @@ const STRINGS={
     g10_d:"All calculations run in the user's browser without sending data to a server.",
     sec6_label:'Section 6',sec6_title:'Scientific References',
     sec7_label:'Section 7',sec7_title:'Proportionality Index Methodology',
-    sec7_p1:'LHI and LSI are used to measure disproportionality between vote share and seat share. LHI, or the Loosemore-Hanby Index, calculates half of the total absolute deviation between vote percent and seat percent. LSI, or the Least Squares Index, also known as the Gallagher Index, calculates the square root of half the sum of squared deviations between vote percent and seat percent. ENPP, or the Effective Number of Parliamentary Parties, measures the effective number of parliamentary parties based on seat distribution.',
-    sec7_note:'LHI and LSI use percentages, while ENPP uses seat shares in decimal form. All results on the Index page are calculated from user-provided input and do not represent any official election results.',
-    // Trace
+    sec7_p1:'LHI and LSI measure disproportionality between vote share and seat share. ENPP measures the effective number of parliamentary parties based on seat distribution.',
+    sec7_note:'LHI and LSI use percentages, while ENPP uses seat shares in decimal form.',
+    sec8_label:'Section 8',sec8_title:'Multi-District Calculator Methodology',
+    sec8_p1:"In the multi-district calculator, the threshold is calculated at the national level based on each party's total votes across all districts.",
+    sec8_note:'All results on the Multi-District page are calculated from user-provided input and do not represent any official election results.',
     trace_method_label:'Select Method',trace_note:'This calculation trace shows the mathematical seat allocation process for the selected method.',
     trace_tie:'In the event of equal values, the system follows the input data order as the tie-breaking rule.',
     trace_showing:'Showing',trace_of:'of',trace_rows:'rows',
     trace_dl:'⬇️ Download Full Trace CSV',trace_no_result:'Please calculate seat allocation first to view the trace.',
     th_seat_no:'Seat No.',th_party:'Party',th_votes:'Votes',th_prev:'Previous Seats',th_divisor:'Divisor',th_quotient:'Quotient',
     th_quota:'Quota',th_initial:'Initial Seats',th_remainder:'Remainder',th_additional:'Additional Seats',th_total_seats:'Total Seats',
-    // Tutorial
     tut_title:'📘 Tutorial & How to Use',tut_sub:'Learn how to use this proportional seat allocation calculator step by step',
     tut_chip1:'Full Guide',tut_chip2:'CSV Import',tut_chip3:'Calculation Trace',
     tut_a_label:'Section A',tut_a_title:'What Is This Calculator?',tut_a_desc:'This calculator is an independent simulation tool for understanding how votes are converted into seats under proportional representation methods.',
@@ -894,9 +1016,11 @@ const STRINGS={
     tut_h_dl3_t:'Download Full Trace CSV',tut_h_dl3_d:'Download the full calculation trace for the selected method.',
     tut_i_label:'Section I',tut_i_title:'Important Note',tut_i_note:'This calculator is an independent simulation tool. Results do not represent any official election results.',
     tut_j_label:'Section J',tut_j_title:'Using the Index Page',
-    tut_j_desc:'The Index page is used to calculate LHI, LSI, and ENPP based on vote and seat data. Users can enter data manually or import a CSV file with party, votes, and seats columns. After calculation, the application displays totals, a vote-seat percentage table, index values, a short interpretation, and a Calculation Trace to verify the calculation process.',
+    tut_j_desc:'The Index page is used to calculate LHI, LSI, and ENPP based on vote and seat data.',
     tut_j_fmt_label:'CSV Format:',
-    // Index
+    tut_k_label:'Section K',tut_k_title:'Using the Multi-District Calculator',
+    tut_k_desc:"The Multi-District Calculator is used to calculate district-level seat allocation with a national threshold.",
+    tut_k_fmt_label:'CSV Format:',
     idx_title:'📐 Proportionality Index',
     idx_sub:'Calculate disproportionality indices and the effective number of parliamentary parties based on vote and seat data.',
     idx_csv_title:'📂 Import CSV Data',
@@ -914,7 +1038,7 @@ const STRINGS={
     idx_lhi_meaning:'Measures the total absolute deviation between vote share and seat share.',
     idx_lsi_meaning:'Measures deviation between vote share and seat share, giving greater weight to larger deviations.',
     idx_enpp_meaning:'Measures the effective number of parliamentary parties based on seat distribution.',
-    idx_note:'These indices are calculated from vote and seat data provided by the user. LHI and LSI measure disproportionality between vote share and seat share, while ENPP measures the effective number of parliamentary parties based on seat distribution.',
+    idx_note:'These indices are calculated from vote and seat data provided by the user.',
     idx_dl_results:'⬇️ Download Index Results CSV',
     idx_trace_total_votes:'Total Votes',idx_trace_total_seats:'Total Seats',idx_trace_num_parties:'Number of Parties',
     idx_trace_col_party:'Party',idx_trace_col_votes:'Votes',idx_trace_col_seats:'Seats',
@@ -926,12 +1050,43 @@ const STRINGS={
     idx_trace_enpp_formula:'ENPP = 1 / Σ Seat Share²',
     idx_trace_calc:'Calculation Summary',
     idx_trace_dl:'⬇️ Download Trace CSV',
-    // Cite
+    md_title:'🗺️ Multi-District Calculator',
+    md_sub:'Calculate district-level seat allocation using a national parliamentary threshold.',
+    md_note:'This feature first determines threshold eligibility from national vote totals, then allocates seats separately in each district using only parties that pass the threshold.',
+    md_chip_thresh:'National Threshold',md_chip_multi:'Multi-District',
+    md_cfg_title:'⚙️ Configuration',md_thresh_label:'National Threshold (%)',
+    md_btn_reset:'Reset Multi-District',
+    md_csv_title:'📂 Import Multi-District CSV Data',
+    md_csv_fmt:'Format: columns <code>district</code>, <code>seats</code>, <code>party</code>, <code>votes</code> — comma or semicolon separated.',
+    md_csv_template_btn:'⬇️ Download Multi-District CSV Template',
+    md_btn_calc:'🗺️ Calculate Multi-District Allocation',
+    md_res_title:'📊 Multi-District Calculator Results',
+    md_tab_national:'📋 National Summary',md_tab_district:'🗺️ District Detail',md_tab_info:'🔍 Detail',
+    md_filter_label:'Select District:',md_filter_all:'All',
+    md_col_party:'Party',md_col_nat_votes:'National Votes',md_col_nat_pct:'National Vote %',
+    md_col_thresh:'Threshold Status',md_passed:'Passed',md_failed:'Did Not Pass',
+    md_col_dapil:'District',md_col_seats:'District Seats',md_col_votes:'Votes',
+    md_col_vpct:'District Vote %',md_col_nat_thresh:'National Threshold Status',
+    md_dl_national:'⬇️ Download National Summary CSV',
+    md_dl_district:'⬇️ Download District Detail CSV',
+    md_info_districts:'Total districts',md_info_seats:'Total seats',md_info_parties:'Total parties',
+    md_info_nat_votes:'Total national votes',md_info_thresh:'National threshold',
+    md_info_passed:'Parties passing threshold',md_info_failed:'Parties not passing threshold',
+    md_info_methods:'Methods calculated',
+    md_info_note:"These results are calculated from user-provided input. The threshold is calculated from each party's national vote total. Seats are then allocated separately in each district using only parties that pass the national threshold.",
+    md_thresh_info_label:'National Threshold Used:',
+    md_thresh_info_note:'Parties that do not pass the national threshold receive 0 seats in all districts.',
+    md_err_no_data:'Please import and apply CSV data first.',
+    md_err_no_pass:'No parties passed the national threshold. Please lower the threshold value.',
+    md_err_total_zero:'Total national votes cannot be zero.',
+    md_err_dist_zero:'Calculation stopped. The following districts have seats but zero total votes:',
+    md_err_elig_zero:'Calculation stopped. The following districts have no votes for parties passing the national threshold:',
+    md_err_invalid_vote:'Invalid vote value on row',
+    md_err_invalid_seat:'Invalid seat value on row',
     cite_btn:'📎 Cite This Tool',cite_footer_link:'Cite This Tool',
     cite_modal_title:'Cite This Tool',
     cite_copy_apa:'Copy APA',cite_copy_bib:'Copy BibTeX',cite_close:'Close',
     cite_copied:'✓ Copied!',cite_copied2:'✓ Copied!',
-    // Footer
     footer_copy:'© 2026 Muhammad Iqbal Kholidin. All Rights Reserved.',
     footer_attr:'Independently developed by Muhammad Iqbal Kholidin — Electoral Researcher.',
   }
@@ -939,37 +1094,33 @@ const STRINGS={
 
 let currentLang='id';
 
-/* ================================================================
-   i18n
-================================================================ */
 function setLang(lang){
   currentLang=lang;
   document.getElementById('lang-id').classList.toggle('on',lang==='id');
   document.getElementById('lang-en').classList.toggle('on',lang==='en');
   document.documentElement.lang=lang;
   const s=STRINGS[lang];
-  document.querySelectorAll('[data-i18n]').forEach(el=>{
-    const k=el.getAttribute('data-i18n');
-    if(s[k]!==undefined) el.innerHTML=s[k];
-  });
+  document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.getAttribute('data-i18n');if(s[k]!==undefined)el.innerHTML=s[k];});
   const jCode=document.getElementById('tut-j-fmt-code');
   if(jCode) jCode.innerHTML=lang==='en'?'party,votes,seats<br>Party A,1000000,40<br>Party B,800000,30':'partai,suara,kursi<br>Partai A,1000000,40<br>Partai B,800000,30';
-  render();
-  renderIndexParties();
+  render();renderIndexParties();
   const tabs=document.querySelectorAll('.tab');
-  if(tabs[0]) tabs[0].textContent=s.tab_table;
-  if(tabs[1]) tabs[1].textContent=s.tab_chart;
-  if(tabs[2]) tabs[2].textContent=s.tab_detail;
-  if(tabs[3]) tabs[3].textContent=s.tab_trace;
-  const it0=document.getElementById('idxTab0');const it1=document.getElementById('idxTab1');
-  if(it0) it0.textContent=s.idx_tab_results;
-  if(it1) it1.textContent=s.idx_tab_trace;
-  if(lastResults) renderTrace();
+  if(tabs[0])tabs[0].textContent=s.tab_table;if(tabs[1])tabs[1].textContent=s.tab_chart;
+  if(tabs[2])tabs[2].textContent=s.tab_detail;if(tabs[3])tabs[3].textContent=s.tab_trace;
+  const it0=document.getElementById('idxTab0'),it1=document.getElementById('idxTab1');
+  if(it0)it0.textContent=s.idx_tab_results;if(it1)it1.textContent=s.idx_tab_trace;
+  const mt0=document.getElementById('mdTab0'),mt1=document.getElementById('mdTab1'),mt2=document.getElementById('mdTab2');
+  if(mt0){mt0.textContent=s.md_tab_national;mt1.textContent=s.md_tab_district;mt2.textContent=s.md_tab_info;}
+  if(lastResults)renderTrace();
+  if(lastMdCalc){
+    renderMdThresholdInfo();
+    renderMdNational();
+    renderMdDistrictFilter();
+    renderMdDistrictTable();
+    renderMdInfo();
+  }
 }
 
-/* ================================================================
-   NAV & SCROLL
-================================================================ */
 function goTo(id){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('show'));
   document.querySelectorAll('.nav-links button').forEach(b=>b.classList.remove('active'));
@@ -979,9 +1130,6 @@ function goTo(id){
 }
 function scrollToSec(id){document.getElementById(id).scrollIntoView({behavior:'smooth'});}
 
-/* ================================================================
-   CITE MODAL
-================================================================ */
 function openCiteModal(){document.getElementById('citeModal').classList.add('show');}
 function closeCiteModal(){document.getElementById('citeModal').classList.remove('show');}
 document.getElementById('citeModal').addEventListener('click',function(e){if(e.target===this)closeCiteModal();});
@@ -989,15 +1137,12 @@ function copyCitation(type){
   const text=type==='apa'?document.getElementById('citeApaText').textContent:document.getElementById('citeBibText').textContent;
   const msgId=type==='apa'?'citeApaMsg':'citeBibMsg';
   const doMsg=()=>{const m=document.getElementById(msgId);m.classList.add('show');setTimeout(()=>m.classList.remove('show'),2000);};
-  if(navigator.clipboard&&navigator.clipboard.writeText){
-    navigator.clipboard.writeText(text).then(doMsg).catch(()=>{fallbackCopy(text);doMsg();});
-  } else {fallbackCopy(text);doMsg();}
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(doMsg).catch(()=>{fallbackCopy(text);doMsg();});}
+  else{fallbackCopy(text);doMsg();}
 }
 function fallbackCopy(text){const ta=document.createElement('textarea');ta.value=text;document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);}
 
-/* ================================================================
-   MAIN CALCULATOR
-================================================================ */
+/* ================================================================ MAIN CALCULATOR ================================================================ */
 const COLORS=['#3b82f6','#ef4444','#22c55e','#f59e0b','#a855f7','#ec4899','#14b8a6','#f97316','#6366f1','#84cc16','#06b6d4','#e11d48','#8b5cf6','#0ea5e9','#d97706','#10b981','#f43f5e','#64748b'];
 const MNAMES_ID=["Sainte-Laguë","SL Modifikasi","D'Hondt","Kuota Hare","Kuota Droop"];
 const MNAMES_EN=["Sainte-Laguë","Modified SL","D'Hondt","Hare Quota","Droop Quota"];
@@ -1034,16 +1179,14 @@ function parseCSV(text,fname){
     rows.push({name,votes});
   });
   if(rows.length===0){showCsvAlert(currentLang==='en'?'No valid data.':'Tidak ada data valid.','err');return;}
-  csvParsed=rows;
-  const tot=rows.reduce((a,r)=>a+r.votes,0);
+  csvParsed=rows;const tot=rows.reduce((a,r)=>a+r.votes,0);
   showCsvAlert(errs.length>0?`⚠️ ${errs.length} ${currentLang==='en'?'rows skipped':'baris dilewati'}`:`✅ ${rows.length} ${currentLang==='en'?`parties loaded from "${fname}"`:`partai dibaca dari "${fname}"`}`,errs.length>0?'err':'ok');
   document.getElementById('previewLabel').textContent=currentLang==='en'?`Preview: ${rows.length} parties · Total: ${tot.toLocaleString()} votes`:`Preview: ${rows.length} partai · Total: ${tot.toLocaleString('id')} suara`;
   const hN=currentLang==='en'?'Name':'Nama',hV=currentLang==='en'?'Votes':'Suara';
   let h=`<thead><tr><th>#</th><th>${hN}</th><th>${hV}</th><th>%</th></tr></thead><tbody>`;
   rows.forEach((r,i)=>h+=`<tr><td>${i+1}</td><td>${r.name}</td><td>${r.votes.toLocaleString()}</td><td>${((r.votes/tot)*100).toFixed(2)}%</td></tr>`);
   document.getElementById('prevTbl').innerHTML=h+'</tbody>';
-  document.getElementById('csvPreview').classList.remove('hidden');
-  document.getElementById('dropText').textContent=fname;
+  document.getElementById('csvPreview').classList.remove('hidden');document.getElementById('dropText').textContent=fname;
 }
 function showCsvAlert(msg,type){const el=document.getElementById('csvAlert');el.className=`alert alert-${type==='err'?'err':'ok'}`;el.textContent=msg;el.classList.remove('hidden');}
 function applyCSV(){
@@ -1063,8 +1206,7 @@ function downloadTemplate(){
 function addParty(name,votes){pdata.push({id:uid(),name:name||'',votes:Number(votes)||0});render();}
 function delParty(id){pdata=pdata.filter(p=>p.id!==id);render();}
 function render(){
-  const el=document.getElementById('plist');el.innerHTML='';
-  const s=STRINGS[currentLang];
+  const el=document.getElementById('plist');el.innerHTML='';const s=STRINGS[currentLang];
   pdata.forEach((p,i)=>{
     const d=document.createElement('div');d.className='prow';
     const dot=document.createElement('div');dot.className='dot';dot.style.background=COLORS[i%COLORS.length];
@@ -1082,7 +1224,7 @@ function render(){
   });
 }
 
-/* ===== ALGORITHMS (unchanged) ===== */
+/* ===== ALGORITHMS ===== */
 function sainteLague(pts,seats,d1){
   const r={};pts.forEach(p=>r[p.name]=0);
   for(let s=0;s<seats;s++){let best=-Infinity,win='';pts.forEach(p=>{const div=r[p.name]===0?d1:(2*r[p.name]+1);if(p.votes/div>best){best=p.votes/div;win=p.name;}});r[win]++;}
@@ -1127,16 +1269,14 @@ function buildDHondtTrace(pts,seats){
   }return rows;
 }
 function buildHareTrace(pts,seats){
-  const tot=pts.reduce((a,p)=>a+p.votes,0);const quota=tot/seats;
-  const rows=[];let used=0;
+  const tot=pts.reduce((a,p)=>a+p.votes,0);const quota=tot/seats;const rows=[];let used=0;
   pts.forEach(p=>{const exact=p.votes/quota;const initial=Math.floor(exact);used+=initial;rows.push({party:p.name,votes:p.votes,quota,initial,remainder:exact-initial,additional:0});});
   const left=seats-used;
   [...rows].sort((a,b)=>b.remainder-a.remainder).slice(0,left).forEach(r=>{rows.find(x=>x.party===r.party).additional=1;});
   rows.forEach(r=>r.total=r.initial+r.additional);return{quota,rows};
 }
 function buildDroopTrace(pts,seats){
-  const tot=pts.reduce((a,p)=>a+p.votes,0);const quota=Math.floor(tot/(seats+1))+1;
-  const rows=[];let used=0;
+  const tot=pts.reduce((a,p)=>a+p.votes,0);const quota=Math.floor(tot/(seats+1))+1;const rows=[];let used=0;
   pts.forEach(p=>{const initial=Math.floor(p.votes/quota);const remainder=p.votes-initial*quota;used+=initial;rows.push({party:p.name,votes:p.votes,quota,initial,remainder,additional:0});});
   const left=seats-used;
   if(left>0)[...rows].sort((a,b)=>b.remainder-a.remainder).slice(0,left).forEach(r=>{rows.find(x=>x.party===r.party).additional=1;});
@@ -1144,8 +1284,7 @@ function buildDroopTrace(pts,seats){
 }
 
 function renderTrace(){
-  const el=document.getElementById('traceDiv');
-  const s=STRINGS[currentLang];const en=currentLang==='en';
+  const el=document.getElementById('traceDiv');const s=STRINGS[currentLang];const en=currentLang==='en';
   if(!lastResults){el.innerHTML=`<div class="ibox">${s.trace_no_result}</div>`;return;}
   const seats=parseInt(document.getElementById('nSeats').value)||0;
   const thresh=parseFloat(document.getElementById('thresh').value)||0;
@@ -1156,8 +1295,8 @@ function renderTrace(){
   let tableHTML='',traceInfo='';
   if(traceMethodIndex<=2){
     let rows;
-    if(traceMethodIndex===0) rows=buildDivisorTrace(elig.map(p=>({...p})),seats,1);
-    else if(traceMethodIndex===1) rows=buildDivisorTrace(elig.map(p=>({...p})),seats,1.4);
+    if(traceMethodIndex===0)rows=buildDivisorTrace(elig.map(p=>({...p})),seats,1);
+    else if(traceMethodIndex===1)rows=buildDivisorTrace(elig.map(p=>({...p})),seats,1.4);
     else rows=buildDHondtTrace(elig.map(p=>({...p})),seats);
     const display=rows.slice(0,MAX);
     traceInfo=`<div style="font-size:0.75rem;color:#64748b;margin-bottom:9px">${s.trace_showing} <strong>${display.length}</strong> ${s.trace_of} <strong>${rows.length}</strong> ${s.trace_rows}</div>`;
@@ -1194,8 +1333,7 @@ function calculate(){
   const MNAMES=getMNames();
   const results=[sainteLague(elig.map(p=>({...p})),seats,1),sainteLague(elig.map(p=>({...p})),seats,1.4),dhondt(elig.map(p=>({...p})),seats),hare(elig.map(p=>({...p})),seats),droop(elig.map(p=>({...p})),seats)];
   lastResults=results;
-  const s=STRINGS[currentLang];
-  const tbl=document.getElementById('rtbl');
+  const s=STRINGS[currentLang];const tbl=document.getElementById('rtbl');
   let h=`<thead><tr><th>${s.lbl_party}</th><th>${s.lbl_votes}</th><th>%</th>`;
   MNAMES.forEach(m=>h+=`<th>${m}</th>`);h+=`</tr></thead><tbody>`;
   pdata.forEach((p,pi)=>{
@@ -1210,7 +1348,7 @@ function calculate(){
   if(chartInst){chartInst.destroy();chartInst=null;}
   const ctx=document.getElementById('myChart').getContext('2d');
   chartInst=new Chart(ctx,{type:'bar',data:{labels:elig.map(p=>p.name),datasets:MNAMES.map((m,mi)=>({label:m,data:elig.map(p=>results[mi][p.name]||0),backgroundColor:['#3b82f6','#f59e0b','#ef4444','#22c55e','#a855f7'][mi],borderRadius:5}))},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{color:'#1e293b',font:{size:10,family:'Open Sans'}}}},scales:{x:{ticks:{color:'#64748b'},grid:{color:'#f1f5f9'}},y:{ticks:{color:'#64748b'},grid:{color:'#f1f5f9'},beginAtZero:true}}}});
-  const di=en?['Odd divisors (1,3,5,7…). Most proportional.','First divisor 1.4 then odd. Slightly favours larger parties.',"Integer divisors (1,2,3,4…). Most widely used.",'Quota = Total ÷ Seats. Remaining seats to largest remainders.','Quota = ⌊Total÷(Seats+1)⌋+1. Higher threshold than Hare.']:['Pembagi ganjil (1,3,5,7…). Paling proporsional.','Pembagi pertama 1,4 lalu ganjil. Sedikit pro-besar.',"Pembagi bulat. Paling banyak dipakai.",'Kuota = Total ÷ Kursi. Sisa ke desimal terbesar.','Kuota = ⌊Total÷(Kursi+1)⌋+1. Ambang lebih tinggi.'];
+  const di=en?['Odd divisors. Most proportional.','First divisor 1.4. Slightly favours larger parties.',"Integer divisors. Most widely used.",'Quota = Total ÷ Seats.','Quota = ⌊Total÷(Seats+1)⌋+1.']:['Pembagi ganjil. Paling proporsional.','Pembagi pertama 1,4. Sedikit pro-besar.',"Pembagi bulat. Paling banyak dipakai.",'Kuota = Total ÷ Kursi.','Kuota = ⌊Total÷(Kursi+1)⌋+1.'];
   let dd='';results.forEach((r,i)=>{dd+=`<div class="ibox"><strong>${MNAMES[i]}</strong> — ${Object.values(r).reduce((a,b)=>a+b,0)} ${en?'seats':'kursi'} &nbsp;<span style="font-size:0.73rem;color:#94a3b8">${di[i]}</span><div style="margin-top:7px">${elig.map(p=>`<span class="badge">${p.name}: ${r[p.name]||0}</span>`).join('')}</div></div>`;});
   document.getElementById('detailDiv').innerHTML=dd;
   document.getElementById('resCard').classList.remove('hidden');
@@ -1242,7 +1380,7 @@ function triggerDownload(blob,filename){
 }
 function switchTab(n){
   [0,1,2,3].forEach(i=>{document.getElementById('t'+i).classList.toggle('hidden',i!==n);document.querySelectorAll('.tab')[i].classList.toggle('on',i===n);});
-  if(n===3) renderTrace();
+  if(n===3)renderTrace();
 }
 function loadDPR(){
   pdata=[];
@@ -1258,9 +1396,341 @@ function loadBlank(){
   document.getElementById('resCard').classList.add('hidden');lastResults=null;
 }
 
-/* ================================================================
-   INDEX PROPORSIONALITAS
-================================================================ */
+/* ================================================================ MULTI-DAPIL ================================================================ */
+let mdRawData=[],mdCsvParsed=[],lastMdCalc=null;
+
+const mdDz=document.getElementById('md-dropzone');
+mdDz.addEventListener('dragover',e=>{e.preventDefault();mdDz.classList.add('drag');});
+mdDz.addEventListener('dragleave',()=>mdDz.classList.remove('drag'));
+mdDz.addEventListener('drop',e=>{e.preventDefault();mdDz.classList.remove('drag');const f=e.dataTransfer.files[0];if(f)handleMdFile(f);});
+
+function handleMdFile(file){
+  if(!file)return;
+  if(!file.name.match(/\.csv$/i)){showMdAlert(currentLang==='en'?'File must be .csv':'File harus .csv','err');return;}
+  const r=new FileReader();r.onload=e=>parseMdCSV(e.target.result.replace(/\r/g,''),file.name);r.readAsText(file,'UTF-8');
+}
+
+// Helper: strict numeric parse for Multi-Dapil CSV
+function strictParseVotes(raw){
+  if(raw===undefined||raw===null)return{ok:false,val:0};
+  const s=String(raw).trim();
+  if(s==='')return{ok:true,val:0}; // empty = 0 allowed
+  // Strip thousands separators (dots in ID format, commas in EN format) only if numeric otherwise
+  const cleaned=s.replace(/[,\.]/g,'');
+  if(!/^-?\d+$/.test(cleaned))return{ok:false,val:0};
+  const n=parseInt(cleaned,10);
+  if(n<0)return{ok:false,val:0};
+  return{ok:true,val:n};
+}
+function strictParseSeats(raw){
+  if(raw===undefined||raw===null)return{ok:false,val:0};
+  const s=String(raw).trim();
+  if(s==='')return{ok:false,val:0};
+  const cleaned=s.replace(/[,\.]/g,'');
+  if(!/^\d+$/.test(cleaned))return{ok:false,val:0};
+  const n=parseInt(cleaned,10);
+  if(n<=0)return{ok:false,val:0};
+  return{ok:true,val:n};
+}
+
+function parseMdCSV(text,fname){
+  const lines=text.split('\n').filter(l=>l.trim());
+  if(lines.length<2){showMdAlert(currentLang==='en'?'File too short':'File terlalu pendek','err');return;}
+  const delim=lines[0].includes(';')?';':',';
+  const header=lines[0].split(delim).map(h=>h.trim().toLowerCase().replace(/"/g,''));
+  const di=header.findIndex(h=>['dapil','district'].includes(h));
+  const ki=header.findIndex(h=>['kursi','seats','seat'].includes(h));
+  const pi=header.findIndex(h=>['partai','party'].includes(h));
+  const vi=header.findIndex(h=>['suara','votes','vote'].includes(h));
+  if(di<0||ki<0||pi<0||vi<0){
+    showMdAlert(currentLang==='en'?'CSV must have columns: dapil/district, kursi/seats, partai/party, suara/votes':'CSV harus memiliki kolom: dapil, kursi, partai, suara','err');return;
+  }
+  const s=STRINGS[currentLang];
+  const rows=[],errs=[];
+  for(let idx=0;idx<lines.slice(1).length;idx++){
+    const line=lines.slice(1)[idx];
+    if(!line.trim())continue;
+    const cols=line.split(delim).map(c=>c.trim().replace(/^"|"$/g,''));
+    const rowNum=idx+2;
+    const district=cols[di]||'';
+    const party=cols[pi]||'';
+    if(!district){errs.push(`Row ${rowNum}: empty district`);continue;}
+    if(!party){errs.push(`Row ${rowNum}: empty party`);continue;}
+    // Strict seat validation
+    const seatParsed=strictParseSeats(cols[ki]);
+    if(!seatParsed.ok){
+      showMdAlert(`${s.md_err_invalid_seat} ${rowNum}.`,'err');
+      mdCsvParsed=[];
+      document.getElementById('mdCsvPreview').classList.add('hidden');
+      return;
+    }
+    // Strict vote validation
+    const voteParsed=strictParseVotes(cols[vi]);
+    if(!voteParsed.ok){
+      showMdAlert(`${s.md_err_invalid_vote} ${rowNum}.`,'err');
+      mdCsvParsed=[];
+      document.getElementById('mdCsvPreview').classList.add('hidden');
+      return;
+    }
+    rows.push({district,seats:seatParsed.val,party,votes:voteParsed.val});
+  }
+  if(rows.length===0){showMdAlert(currentLang==='en'?'No valid data found.':'Tidak ada data valid.','err');return;}
+  // validate seat consistency per district
+  const distSeats={};let seatErr=false,seatErrDist='';
+  rows.forEach(r=>{
+    if(distSeats[r.district]===undefined)distSeats[r.district]=r.seats;
+    else if(distSeats[r.district]!==r.seats){seatErr=true;seatErrDist=r.district;}
+  });
+  if(seatErr){showMdAlert(`${currentLang==='en'?'Inconsistent seat count in district:':'Jumlah kursi tidak konsisten di dapil:'} ${seatErrDist}`,'err');return;}
+  // aggregate duplicate party per district
+  const agg={};
+  rows.forEach(r=>{
+    const key=r.district+'|||'+r.party;
+    if(!agg[key])agg[key]={district:r.district,seats:r.seats,party:r.party,votes:0};
+    agg[key].votes+=r.votes;
+  });
+  const aggRows=Object.values(agg);
+  mdCsvParsed=aggRows;
+  const msgOk=errs.length>0?`⚠️ ${errs.length} ${currentLang==='en'?'rows skipped':'baris dilewati'}`:`✅ ${aggRows.length} ${currentLang==='en'?`rows loaded from "${fname}"`:`baris dibaca dari "${fname}"`}`;
+  showMdAlert(msgOk,errs.length>0?'err':'ok');
+  document.getElementById('mdPreviewLabel').textContent=currentLang==='en'?`Preview: ${aggRows.length} rows`:`Preview: ${aggRows.length} baris`;
+  const h1=currentLang==='en'?'District':'Dapil',h2=currentLang==='en'?'Seats':'Kursi',h3=currentLang==='en'?'Party':'Partai',h4=currentLang==='en'?'Votes':'Suara';
+  let h=`<thead><tr><th>${h1}</th><th>${h2}</th><th>${h3}</th><th>${h4}</th></tr></thead><tbody>`;
+  aggRows.forEach(r=>h+=`<tr><td>${r.district}</td><td>${r.seats}</td><td>${r.party}</td><td>${r.votes.toLocaleString()}</td></tr>`);
+  document.getElementById('mdPrevTbl').innerHTML=h+'</tbody>';
+  document.getElementById('mdCsvPreview').classList.remove('hidden');document.getElementById('mdDropText').textContent=fname;
+}
+function showMdAlert(msg,type){const el=document.getElementById('mdCsvAlert');el.className=`alert alert-${type==='err'?'err':'ok'}`;el.textContent=msg;el.classList.remove('hidden');}
+function applyMdCSV(){
+  if(!mdCsvParsed.length)return;
+  mdRawData=[...mdCsvParsed];
+  document.getElementById('mdCsvPreview').classList.add('hidden');document.getElementById('mdCsvAlert').classList.add('hidden');
+  document.getElementById('mdDropText').textContent=STRINGS[currentLang].csv_drop;document.getElementById('mdCsvFile').value='';
+  showMdAlert(currentLang==='en'?`✅ ${mdRawData.length} rows applied. Ready to calculate.`:`✅ ${mdRawData.length} baris diterapkan. Siap dihitung.`,'ok');
+}
+function cancelMdCSV(){
+  mdCsvParsed=[];
+  document.getElementById('mdCsvPreview').classList.add('hidden');document.getElementById('mdCsvAlert').classList.add('hidden');
+  document.getElementById('mdDropText').textContent=STRINGS[currentLang].csv_drop;document.getElementById('mdCsvFile').value='';
+}
+function downloadMdTemplate(){
+  const csv='dapil,kursi,partai,suara\nJabar 1,7,Partai A,100000\nJabar 1,7,Partai B,85000\nJabar 1,7,Partai C,20000\nJabar 2,10,Partai A,150000\nJabar 2,10,Partai B,90000\nJabar 2,10,Partai C,30000\n';
+  triggerDownload(new Blob(['\uFEFF'+csv],{type:'text/csv;charset=utf-8'}),'template_multi_dapil.csv');
+}
+
+function resetMultiDapil(){
+  mdRawData=[];mdCsvParsed=[];lastMdCalc=null;
+  document.getElementById('mdThresh').value=4;
+  document.getElementById('mdCsvPreview').classList.add('hidden');
+  document.getElementById('mdCsvAlert').classList.add('hidden');
+  document.getElementById('mdResCard').classList.add('hidden');
+  document.getElementById('mdDropText').textContent=STRINGS[currentLang].csv_drop;
+  document.getElementById('mdCsvFile').value='';
+  document.getElementById('mdNationalDiv').innerHTML='';
+  document.getElementById('mdDistrictDiv').innerHTML='';
+  document.getElementById('mdInfoDiv').innerHTML='';
+  document.getElementById('mdThreshInfoBox').innerHTML='';
+  document.getElementById('mdDistrictFilter').innerHTML='';
+}
+
+function renderMdThresholdInfo(){
+  const el=document.getElementById('mdThreshInfoBox');
+  if(!lastMdCalc){el.innerHTML='';return;}
+  const s=STRINGS[currentLang];
+  el.innerHTML=`<div class="md-thresh-box"><strong>${s.md_thresh_info_label}</strong> ${lastMdCalc.thresh}%<br><span style="font-size:0.77rem">${s.md_thresh_info_note}</span></div>`;
+}
+
+function calculateMultiDapil(){
+  const s=STRINGS[currentLang];const en=currentLang==='en';
+  if(!mdRawData.length){showMdAlert(s.md_err_no_data,'err');return;}
+  const thresh=parseFloat(document.getElementById('mdThresh').value)||0;
+
+  // Step 1: aggregate national votes per party
+  const natVotes={};
+  mdRawData.forEach(r=>{natVotes[r.party]=(natVotes[r.party]||0)+r.votes;});
+  const totalNatVotes=Object.values(natVotes).reduce((a,b)=>a+b,0);
+  if(totalNatVotes===0){showMdAlert(s.md_err_total_zero,'err');return;}
+
+  // Step 2: determine eligibility
+  const allParties=Object.keys(natVotes).sort((a,b)=>natVotes[b]-natVotes[a]);
+  const eligible=new Set(allParties.filter(p=>(natVotes[p]/totalNatVotes)*100>=thresh));
+  if(eligible.size===0){showMdAlert(s.md_err_no_pass,'err');return;}
+
+  // Step 3: get districts
+  const distMap={};
+  mdRawData.forEach(r=>{
+    if(!distMap[r.district])distMap[r.district]={seats:r.seats,parties:{}};
+    distMap[r.district].parties[r.party]=(distMap[r.district].parties[r.party]||0)+r.votes;
+  });
+  const districts=Object.keys(distMap).sort();
+
+  // Validation A: district with seats but total votes = 0
+  const zeroVoteDists=districts.filter(d=>{
+    const totalDistVotes=Object.values(distMap[d].parties).reduce((a,b)=>a+b,0);
+    return distMap[d].seats>0&&totalDistVotes===0;
+  });
+  if(zeroVoteDists.length>0){
+    showMdAlert(`${s.md_err_dist_zero} ${zeroVoteDists.join(', ')}`,'err');return;
+  }
+
+  // Validation B: district with seats but zero eligible votes
+  const zeroEligDists=districts.filter(d=>{
+    const eligVotes=[...eligible].reduce((a,p)=>a+(distMap[d].parties[p]||0),0);
+    return distMap[d].seats>0&&eligVotes===0;
+  });
+  if(zeroEligDists.length>0){
+    showMdAlert(`${s.md_err_elig_zero} ${zeroEligDists.join(', ')}`,'err');return;
+  }
+
+  // Step 4: allocate per district per method
+  const natSeats={sl:{},slmod:{},dh:{},hare:{},droop:{}};
+  allParties.forEach(p=>{['sl','slmod','dh','hare','droop'].forEach(m=>natSeats[m][p]=0);});
+
+  const distResults=[];
+  districts.forEach(dist=>{
+    const{seats,parties}=distMap[dist];
+    const eligPts=allParties.filter(p=>eligible.has(p)).map(p=>({name:p,votes:parties[p]||0}));
+    const distTotalVotes=Object.values(parties).reduce((a,b)=>a+b,0);
+
+    let res_sl={},res_slm={},res_dh={},res_h={},res_dr={};
+    if(eligPts.length>0&&seats>0){
+      res_sl=sainteLague(eligPts.map(p=>({...p})),seats,1);
+      res_slm=sainteLague(eligPts.map(p=>({...p})),seats,1.4);
+      res_dh=dhondt(eligPts.map(p=>({...p})),seats);
+      res_h=hare(eligPts.map(p=>({...p})),seats);
+      res_dr=droop(eligPts.map(p=>({...p})),seats);
+    }
+
+    allParties.forEach(p=>{
+      const inElig=eligible.has(p);
+      distResults.push({
+        district:dist,distSeats:seats,party:p,
+        votes:parties[p]||0,
+        distVotePct:distTotalVotes>0?((parties[p]||0)/distTotalVotes*100):0,
+        natThreshStatus:inElig,
+        sl:inElig?(res_sl[p]||0):0,
+        slmod:inElig?(res_slm[p]||0):0,
+        dh:inElig?(res_dh[p]||0):0,
+        hare:inElig?(res_h[p]||0):0,
+        droop:inElig?(res_dr[p]||0):0,
+      });
+      if(inElig){
+        natSeats.sl[p]+=(res_sl[p]||0);natSeats.slmod[p]+=(res_slm[p]||0);
+        natSeats.dh[p]+=(res_dh[p]||0);natSeats.hare[p]+=(res_h[p]||0);natSeats.droop[p]+=(res_dr[p]||0);
+      }
+    });
+  });
+
+  lastMdCalc={allParties,natVotes,totalNatVotes,eligible,thresh,districts,distMap,distResults,natSeats,
+    totalDistSeats:districts.reduce((a,d)=>a+distMap[d].seats,0)};
+
+  renderMdThresholdInfo();
+  renderMdNational();
+  renderMdDistrictFilter();
+  renderMdDistrictTable();
+  renderMdInfo();
+  document.getElementById('mdResCard').classList.remove('hidden');
+  switchMdTab(0);document.getElementById('mdResCard').scrollIntoView({behavior:'smooth'});
+}
+
+function switchMdTab(n){
+  [0,1,2].forEach(i=>{
+    document.getElementById('mdPanel'+i).classList.toggle('hidden',i!==n);
+    document.getElementById('mdTab'+i).classList.toggle('on',i===n);
+  });
+}
+
+function renderMdNational(){
+  if(!lastMdCalc)return;
+  const{allParties,natVotes,totalNatVotes,eligible,natSeats}=lastMdCalc;
+  const s=STRINGS[currentLang];const MNAMES=getMNames();
+  let h=`<div style="margin-bottom:10px"><button class="btn bg" onclick="downloadMultiNationalCSV()" style="font-size:0.8rem">${s.md_dl_national}</button></div>`;
+  h+=`<div class="ow"><table class="md-tbl" style="width:100%;border-collapse:collapse"><thead><tr>`;
+  h+=`<th style="text-align:left">${s.md_col_party}</th><th>${s.md_col_nat_votes}</th><th>${s.md_col_nat_pct}</th><th>${s.md_col_thresh}</th>`;
+  MNAMES.forEach(m=>h+=`<th>${m}</th>`);
+  h+=`</tr></thead><tbody>`;
+  allParties.forEach((p,pi)=>{
+    const pct=(natVotes[p]/totalNatVotes*100).toFixed(2);const pass=eligible.has(p);
+    const sl=natSeats.sl[p]||0,slm=natSeats.slmod[p]||0,dh=natSeats.dh[p]||0,ha=natSeats.hare[p]||0,dr=natSeats.droop[p]||0;
+    h+=`<tr><td class="tl"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:${COLORS[pi%COLORS.length]};margin-right:5px;vertical-align:middle"></span>${p}</td>`;
+    h+=`<td>${natVotes[p].toLocaleString()}</td><td>${pct}%</td>`;
+    h+=`<td class="${pass?'md-passed':'md-failed'}">${pass?s.md_passed:s.md_failed}</td>`;
+    [sl,slm,dh,ha,dr].forEach(v=>h+=`<td class="${v>0?'md-w':''}">${v}</td>`);h+=`</tr>`;
+  });
+  const en=currentLang==='en';
+  h+=`<tr style="background:#065f46;font-weight:700"><td colspan="4" style="color:#fff;text-align:left">${en?'TOTAL SEATS':'TOTAL KURSI'}</td>`;
+  ['sl','slmod','dh','hare','droop'].forEach(m=>h+=`<td style="color:#fff">${Object.values(natSeats[m]).reduce((a,b)=>a+b,0)}</td>`);
+  h+=`</tr></tbody></table></div>`;
+  document.getElementById('mdNationalDiv').innerHTML=h;
+}
+
+function renderMdDistrictFilter(){
+  if(!lastMdCalc)return;
+  const{districts}=lastMdCalc;const s=STRINGS[currentLang];
+  const sel=document.getElementById('mdDistrictFilter');
+  sel.innerHTML=`<option value="all">${s.md_filter_all}</option>`+districts.map(d=>`<option value="${d}">${d}</option>`).join('');
+}
+
+function renderMdDistrictTable(){
+  if(!lastMdCalc)return;
+  const{distResults,allParties}=lastMdCalc;const s=STRINGS[currentLang];const MNAMES=getMNames();
+  const filter=document.getElementById('mdDistrictFilter').value;
+  const rows=filter==='all'?[...distResults]:[...distResults.filter(r=>r.district===filter)];
+  rows.sort((a,b)=>a.district.localeCompare(b.district)||b.votes-a.votes);
+  let h=`<div style="margin-bottom:10px"><button class="btn bg" onclick="downloadMultiDistrictCSV()" style="font-size:0.8rem">${s.md_dl_district}</button></div>`;
+  h+=`<div class="ow"><table class="md-tbl" style="width:100%;border-collapse:collapse"><thead><tr>`;
+  h+=`<th style="text-align:left">${s.md_col_dapil}</th><th>${s.md_col_seats}</th><th style="text-align:left">${s.md_col_party}</th><th>${s.md_col_votes}</th><th>${s.md_col_vpct}</th><th>${s.md_col_nat_thresh}</th>`;
+  MNAMES.forEach(m=>h+=`<th>${m}</th>`);h+=`</tr></thead><tbody>`;
+  rows.forEach((r)=>{
+    const pi=allParties.indexOf(r.party);const pass=r.natThreshStatus;
+    h+=`<tr><td class="tl">${r.district}</td><td>${r.distSeats}</td>`;
+    h+=`<td class="tl"><span style="display:inline-block;width:7px;height:7px;border-radius:50%;background:${COLORS[pi%COLORS.length]};margin-right:4px;vertical-align:middle"></span>${r.party}</td>`;
+    h+=`<td>${r.votes.toLocaleString()}</td><td>${r.distVotePct.toFixed(2)}%</td>`;
+    h+=`<td class="${pass?'md-passed':'md-failed'}">${pass?s.md_passed:s.md_failed}</td>`;
+    [r.sl,r.slmod,r.dh,r.hare,r.droop].forEach(v=>h+=`<td class="${v>0?'md-w':''}">${v}</td>`);h+=`</tr>`;
+  });
+  h+=`</tbody></table></div>`;
+  document.getElementById('mdDistrictDiv').innerHTML=h;
+}
+
+function renderMdInfo(){
+  if(!lastMdCalc)return;
+  const{allParties,natVotes,totalNatVotes,eligible,thresh,districts,totalDistSeats}=lastMdCalc;
+  const s=STRINGS[currentLang];const MNAMES=getMNames();
+  const passedList=[...eligible].join(', ');
+  const failedList=allParties.filter(p=>!eligible.has(p)).join(', ')||'—';
+  let h=`<div class="md-sum-cards">`;
+  [[districts.length,s.md_info_districts],[totalDistSeats,s.md_info_seats],[allParties.length,s.md_info_parties],
+   [totalNatVotes.toLocaleString(),s.md_info_nat_votes],[thresh+'%',s.md_info_thresh],
+   [eligible.size,s.md_info_passed],[allParties.length-eligible.size,s.md_info_failed]]
+  .forEach(([v,l])=>h+=`<div class="md-sum-card"><div class="sc-val">${v}</div><div class="sc-lbl">${l}</div></div>`);
+  h+=`</div>`;
+  h+=`<div class="ibox"><strong>${s.md_info_methods}:</strong> ${MNAMES.join(' · ')}<br>`;
+  h+=`<strong>${s.md_info_passed}:</strong> ${passedList}<br><strong>${s.md_info_failed}:</strong> ${failedList}</div>`;
+  h+=`<div class="mnote">${s.md_info_note}</div>`;
+  document.getElementById('mdInfoDiv').innerHTML=h;
+}
+
+function downloadMultiNationalCSV(){
+  if(!lastMdCalc)return;
+  const{allParties,natVotes,totalNatVotes,eligible,natSeats}=lastMdCalc;const en=currentLang==='en';
+  const rows=[['partai','total_suara_nasional','vote_percent_nasional','status_threshold','sainte_lague','sl_modifikasi','dhondt','hare','droop']];
+  allParties.forEach(p=>{rows.push([p,natVotes[p],(natVotes[p]/totalNatVotes*100).toFixed(2),eligible.has(p)?(en?'Passed':'Lolos'):(en?'Did Not Pass':'Tidak Lolos'),natSeats.sl[p]||0,natSeats.slmod[p]||0,natSeats.dh[p]||0,natSeats.hare[p]||0,natSeats.droop[p]||0]);});
+  const csv=rows.map(r=>r.map(v=>`"${String(v).replace(/"/g,'""')}"`).join(',')).join('\r\n');
+  triggerDownload(new Blob(['\uFEFF'+csv],{type:'text/csv;charset=utf-8'}),'hasil_multi_dapil_ringkasan_nasional.csv');
+}
+
+function downloadMultiDistrictCSV(){
+  if(!lastMdCalc)return;
+  const{distResults,allParties}=lastMdCalc;const en=currentLang==='en';
+  const rows=[['dapil','kursi_dapil','partai','suara','vote_percent_dapil','status_threshold_nasional','sainte_lague','sl_modifikasi','dhondt','hare','droop']];
+  const sorted=[...distResults].sort((a,b)=>a.district.localeCompare(b.district)||b.votes-a.votes);
+  sorted.forEach(r=>rows.push([r.district,r.distSeats,r.party,r.votes,r.distVotePct.toFixed(2),r.natThreshStatus?(en?'Passed':'Lolos'):(en?'Did Not Pass':'Tidak Lolos'),r.sl,r.slmod,r.dh,r.hare,r.droop]));
+  const csv=rows.map(r=>r.map(v=>`"${String(v).replace(/"/g,'""')}"`).join(',')).join('\r\n');
+  triggerDownload(new Blob(['\uFEFF'+csv],{type:'text/csv;charset=utf-8'}),'hasil_multi_dapil_detail_per_dapil.csv');
+}
+
+/* ================================================================ INDEX PROPORSIONALITAS ================================================================ */
 let idxData=[],idxCsvParsed=[],lastIdxCalc=null;
 
 const idxDz=document.getElementById('idx-dropzone');
@@ -1293,7 +1763,7 @@ function parseIndexCSV(text,fname){
     rows.push({name,votes,seats});
   });
   if(rows.length===0){showIdxAlert(currentLang==='en'?'No valid data found.':'Tidak ada data valid.','err');return;}
-  idxCsvParsed=rows;const tot=rows.reduce((a,r)=>a+r.votes,0);
+  idxCsvParsed=rows;
   showIdxAlert(errs.length>0?`⚠️ ${errs.length} ${currentLang==='en'?'rows skipped':'baris dilewati'}`:`✅ ${rows.length} ${currentLang==='en'?`parties loaded from "${fname}"`:`partai dibaca dari "${fname}"`}`,errs.length>0?'err':'ok');
   document.getElementById('idxPreviewLabel').textContent=currentLang==='en'?`Preview: ${rows.length} parties`:`Preview: ${rows.length} partai`;
   const h1=currentLang==='en'?'Party':'Partai',h2=currentLang==='en'?'Votes':'Suara',h3=currentLang==='en'?'Seats':'Kursi';
@@ -1318,13 +1788,10 @@ function downloadIndexTemplate(){
   const csv=en?'party,votes,seats\nParty A,1000000,40\nParty B,800000,30\nParty C,500000,20\nParty D,200000,10\n':'partai,suara,kursi\nPartai A,1000000,40\nPartai B,800000,30\nPartai C,500000,20\nPartai D,200000,10\n';
   triggerDownload(new Blob(['\uFEFF'+csv],{type:'text/csv;charset=utf-8'}),'template_indeks_proporsionalitas.csv');
 }
-function addIndexParty(name,votes,seats){
-  idxData.push({id:uid(),name:name||'',votes:Number(votes)||0,seats:Number(seats)||0});renderIndexParties();
-}
+function addIndexParty(name,votes,seats){idxData.push({id:uid(),name:name||'',votes:Number(votes)||0,seats:Number(seats)||0});renderIndexParties();}
 function delIndexParty(id){idxData=idxData.filter(p=>p.id!==id);renderIndexParties();}
 function renderIndexParties(){
-  const el=document.getElementById('idx-plist');el.innerHTML='';
-  const s=STRINGS[currentLang];
+  const el=document.getElementById('idx-plist');el.innerHTML='';const s=STRINGS[currentLang];
   idxData.forEach((p,i)=>{
     const d=document.createElement('div');d.className='idx-prow';
     const dot=document.createElement('div');dot.className='dot';dot.style.background=COLORS[i%COLORS.length];
@@ -1347,10 +1814,9 @@ function renderIndexParties(){
 }
 function resetIndex(){
   idxData=[];const label=currentLang==='en'?'Party ':'Partai ';
-  for(let i=1;i<=4;i++) idxData.push({id:uid(),name:label+i,votes:0,seats:0});
+  for(let i=1;i<=4;i++)idxData.push({id:uid(),name:label+i,votes:0,seats:0});
   renderIndexParties();document.getElementById('idxResCard').classList.add('hidden');lastIdxCalc=null;
 }
-
 function calculateIndex(){
   document.querySelectorAll('#idx-plist .idx-prow').forEach((row,i)=>{
     if(!idxData[i])return;
@@ -1369,12 +1835,7 @@ function calculateIndex(){
   if(totalVotes<=0){alert(en?'Total votes must be greater than 0.':'Total suara harus lebih dari 0.');return;}
   if(totalSeats<=0){alert(en?'Total seats must be greater than 0.':'Total kursi harus lebih dari 0.');return;}
   const n=idxData.length;
-  const parties=idxData.map(p=>({
-    name:p.name,votes:p.votes,seats:p.seats,
-    voteShare:p.votes/totalVotes,seatShare:p.seats/totalSeats,
-    votePercent:(p.votes/totalVotes)*100,seatPercent:(p.seats/totalSeats)*100,
-    gap:((p.seats/totalSeats)*100)-((p.votes/totalVotes)*100)
-  }));
+  const parties=idxData.map(p=>({name:p.name,votes:p.votes,seats:p.seats,voteShare:p.votes/totalVotes,seatShare:p.seats/totalSeats,votePercent:(p.votes/totalVotes)*100,seatPercent:(p.seats/totalSeats)*100,gap:((p.seats/totalSeats)*100)-((p.votes/totalVotes)*100)}));
   const LHI=0.5*parties.reduce((a,p)=>a+Math.abs(p.votePercent-p.seatPercent),0);
   const LSI=Math.sqrt(0.5*parties.reduce((a,p)=>a+Math.pow(p.votePercent-p.seatPercent,2),0));
   const ENPP=1/parties.reduce((a,p)=>a+Math.pow(p.seatShare,2),0);
@@ -1391,37 +1852,29 @@ function calculateIndex(){
   let interpText=en?`Based on the input data, the LHI is <strong>${LHI.toFixed(2)}</strong> and the LSI is <strong>${LSI.toFixed(2)}</strong>. The ENPP is <strong>${ENPP.toFixed(2)}</strong>. The party with the largest positive gap is <strong>${maxPosGap.name}</strong> (+${maxPosGap.gap.toFixed(2)}%). The party with the largest negative gap is <strong>${maxNegGap.name}</strong> (${maxNegGap.gap.toFixed(2)}%).`:`Berdasarkan data yang diinput, LHI adalah <strong>${LHI.toFixed(2)}</strong> dan LSI adalah <strong>${LSI.toFixed(2)}</strong>. ENPP adalah <strong>${ENPP.toFixed(2)}</strong>. Partai dengan gap positif terbesar adalah <strong>${maxPosGap.name}</strong> (+${maxPosGap.gap.toFixed(2)}%). Partai dengan gap negatif terbesar adalah <strong>${maxNegGap.name}</strong> (${maxNegGap.gap.toFixed(2)}%).`;
   const dlBtn=`<div style="margin-bottom:12px"><button class="btn bg" onclick="downloadIndexResultsCSV()">${s.idx_dl_results}</button></div>`;
   document.getElementById('idxResDiv').innerHTML=dlBtn+sumCards+partyTable+idxTable+`<div class="interp-box" style="margin-bottom:14px">${interpText}</div>`+`<div class="mnote">${s.idx_note}</div>`;
-  document.getElementById('idxResCard').classList.remove('hidden');
-  switchIndexTab(0);
+  document.getElementById('idxResCard').classList.remove('hidden');switchIndexTab(0);
   document.getElementById('idxResCard').scrollIntoView({behavior:'smooth'});
 }
-
 function switchIndexTab(n){
-  document.getElementById('idxPanel0').classList.toggle('hidden',n!==0);
-  document.getElementById('idxPanel1').classList.toggle('hidden',n!==1);
-  document.getElementById('idxTab0').classList.toggle('on',n===0);
-  document.getElementById('idxTab1').classList.toggle('on',n===1);
-  if(n===1) renderIndexTrace();
+  document.getElementById('idxPanel0').classList.toggle('hidden',n!==0);document.getElementById('idxPanel1').classList.toggle('hidden',n!==1);
+  document.getElementById('idxTab0').classList.toggle('on',n===0);document.getElementById('idxTab1').classList.toggle('on',n===1);
+  if(n===1)renderIndexTrace();
 }
 function downloadIndexResultsCSV(){
   if(!lastIdxCalc){alert(currentLang==='en'?'Please calculate first!':'Hitung dulu!');return;}
   const{parties,totalVotes,totalSeats,LHI,LSI,ENPP}=lastIdxCalc;const en=currentLang==='en';
   const rows=[];
-  rows.push([en?'Party':'Partai',en?'Votes':'Suara',en?'Seats':'Kursi','Vote %','Seat %','Gap','|Gap| (LHI component)','Gap² (LSI component)','Seat Share² (ENPP component)']);
+  rows.push([en?'Party':'Partai',en?'Votes':'Suara',en?'Seats':'Kursi','Vote %','Seat %','Gap','|Gap|','Gap²','Seat Share²']);
   parties.forEach(p=>{rows.push([p.name,p.votes,p.seats,p.votePercent.toFixed(2),p.seatPercent.toFixed(2),p.gap.toFixed(2),Math.abs(p.gap).toFixed(2),Math.pow(p.gap,2).toFixed(6),Math.pow(p.seatShare,2).toFixed(6)]);});
-  rows.push([]);
-  rows.push([en?'Indicator':'Indikator',en?'Value':'Nilai',en?'Description':'Keterangan']);
-  rows.push(['LHI',LHI.toFixed(2),'Loosemore-Hanby Index']);
-  rows.push(['LSI',LSI.toFixed(2),'Least Squares Index / Gallagher Index']);
-  rows.push(['ENPP',ENPP.toFixed(2),'Effective Number of Parliamentary Parties']);
+  rows.push([]);rows.push([en?'Indicator':'Indikator',en?'Value':'Nilai',en?'Description':'Keterangan']);
+  rows.push(['LHI',LHI.toFixed(2),'Loosemore-Hanby Index']);rows.push(['LSI',LSI.toFixed(2),'Least Squares Index / Gallagher Index']);rows.push(['ENPP',ENPP.toFixed(2),'Effective Number of Parliamentary Parties']);
   const csv=rows.map(r=>r.map(v=>`"${String(v).replace(/"/g,'""')}"`).join(',')).join('\r\n');
   triggerDownload(new Blob(['\uFEFF'+csv],{type:'text/csv;charset=utf-8'}),'hasil_indeks_proporsionalitas.csv');
 }
 function renderIndexTrace(){
   const el=document.getElementById('idxTraceDiv');
   if(!lastIdxCalc){el.innerHTML=`<div class="ibox">${currentLang==='en'?'Please calculate first.':'Hitung terlebih dahulu.'}</div>`;return;}
-  const{parties,totalVotes,totalSeats,n,LHI,LSI,ENPP}=lastIdxCalc;
-  const s=STRINGS[currentLang];
+  const{parties,totalVotes,totalSeats,n,LHI,LSI,ENPP}=lastIdxCalc;const s=STRINGS[currentLang];
   const sumHtml=`<div class="idx-trace-summary"><strong>${s.idx_trace_total_votes}:</strong> ${totalVotes.toLocaleString()} &nbsp;·&nbsp; <strong>${s.idx_trace_total_seats}:</strong> ${totalSeats.toLocaleString()} &nbsp;·&nbsp; <strong>${s.idx_trace_num_parties}:</strong> ${n}</div>`;
   const tblHead=`<thead><tr><th style="text-align:left">${s.idx_trace_col_party}</th><th>${s.idx_trace_col_votes}</th><th>${s.idx_trace_col_seats}</th><th>${s.idx_trace_col_vpct}</th><th>${s.idx_trace_col_spct}</th><th>${s.idx_trace_col_gap}</th><th>${s.idx_trace_col_absgap}</th><th>${s.idx_trace_col_gap2}</th><th>${s.idx_trace_col_ss2}</th></tr></thead>`;
   const tblBody=parties.map((p,i)=>`<tr><td class="tl"><span style="display:inline-block;width:7px;height:7px;border-radius:50%;background:${COLORS[i%COLORS.length]};margin-right:4px;vertical-align:middle"></span>${p.name}</td><td>${p.votes.toLocaleString()}</td><td>${p.seats}</td><td>${p.votePercent.toFixed(2)}</td><td>${p.seatPercent.toFixed(2)}</td><td class="${p.gap>0?'gap-pos':p.gap<0?'gap-neg':''}">${p.gap>0?'+':''}${p.gap.toFixed(2)}</td><td>${Math.abs(p.gap).toFixed(2)}</td><td>${Math.pow(p.gap,2).toFixed(4)}</td><td>${Math.pow(p.seatShare,2).toFixed(6)}</td></tr>`).join('');
@@ -1436,21 +1889,18 @@ function renderIndexTrace(){
 }
 function downloadIndexTraceCSV(){
   if(!lastIdxCalc){alert(currentLang==='en'?'Please calculate first!':'Hitung dulu!');return;}
-  const{parties,totalVotes,totalSeats,n,LHI,LSI,ENPP}=lastIdxCalc;const s=STRINGS[currentLang];const en=currentLang==='en';
+  const{parties,totalVotes,totalSeats,n,LHI,LSI,ENPP}=lastIdxCalc;const s=STRINGS[currentLang];
   const rows=[];
   rows.push([s.idx_trace_total_votes,totalVotes]);rows.push([s.idx_trace_total_seats,totalSeats]);rows.push([s.idx_trace_num_parties,n]);rows.push([]);
   rows.push([s.idx_trace_col_party,s.idx_trace_col_votes,s.idx_trace_col_seats,s.idx_trace_col_vpct,s.idx_trace_col_spct,s.idx_trace_col_gap,s.idx_trace_col_absgap,s.idx_trace_col_gap2,s.idx_trace_col_ss2]);
   parties.forEach(p=>{rows.push([p.name,p.votes,p.seats,p.votePercent.toFixed(4),p.seatPercent.toFixed(4),p.gap.toFixed(4),Math.abs(p.gap).toFixed(4),Math.pow(p.gap,2).toFixed(6),Math.pow(p.seatShare,2).toFixed(6)]);});
-  rows.push([]);
-  rows.push([s.idx_trace_formulas]);rows.push([s.idx_trace_lhi_formula]);rows.push([s.idx_trace_lsi_formula]);rows.push([s.idx_trace_enpp_formula]);rows.push([]);
+  rows.push([]);rows.push([s.idx_trace_formulas]);rows.push([s.idx_trace_lhi_formula]);rows.push([s.idx_trace_lsi_formula]);rows.push([s.idx_trace_enpp_formula]);rows.push([]);
   rows.push(['LHI',LHI.toFixed(4),'Loosemore-Hanby Index']);rows.push(['LSI',LSI.toFixed(4),'Least Squares Index / Gallagher Index']);rows.push(['ENPP',ENPP.toFixed(4),'Effective Number of Parliamentary Parties']);
   const csv=rows.map(r=>r.map(v=>`"${String(v).replace(/"/g,'""')}"`).join(',')).join('\r\n');
   triggerDownload(new Blob(['\uFEFF'+csv],{type:'text/csv;charset=utf-8'}),'jejak_hitung_indeks_proporsionalitas.csv');
 }
 
-/* ================================================================
-   INIT
-================================================================ */
+/* ================================================================ INIT ================================================================ */
 loadDPR();
 (function(){
   const label='Partai ';
