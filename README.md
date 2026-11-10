@@ -452,6 +452,8 @@ node tests/run-tests.mjs
 
 The same tests also run automatically on GitHub for every push, via `.github/workflows/tests.yml`.
 
+The Netlify site is built from this repository according to `netlify.toml`: the tests run first, then `tools/build-pages.mjs` generates one page per feature (such as `/multi-dapil/` and `/indeks/`) plus `sitemap.xml`. If the tests fail, the site is not updated.
+
 ## Version History
 
 ### v1.3.0 — Multi-District Analysis

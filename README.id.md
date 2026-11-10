@@ -452,6 +452,8 @@ node tests/run-tests.mjs
 
 Uji yang sama juga berjalan otomatis di GitHub setiap kali ada perubahan yang diunggah, melalui berkas `.github/workflows/tests.yml`.
 
+Situs di Netlify dibangun dari repositori ini sesuai `netlify.toml`: uji dijalankan lebih dulu, lalu `tools/build-pages.mjs` membuat satu halaman untuk setiap fitur (misalnya `/multi-dapil/` dan `/indeks/`) beserta `sitemap.xml`. Kalau uji gagal, situs tidak diperbarui.
+
 ## Riwayat Versi
 
 ### v1.3.0 — Analisis Multi-Dapil

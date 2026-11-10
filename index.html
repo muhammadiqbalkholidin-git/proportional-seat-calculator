@@ -16,8 +16,11 @@
 <meta property="og:image" content="https://proportional-seat-calculator.netlify.app/og-image.png">
 <meta property="og:locale" content="id_ID">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" type="image/svg+xml" href="favicon.svg">
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Kalkulator Kursi Pemilu Proporsional","alternateName":"Proportional Electoral Seat Calculator","url":"https://proportional-seat-calculator.netlify.app/","applicationCategory":"EducationalApplication","operatingSystem":"Web","inLanguage":["id","en"],"isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"IDR"},"description":"Kalkulator alokasi kursi pemilu dengan metode Sainte-Laguë, Sainte-Laguë Modifikasi, D'Hondt, Kuota Hare, dan Kuota Droop, termasuk simulasi kursi DPR RI 2024 per dapil, simulasi ambang batas parlemen, dan indeks disproporsionalitas.","author":{"@type":"Person","name":"Muhammad Iqbal Kholidin","jobTitle":"Peneliti Pemilu"},"codeRepository":"https://github.com/muhammadiqbalkholidin-git/proportional-seat-calculator"}
+</script>
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <style>
@@ -1269,6 +1272,7 @@ function setLang(lang){
   if(mt0){mt0.textContent=s.md_tab_national;mt1.textContent=s.md_tab_district;mt2.textContent=s.md_tab_info;}
   const mt3=document.getElementById('mdTab3'),mt4=document.getElementById('mdTab4'),mt5=document.getElementById('mdTab5');if(mt3){mt3.textContent=s.md_tab_trace;mt4.textContent=s.md_tab_last;mt5.textContent=s.md_tab_sim;}
   renderPresetNote();renderMdPresetNote();renderIdxPresetNote();
+  if(typeof applyPageMeta==='function')applyPageMeta(currentPage);
   if(lastResults&&!document.getElementById('resCard').classList.contains('hidden'))calculate(true);
   if(lastIdxCalc&&!document.getElementById('idxResCard').classList.contains('hidden'))calculateIndex(true);
   if(lastMdCalc){
@@ -1283,12 +1287,40 @@ function setLang(lang){
   }
 }
 
-function goTo(id){
+/* Setiap halaman punya alamat sendiri agar bisa ditemukan mesin pencari dan dibagikan langsung */
+const PAGE_PATHS={calc:'/',multi:'/multi-dapil/',index:'/indeks/',tutorial:'/tutorial/',about:'/profil/',meth:'/metodologi/'};
+const PAGE_META={
+  calc:{id:['Kalkulator Sainte-Laguë Satu Dapil | Kalkulator Kursi Pemilu Proporsional','Hitung pembagian kursi pemilu untuk satu dapil dengan metode Sainte-Laguë, Sainte-Laguë Modifikasi, D\'Hondt, Kuota Hare, dan Kuota Droop, lengkap dengan jejak hitung setiap kursi.'],en:['Sainte-Laguë Single-District Calculator | Proportional Electoral Seat Calculator','Allocate seats in one district with Sainte-Laguë, Modified Sainte-Laguë, D\'Hondt, Hare, and Droop, with a step-by-step trace of every seat.']},
+  multi:{id:['Simulasi Kursi DPR per Dapil dengan Sainte-Laguë | Kalkulator Multi-Dapil','Simulasikan perolehan kursi DPR RI 2024 di 84 dapil dengan ambang batas nasional, lihat urutan kursi dan tabel pembagian tiap dapil, persaingan kursi terakhir, dan simulasi ambang batas parlemen 0 sampai 10 persen.'],en:['DPR Seat Simulation by District with Sainte-Laguë | Multi-District Calculator','Simulate the 2024 DPR RI seat allocation across 84 districts with a national threshold, with seat order and division tables, last-seat races, and a 0 to 10 percent threshold simulation.']},
+  index:{id:['Indeks Disproporsionalitas Pemilu: Gallagher, LHI, dan ENPP | Kalkulator Kursi Pemilu','Hitung indeks Gallagher (LSI), Loosemore-Hanby (LHI), dan jumlah efektif partai di parlemen (ENPP) dari data suara dan kursi, termasuk preset hasil Pemilu DPR RI 2024.'],en:['Election Disproportionality Index: Gallagher, LHI, and ENPP | Electoral Seat Calculator','Calculate the Gallagher index (LSI), Loosemore-Hanby index (LHI), and effective number of parliamentary parties (ENPP) from votes and seats, including a 2024 DPR RI preset.']},
+  tutorial:{id:['Cara Menghitung Kursi Pemilu dengan Sainte-Laguë | Tutorial Kalkulator','Panduan langkah demi langkah menghitung pembagian kursi pemilu dengan kalkulator ini, mulai dari memasukkan data, membaca tabel hasil, sampai memeriksa jejak hitung.'],en:['How to Calculate Election Seats with Sainte-Laguë | Calculator Tutorial','A step-by-step guide to allocating election seats with this calculator, from entering data to reading results and checking the calculation trace.']},
+  about:{id:['Muhammad Iqbal Kholidin | Pembuat Kalkulator Kursi Pemilu Proporsional','Profil Muhammad Iqbal Kholidin, peneliti pemilu yang membuat Kalkulator Kursi Pemilu Proporsional.'],en:['Muhammad Iqbal Kholidin | Creator of the Proportional Electoral Seat Calculator','Profile of Muhammad Iqbal Kholidin, electoral researcher and creator of the Proportional Electoral Seat Calculator.']},
+  meth:{id:['Metode Sainte-Laguë, D\'Hondt, Hare, dan Droop | Metodologi Kalkulator Kursi','Penjelasan cara kerja metode Sainte-Laguë, Sainte-Laguë Modifikasi, D\'Hondt, Kuota Hare, dan Kuota Droop, indeks disproporsionalitas, dan perhitungan multi-dapil, beserta rujukan akademiknya.'],en:['Sainte-Laguë, D\'Hondt, Hare, and Droop Methods | Calculator Methodology','How the Sainte-Laguë, Modified Sainte-Laguë, D\'Hondt, Hare, and Droop methods work, plus disproportionality indices and multi-district allocation, with academic references.']}
+};
+let currentPage='calc';
+function applyPageMeta(id){
+  const m=(PAGE_META[id]||PAGE_META.calc)[currentLang]||PAGE_META[id].id;
+  document.title=m[0];
+  const d=document.querySelector('meta[name="description"]');if(d)d.setAttribute('content',m[1]);
+}
+function goTo(id,opts){
+  opts=opts||{};
+  if(!document.getElementById('page-'+id))id='calc';
+  currentPage=id;
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('show'));
   document.querySelectorAll('.nav-links button').forEach(b=>b.classList.remove('active'));
   document.getElementById('page-'+id).classList.add('show');
   document.getElementById('nb-'+id).classList.add('active');
-  window.scrollTo({top:0,behavior:'smooth'});
+  applyPageMeta(id);
+  if(!opts.noPush&&location.protocol.startsWith('http')&&location.pathname!==PAGE_PATHS[id]){try{history.pushState({page:id},'',PAGE_PATHS[id]);}catch(e){}}
+  if(!opts.noScroll)window.scrollTo({top:0,behavior:'smooth'});
+}
+window.addEventListener('popstate',e=>{const id=(e.state&&e.state.page)||pageFromPath();goTo(id,{noPush:true});});
+function pageFromPath(){
+  const tag=document.documentElement.getAttribute('data-page');
+  const path=location.pathname.replace(/index\.html$/,'');
+  const hit=Object.keys(PAGE_PATHS).find(k=>PAGE_PATHS[k]===path||PAGE_PATHS[k]===path+'/');
+  return hit||tag||'calc';
 }
 function scrollToSec(id){document.getElementById(id).scrollIntoView({behavior:'smooth'});}
 
@@ -2429,6 +2461,8 @@ loadDPR();
   renderIndexParties();
 })();
 setLang(currentLang);
+goTo(pageFromPath(),{noPush:true,noScroll:true});
+try{history.replaceState({page:currentPage},'',location.href);}catch(e){}
 </script>
 </body>
 </html>

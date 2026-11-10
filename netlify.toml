@@ -1,0 +1,7 @@
+# Setiap commit diuji dulu; kalau uji gagal, situs tidak diperbarui.
+[build]
+  command = "node tests/run-tests.mjs && node tools/build-pages.mjs"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "20"
