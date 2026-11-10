@@ -440,7 +440,32 @@ http://localhost:8000
 
 ---
 
+## Uji Otomatis
+
+Folder `tests` berisi uji yang memastikan hitungan kalkulator tetap benar setiap kali kode diubah. Uji ini mengambil fungsi alokasi dan data preset langsung dari `index.html`, lalu memeriksa contoh hitung manual untuk kelima metode, kasus pinggiran seperti total suara nol dan nilai seri, jumlah suara dan kursi pada preset, serta mencocokkan hasil Sainte-Laguë di 84 dapil DPR RI 2024 dengan perolehan kursi resmi menurut Keputusan KPU Nomor 1206 Tahun 2024.
+
+Untuk menjalankannya di komputer sendiri, cukup pasang Node.js lalu jalankan perintah berikut dari folder repositori:
+
+```
+node tests/run-tests.mjs
+```
+
+Uji yang sama juga berjalan otomatis di GitHub setiap kali ada perubahan yang diunggah, melalui berkas `.github/workflows/tests.yml`.
+
 ## Riwayat Versi
+
+### v1.3.0 — Analisis Multi-Dapil
+
+* nama menu menjadi Kalkulator Satu Dapil dan Kalkulator Multi-Dapil, dengan kalimat penjelas di setiap halaman;
+* hasil Multi-Dapil kini memuat kolom Resmi untuk preset DPR 2024, dengan penanda sel yang berbeda dari perolehan kursi resmi;
+* tab baru Urutan Kursi & Pembagian yang menampilkan siapa mendapat kursi ke-1 sampai ke-n di setiap dapil beserta tabel pembagiannya, dan bisa diunduh sebagai CSV;
+* tab baru Kursi Terakhir yang mengurutkan dapil berdasarkan ketatnya persaingan kursi terakhir;
+* tab baru Simulasi Ambang Batas dengan slider 0 sampai 10 persen, grafik, dan tabel perubahan kursi;
+* peringatan nilai seri di Kalkulator Multi-Dapil;
+* urutan dapil mengikuti kode dapil KPU;
+* format angka mengikuti bahasa yang dipilih di semua halaman;
+* uji otomatis di folder `tests/` (23 pengecekan) yang berjalan setiap kali ada unggahan;
+* penyempurnaan bahasa antarmuka.
 
 ### v1.2.0 — Koreksi Data dan Penyegaran Tampilan
 

@@ -440,7 +440,32 @@ http://localhost:8000
 
 ---
 
+## Automated Tests
+
+The `tests` folder contains checks that keep the calculator's results correct whenever the code changes. They load the allocation functions and preset data directly from `index.html`, then verify hand-calculated examples for all five methods, edge cases such as zero total votes and ties, vote and seat totals in the presets, and that Sainte-Laguë reproduces the official seat allocation in all 84 DPR RI 2024 districts under KPU Decree No. 1206 of 2024.
+
+To run them locally, install Node.js and run this from the repository folder:
+
+```
+node tests/run-tests.mjs
+```
+
+The same tests also run automatically on GitHub for every push, via `.github/workflows/tests.yml`.
+
 ## Version History
+
+### v1.3.0 — Multi-District Analysis
+
+* menu names changed to Single-District Calculator and Multi-District Calculator, with a guide sentence on each page;
+* Multi-District results now include an Official column for the DPR 2024 preset, with cells marked where a method differs from the official allocation;
+* new Seat Order & Division tab showing who wins each seat in a district and the full division table, downloadable as CSV;
+* new Last Seat tab ranking districts by how close the race for the last seat is;
+* new Threshold Simulation tab with a 0 to 10 percent slider, chart and seat change table;
+* tie warnings in the Multi-District Calculator;
+* districts follow the official KPU district code order;
+* number formatting follows the selected language on every page;
+* automated tests in `tests/` (23 checks) run on every push;
+* interface text revised for clarity.
 
 ### v1.2.0 — Data Correction and Interface Refresh
 
