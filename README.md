@@ -1,5 +1,7 @@
 # Proportional Electoral Seat Calculator
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24105963.svg)](https://doi.org/10.5281/zenodo.24105963)
+
 **Proportional Electoral Seat Calculator** is an independent, browser-based web application for simulating proportional seat allocation and measuring vote-seat proportionality in electoral systems.
 
 The tool allows users to compare how different proportional representation formulas convert votes into seats, inspect the calculation process, and calculate key proportionality indicators such as the Loosemore-Hanby Index, the Least Squares Index / Gallagher Index, and the Effective Number of Parliamentary Parties.
@@ -521,21 +523,24 @@ Improved:
 
 If you use this application in academic writing, policy analysis, teaching material, journalism, presentations, or public documentation, please cite it as follows.
 
+The DOI above always points to the latest version. Each release also has its own DOI on Zenodo; version 1.3.0 is 10.5281/zenodo.24105964.
+
 ### APA
 
 ```text
-Kholidin, M. I. (2026). Kalkulator Kursi Pemilu Proporsional / Proportional Electoral Seat Calculator [Web application]. https://proportional-seat-calculator.netlify.app/
+Kholidin, M. I. (2026). Kalkulator Kursi Pemilu Proporsional / Proportional Electoral Seat Calculator [Computer software]. Zenodo. https://doi.org/10.5281/zenodo.24105963
 ```
 
 ### BibTeX
 
 ```bibtex
-@misc{kholidin2026seatcalculator,
+@software{kholidin2026seatcalculator,
   author = {Kholidin, Muhammad Iqbal},
   title = {Kalkulator Kursi Pemilu Proporsional / Proportional Electoral Seat Calculator},
   year = {2026},
-  url = {https://proportional-seat-calculator.netlify.app/},
-  note = {Web application}
+  publisher = {Zenodo},
+  doi = {10.5281/zenodo.24105963},
+  url = {https://proportional-seat-calculator.netlify.app/}
 }
 ```
 
