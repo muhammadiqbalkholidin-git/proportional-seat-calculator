@@ -1,0 +1,13 @@
+{
+  "title": "Kalkulator Kursi Pemilu Proporsional (Proportional Electoral Seat Calculator)",
+  "upload_type": "software",
+  "description": "<p>Kalkulator berbasis web untuk mensimulasikan alokasi kursi pemilu proporsional dengan lima metode, yaitu Sainte-Laguë, Sainte-Laguë Modifikasi, D'Hondt, Kuota Hare, dan Kuota Droop. Alat ini memuat kalkulator satu dapil, kalkulator multi-dapil dengan ambang batas nasional, indeks disproporsionalitas (LHI, Gallagher/LSI, ENPP), urutan perolehan kursi dan tabel pembagian per dapil, analisis kursi terakhir, serta simulasi ambang batas parlemen. Preset DPR RI 2024 memakai data Keputusan KPU Nomor 360, 1205, dan 1206 Tahun 2024, dan hasil Sainte-Laguë per dapilnya sama dengan penetapan kursi resmi di 84 dapil. Situs: https://proportional-seat-calculator.netlify.app/</p><p>A web-based calculator for simulating proportional seat allocation with Sainte-Laguë, Modified Sainte-Laguë, D'Hondt, Hare, and Droop, including multi-district allocation with a national threshold, disproportionality indices, district-level seat order and division tables, last-seat analysis, and a parliamentary threshold simulation.</p>",
+  "creators": [
+    {
+      "name": "Kholidin, Muhammad Iqbal",
+      "affiliation": "Perludem (Perkumpulan untuk Pemilu dan Demokrasi)"
+    }
+  ],
+  "keywords": ["sistem pemilu", "electoral systems", "Sainte-Laguë", "D'Hondt", "proportional representation", "seat allocation", "disproportionality", "parliamentary threshold", "Indonesia", "DPR RI 2024"],
+  "language": "ind"
+}
