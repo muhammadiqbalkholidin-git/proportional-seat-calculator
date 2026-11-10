@@ -442,6 +442,29 @@ http://localhost:8000
 
 ## Version History
 
+### v1.2.0 — Data Correction and Interface Refresh
+
+Data and logic:
+
+* DPR RI 2024 preset now uses the final valid votes of all 18 parties from KPU Decree No. 1205 of 2024 (25 August 2024), totalling 151,793,293 votes; Partai Ummat added and PKP (a 2019 participant) removed;
+* a source note under the preset explains that the preset uses a single national vote pool and lists the official district-based seat totals for comparison;
+* warning when the last seat under any method is decided by a tie;
+* validation for empty and duplicate party names;
+* allocation functions return zero seats when total votes are zero;
+* browser `alert()` dialogs replaced with in-page notifications.
+
+Interface:
+
+* emoji removed from headings, tabs and buttons;
+* one colour scheme and one hero style across all pages;
+* party list shown as a table with a single header row and thousands separators in vote fields;
+* results table highlights where a method gives more or fewer seats than Sainte-Laguë and greys out parties below the threshold;
+* CSV import collapsed by default;
+* favicon, meta description, Open Graph image and a version line in the footer;
+* layout fixes for small screens;
+* DPR RI 2024 preset for the Multi-District Calculator (84 districts, KPU Decree No. 360 of 2024; reproduces the official allocation exactly) and for the Proportionality Index page (KPU Decree No. 1205 of 2024);
+* fixed the Index page reading formatted vote numbers incorrectly.
+
 ### v1.1.0 — Multi-District Calculator Update
 
 This release adds the Multi-District / Multi-Dapil Calculator and strengthens validation for district-level simulations.

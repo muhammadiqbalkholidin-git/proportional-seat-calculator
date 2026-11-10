@@ -442,6 +442,29 @@ http://localhost:8000
 
 ## Riwayat Versi
 
+### v1.2.0 — Koreksi Data dan Penyegaran Tampilan
+
+Data dan logika:
+
+* Preset DPR RI 2024 kini memakai suara sah final 18 partai dari Keputusan KPU Nomor 1205 Tahun 2024 (25 Agustus 2024), total 151.793.293 suara; Partai Ummat ditambahkan dan PKP (peserta 2019) dihapus;
+* catatan sumber di bawah preset menjelaskan bahwa preset memakai satu kolam suara nasional dan mencantumkan perolehan kursi resmi berbasis dapil sebagai pembanding;
+* peringatan ketika kursi terakhir pada salah satu metode ditentukan oleh nilai seri;
+* validasi nama partai kosong dan nama partai ganda;
+* fungsi alokasi mengembalikan nol kursi bila total suara nol;
+* dialog `alert()` diganti notifikasi di dalam halaman.
+
+Tampilan:
+
+* emoji dihapus dari judul, tab, dan tombol;
+* satu skema warna dan satu gaya header di semua halaman;
+* daftar partai berbentuk tabel dengan satu baris judul dan pemisah ribuan pada kolom suara;
+* tabel hasil menandai metode yang memberi kursi lebih banyak atau lebih sedikit dibanding Sainte-Laguë, dan partai di bawah ambang batas ditampilkan abu;
+* impor CSV dilipat secara bawaan;
+* favicon, meta description, gambar Open Graph, dan baris versi di footer;
+* perbaikan tata letak untuk layar kecil;
+* preset DPR RI 2024 untuk Kalkulator Multi-Dapil (84 dapil, Keputusan KPU Nomor 360 Tahun 2024; hasilnya sama persis dengan penetapan kursi resmi) dan untuk halaman Indeks Proporsionalitas (Keputusan KPU Nomor 1205 Tahun 2024);
+* perbaikan pembacaan angka suara berformat ribuan di halaman Indeks.
+
 ### v1.1.0 — Pembaruan Kalkulator Multi-Dapil
 
 Rilis ini menambahkan Kalkulator Multi-Dapil dan memperkuat validasi untuk simulasi berbasis daerah pemilihan.
