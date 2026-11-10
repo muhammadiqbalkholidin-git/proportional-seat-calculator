@@ -1,0 +1,1080 @@
+{
+ "sumber": "Perolehan kursi DPR RI 2024 per dapil sesuai Keputusan KPU Nomor 1206 Tahun 2024 (penetapan calon terpilih). Disusun dari kolom SEATS berkas DPR_2014-2024.",
+ "total_kursi": 580,
+ "dapil": [
+  {
+   "kode": "1101",
+   "nama": "ACEH I",
+   "kursi": 7,
+   "perolehan": {
+    "Demokrat": 1,
+    "Golkar": 1,
+    "NasDem": 1,
+    "PAN": 1,
+    "PDI-P": 1,
+    "PKB": 1,
+    "PKS": 1
+   }
+  },
+  {
+   "kode": "1102",
+   "nama": "ACEH II",
+   "kursi": 6,
+   "perolehan": {
+    "Gerindra": 1,
+    "Golkar": 2,
+    "NasDem": 1,
+    "PKB": 1,
+    "PKS": 1
+   }
+  },
+  {
+   "kode": "1201",
+   "nama": "SUMATERA UTARA I",
+   "kursi": 10,
+   "perolehan": {
+    "Demokrat": 1,
+    "Gerindra": 2,
+    "Golkar": 2,
+    "NasDem": 1,
+    "PDI-P": 2,
+    "PKB": 1,
+    "PKS": 1
+   }
+  },
+  {
+   "kode": "1202",
+   "nama": "SUMATERA UTARA II",
+   "kursi": 10,
+   "perolehan": {
+    "Demokrat": 1,
+    "Gerindra": 1,
+    "Golkar": 3,
+    "NasDem": 1,
+    "PAN": 1,
+    "PDI-P": 2,
+    "PKB": 1
+   }
+  },
+  {
+   "kode": "1203",
+   "nama": "SUMATERA UTARA III",
+   "kursi": 10,
+   "perolehan": {
+    "Demokrat": 1,
+    "Gerindra": 1,
+    "Golkar": 3,
+    "NasDem": 1,
+    "PAN": 1,
+    "PDI-P": 2,
+    "PKS": 1
+   }
+  },
+  {
+   "kode": "1301",
+   "nama": "SUMATERA BARAT I",
+   "kursi": 8,
+   "perolehan": {
+    "Gerindra": 1,
+    "Golkar": 1,
+    "NasDem": 2,
+    "PAN": 1,
+    "PDI-P": 1,
+    "PKB": 1,
+    "PKS": 1
+   }
+  },
+  {
+   "kode": "1302",
+   "nama": "SUMATERA BARAT II",
+   "kursi": 6,
+   "perolehan": {
+    "Demokrat": 1,
+    "Gerindra": 1,
+    "Golkar": 1,
+    "NasDem": 1,
+    "PAN": 1,
+    "PKS": 1
+   }
+  },
+  {
+   "kode": "1401",
+   "nama": "RIAU I",
+   "kursi": 7,
+   "perolehan": {
+    "Demokrat": 1,
+    "Gerindra": 1,
+    "Golkar": 2,
+    "PDI-P": 1,
+    "PKB": 1,
+    "PKS": 1
+   }
+  },
+  {
+   "kode": "1402",
+   "nama": "RIAU II",
+   "kursi": 6,
+   "perolehan": {
+    "Gerindra": 1,
+    "Golkar": 1,
+    "PAN": 1,
+    "PDI-P": 1,
+    "PKB": 1,
+    "PKS": 1
+   }
+  },
+  {
+   "kode": "1501",
+   "nama": "JAMBI",
+   "kursi": 8,
+   "perolehan": {
+    "Demokrat": 1,
+    "Gerindra": 1,
+    "Golkar": 2,
+    "NasDem": 1,
+    "PAN": 1,
+    "PDI-P": 1,
+    "PKB": 1
+   }
+  },
+  {
+   "kode": "1601",
+   "nama": "SUMATERA SELATAN I",
+   "kursi": 8,
+   "perolehan": {
+    "Demokrat": 1,
+    "Gerindra": 1,
+    "Golkar": 2,
+    "NasDem": 1,
+    "PDI-P": 1,
+    "PKB": 1,
+    "PKS": 1
+   }
+  },
+  {
+   "kode": "1602",
+   "nama": "SUMATERA SELATAN II",
+   "kursi": 9,
+   "perolehan": {
+    "Demokrat": 1,
+    "Gerindra": 2,
+    "Golkar": 1,
+    "NasDem": 1,
+    "PAN": 1,
+    "PDI-P": 1,
+    "PKB": 1,
+    "PKS": 1
+   }
+  },
+  {
+   "kode": "1701",
+   "nama": "BENGKULU",
+   "kursi": 4,
+   "perolehan": {
+    "Golkar": 1,
+    "NasDem": 1,
+    "PAN": 1,
+    "PDI-P": 1
+   }
+  },
+  {
+   "kode": "1801",
+   "nama": "LAMPUNG I",
+   "kursi": 10,
+   "perolehan": {
+    "Demokrat": 1,
+    "Gerindra": 2,
+    "Golkar": 1,
+    "NasDem": 1,
+    "PAN": 1,
+    "PDI-P": 2,
+    "PKB": 1,
+    "PKS": 1
+   }
+  },
+  {
+   "kode": "1802",
+   "nama": "LAMPUNG II",
+   "kursi": 10,
+   "perolehan": {
+    "Demokrat": 1,
+    "Gerindra": 2,
+    "Golkar": 2,
+    "NasDem": 1,
+    "PAN": 1,
+    "PDI-P": 1,
+    "PKB": 1,
+    "PKS": 1
+   }
+  },
+  {
+   "kode": "1901",
+   "nama": "KEPULAUAN BANGKA BELITUNG",
+   "kursi": 3,
+   "perolehan": {
+    "Gerindra": 1,
+    "Golkar": 1,
+    "PDI-P": 1
+   }
+  },
+  {
+   "kode": "2101",
+   "nama": "KEPULAUAN RIAU",
+   "kursi": 4,
+   "perolehan": {
+    "Gerindra": 1,
+    "Golkar": 1,
+    "NasDem": 1,
+    "PDI-P": 1
+   }
+  },
+  {
+   "kode": "3101",
+   "nama": "DKI JAKARTA I",
+   "kursi": 6,
+   "perolehan": {
+    "Gerindra": 1,
+    "PAN": 1,
+    "PDI-P": 1,
+    "PKB": 1,
+    "PKS": 2
+   }
+  },
+  {
+   "kode": "3102",
+   "nama": "DKI JAKARTA II",
+   "kursi": 7,
+   "perolehan": {
+    "Gerindra": 1,
+    "Golkar": 1,
+    "PAN": 1,
+    "PDI-P": 1,
+    "PKB": 1,
+    "PKS": 2
+   }
+  },
+  {
+   "kode": "3103",
+   "nama": "DKI JAKARTA III",
+   "kursi": 8,
+   "perolehan": {
+    "Demokrat": 1,
+    "Gerindra": 1,
+    "Golkar": 1,
+    "NasDem": 1,
+    "PAN": 1,
+    "PDI-P": 2,
+    "PKS": 1
+   }
+  },
+  {
+   "kode": "3201",
+   "nama": "JAWA BARAT I",
+   "kursi": 7,
+   "perolehan": {
+    "Demokrat": 1,
+    "Gerindra": 1,
+    "Golkar": 2,
+    "PDI-P": 1,
+    "PKB": 1,
+    "PKS": 1
+   }
+  },
+  {
+   "kode": "3202",
+   "nama": "JAWA BARAT II",
+   "kursi": 10,
+   "perolehan": {
+    "Demokrat": 1,
+    "Gerindra": 1,
+    "Golkar": 2,
+    "NasDem": 1,
+    "PAN": 1,
+    "PDI-P": 1,
+    "PKB": 2,
+    "PKS": 1
+   }
+  },
+  {
+   "kode": "3203",
+   "nama": "JAWA BARAT III",
+   "kursi": 9,
+   "perolehan": {
+    "Gerindra": 2,
+    "Golkar": 2,
+    "NasDem": 1,
+    "PAN": 1,
+    "PDI-P": 1,
+    "PKB": 1,
+    "PKS": 1
+   }
+  },
+  {
+   "kode": "3204",
+   "nama": "JAWA BARAT IV",
+   "kursi": 6,
+   "perolehan": {
+    "Demokrat": 1,
+    "Gerindra": 1,
+    "Golkar": 1,
+    "PAN": 1,
+    "PKB": 1,
+    "PKS": 1
+   }
+  },
+  {
+   "kode": "3205",
+   "nama": "JAWA BARAT V",
+   "kursi": 9,
+   "perolehan": {
+    "Demokrat": 1,
+    "Gerindra": 2,
+    "Golkar": 1,
+    "NasDem": 1,
+    "PAN": 1,
+    "PDI-P": 1,
+    "PKB": 1,
+    "PKS": 1
+   }
+  },
+  {
+   "kode": "3206",
+   "nama": "JAWA BARAT VI",
+   "kursi": 6,
+   "perolehan": {
+    "Gerindra": 1,
+    "Golkar": 1,
+    "PDI-P": 1,
+    "PKB": 1,
+    "PKS": 2
+   }
+  },
+  {
+   "kode": "3207",
+   "nama": "JAWA BARAT VII",
+   "kursi": 10,
+   "perolehan": {
+    "Demokrat": 1,
+    "Gerindra": 3,
+    "Golkar": 1,
+    "NasDem": 1,
+    "PAN": 1,
+    "PDI-P": 1,
+    "PKB": 1,
+    "PKS": 1
+   }
+  },
+  {
+   "kode": "3208",
+   "nama": "JAWA BARAT VIII",
+   "kursi": 9,
+   "perolehan": {
+    "Demokrat": 1,
+    "Gerindra": 1,
+    "Golkar": 2,
+    "NasDem": 1,
+    "PDI-P": 2,
+    "PKB": 1,
+    "PKS": 1
+   }
+  },
+  {
+   "kode": "3209",
+   "nama": "JAWA BARAT IX",
+   "kursi": 8,
+   "perolehan": {
+    "Gerindra": 1,
+    "Golkar": 2,
+    "NasDem": 1,
+    "PAN": 1,
+    "PDI-P": 1,
+    "PKB": 1,
+    "PKS": 1
+   }
+  },
+  {
+   "kode": "3210",
+   "nama": "JAWA BARAT X",
+   "kursi": 7,
+   "perolehan": {
+    "Gerindra": 1,
+    "Golkar": 1,
+    "NasDem": 1,
+    "PAN": 1,
+    "PDI-P": 1,
+    "PKB": 1,
+    "PKS": 1
+   }
+  },
+  {
+   "kode": "3211",
+   "nama": "JAWA BARAT XI",
+   "kursi": 10,
+   "perolehan": {
+    "Gerindra": 2,
+    "Golkar": 2,
+    "NasDem": 1,
+    "PAN": 1,
+    "PDI-P": 1,
+    "PKB": 2,
+    "PKS": 1
+   }
+  },
+  {
+   "kode": "3301",
+   "nama": "JAWA TENGAH I",
+   "kursi": 8,
+   "perolehan": {
+    "Demokrat": 1,
+    "Gerindra": 1,
+    "Golkar": 1,
+    "NasDem": 1,
+    "PDI-P": 2,
+    "PKB": 1,
+    "PKS": 1
+   }
+  },
+  {
+   "kode": "3302",
+   "nama": "JAWA TENGAH II",
+   "kursi": 7,
+   "perolehan": {
+    "Gerindra": 1,
+    "Golkar": 2,
+    "NasDem": 1,
+    "PDI-P": 2,
+    "PKB": 1
+   }
+  },
+  {
+   "kode": "3303",
+   "nama": "JAWA TENGAH III",
+   "kursi": 9,
+   "perolehan": {
+    "Demokrat": 1,
+    "Gerindra": 1,
+    "Golkar": 1,
+    "NasDem": 1,
+    "PDI-P": 3,
+    "PKB": 2
+   }
+  },
+  {
+   "kode": "3304",
+   "nama": "JAWA TENGAH IV",
+   "kursi": 7,
+   "perolehan": {
+    "Demokrat": 1,
+    "Gerindra": 1,
+    "Golkar": 1,
+    "PDI-P": 3,
+    "PKS": 1
+   }
+  },
+  {
+   "kode": "3305",
+   "nama": "JAWA TENGAH V",
+   "kursi": 8,
+   "perolehan": {
+    "Gerindra": 1,
+    "Golkar": 1,
+    "PAN": 1,
+    "PDI-P": 3,
+    "PKB": 1,
+    "PKS": 1
+   }
+  },
+  {
+   "kode": "3306",
+   "nama": "JAWA TENGAH VI",
+   "kursi": 8,
+   "perolehan": {
+    "Demokrat": 1,
+    "Gerindra": 1,
+    "Golkar": 1,
+    "NasDem": 1,
+    "PDI-P": 3,
+    "PKB": 1
+   }
+  },
+  {
+   "kode": "3307",
+   "nama": "JAWA TENGAH VII",
+   "kursi": 7,
+   "perolehan": {
+    "Gerindra": 1,
+    "Golkar": 1,
+    "NasDem": 1,
+    "PAN": 1,
+    "PDI-P": 1,
+    "PKB": 1,
+    "PKS": 1
+   }
+  },
+  {
+   "kode": "3308",
+   "nama": "JAWA TENGAH VIII",
+   "kursi": 8,
+   "perolehan": {
+    "Demokrat": 1,
+    "Gerindra": 1,
+    "Golkar": 1,
+    "NasDem": 1,
+    "PDI-P": 2,
+    "PKB": 1,
+    "PKS": 1
+   }
+  },
+  {
+   "kode": "3309",
+   "nama": "JAWA TENGAH IX",
+   "kursi": 8,
+   "perolehan": {
+    "Gerindra": 1,
+    "Golkar": 1,
+    "PAN": 1,
+    "PDI-P": 3,
+    "PKB": 1,
+    "PKS": 1
+   }
+  },
+  {
+   "kode": "3310",
+   "nama": "JAWA TENGAH X",
+   "kursi": 7,
+   "perolehan": {
+    "Gerindra": 1,
+    "Golkar": 2,
+    "NasDem": 1,
+    "PDI-P": 1,
+    "PKB": 1,
+    "PKS": 1
+   }
+  },
+  {
+   "kode": "3401",
+   "nama": "DAERAH ISTIMEWA YOGYAKARTA",
+   "kursi": 8,
+   "perolehan": {
+    "Gerindra": 1,
+    "Golkar": 1,
+    "NasDem": 1,
+    "PAN": 1,
+    "PDI-P": 2,
+    "PKB": 1,
+    "PKS": 1
+   }
+  },
+  {
+   "kode": "3501",
+   "nama": "JAWA TIMUR I",
+   "kursi": 10,
+   "perolehan": {
+    "Demokrat": 1,
+    "Gerindra": 2,
+    "Golkar": 1,
+    "NasDem": 1,
+    "PAN": 1,
+    "PDI-P": 2,
+    "PKB": 1,
+    "PKS": 1
+   }
+  },
+  {
+   "kode": "3502",
+   "nama": "JAWA TIMUR II",
+   "kursi": 7,
+   "perolehan": {
+    "Gerindra": 1,
+    "Golkar": 1,
+    "NasDem": 1,
+    "PAN": 1,
+    "PDI-P": 1,
+    "PKB": 2
+   }
+  },
+  {
+   "kode": "3503",
+   "nama": "JAWA TIMUR III",
+   "kursi": 7,
+   "perolehan": {
+    "Demokrat": 1,
+    "Gerindra": 1,
+    "Golkar": 1,
+    "PDI-P": 2,
+    "PKB": 2
+   }
+  },
+  {
+   "kode": "3504",
+   "nama": "JAWA TIMUR IV",
+   "kursi": 8,
+   "perolehan": {
+    "Gerindra": 2,
+    "Golkar": 1,
+    "NasDem": 1,
+    "PDI-P": 1,
+    "PKB": 2,
+    "PKS": 1
+   }
+  },
+  {
+   "kode": "3505",
+   "nama": "JAWA TIMUR V",
+   "kursi": 8,
+   "perolehan": {
+    "Gerindra": 2,
+    "Golkar": 1,
+    "PDI-P": 2,
+    "PKB": 2,
+    "PKS": 1
+   }
+  },
+  {
+   "kode": "3506",
+   "nama": "JAWA TIMUR VI",
+   "kursi": 9,
+   "perolehan": {
+    "Gerindra": 1,
+    "Golkar": 2,
+    "NasDem": 1,
+    "PAN": 1,
+    "PDI-P": 2,
+    "PKB": 2
+   }
+  },
+  {
+   "kode": "3507",
+   "nama": "JAWA TIMUR VII",
+   "kursi": 8,
+   "perolehan": {
+    "Demokrat": 2,
+    "Gerindra": 1,
+    "Golkar": 1,
+    "PDI-P": 2,
+    "PKB": 1,
+    "PKS": 1
+   }
+  },
+  {
+   "kode": "3508",
+   "nama": "JAWA TIMUR VIII",
+   "kursi": 10,
+   "perolehan": {
+    "Demokrat": 1,
+    "Gerindra": 1,
+    "Golkar": 1,
+    "NasDem": 1,
+    "PAN": 1,
+    "PDI-P": 2,
+    "PKB": 2,
+    "PKS": 1
+   }
+  },
+  {
+   "kode": "3509",
+   "nama": "JAWA TIMUR IX",
+   "kursi": 6,
+   "perolehan": {
+    "Gerindra": 1,
+    "Golkar": 2,
+    "PDI-P": 1,
+    "PKB": 2
+   }
+  },
+  {
+   "kode": "3510",
+   "nama": "JAWA TIMUR X",
+   "kursi": 6,
+   "perolehan": {
+    "Gerindra": 1,
+    "Golkar": 1,
+    "NasDem": 1,
+    "PDI-P": 2,
+    "PKB": 1
+   }
+  },
+  {
+   "kode": "3511",
+   "nama": "JAWA TIMUR XI",
+   "kursi": 8,
+   "perolehan": {
+    "Demokrat": 1,
+    "Gerindra": 1,
+    "Golkar": 1,
+    "NasDem": 1,
+    "PAN": 1,
+    "PDI-P": 2,
+    "PKB": 1
+   }
+  },
+  {
+   "kode": "3601",
+   "nama": "BANTEN I",
+   "kursi": 6,
+   "perolehan": {
+    "Demokrat": 1,
+    "Gerindra": 1,
+    "Golkar": 1,
+    "NasDem": 1,
+    "PDI-P": 1,
+    "PKB": 1
+   }
+  },
+  {
+   "kode": "3602",
+   "nama": "BANTEN II",
+   "kursi": 6,
+   "perolehan": {
+    "Gerindra": 1,
+    "Golkar": 1,
+    "NasDem": 1,
+    "PAN": 1,
+    "PDI-P": 1,
+    "PKS": 1
+   }
+  },
+  {
+   "kode": "3603",
+   "nama": "BANTEN III",
+   "kursi": 10,
+   "perolehan": {
+    "Demokrat": 1,
+    "Gerindra": 1,
+    "Golkar": 2,
+    "NasDem": 1,
+    "PAN": 1,
+    "PDI-P": 2,
+    "PKB": 1,
+    "PKS": 1
+   }
+  },
+  {
+   "kode": "5101",
+   "nama": "BALI",
+   "kursi": 9,
+   "perolehan": {
+    "Demokrat": 1,
+    "Gerindra": 1,
+    "Golkar": 1,
+    "NasDem": 1,
+    "PDI-P": 5
+   }
+  },
+  {
+   "kode": "5201",
+   "nama": "NUSA TENGGARA BARAT I",
+   "kursi": 3,
+   "perolehan": {
+    "NasDem": 1,
+    "PKB": 1,
+    "PKS": 1
+   }
+  },
+  {
+   "kode": "5202",
+   "nama": "NUSA TENGGARA BARAT II",
+   "kursi": 8,
+   "perolehan": {
+    "Demokrat": 1,
+    "Gerindra": 1,
+    "Golkar": 1,
+    "NasDem": 1,
+    "PAN": 1,
+    "PDI-P": 1,
+    "PKB": 1,
+    "PKS": 1
+   }
+  },
+  {
+   "kode": "5301",
+   "nama": "NUSA TENGGARA TIMUR I",
+   "kursi": 6,
+   "perolehan": {
+    "Demokrat": 1,
+    "Golkar": 1,
+    "NasDem": 1,
+    "PAN": 1,
+    "PDI-P": 1,
+    "PKB": 1
+   }
+  },
+  {
+   "kode": "5302",
+   "nama": "NUSA TENGGARA TIMUR II",
+   "kursi": 7,
+   "perolehan": {
+    "Demokrat": 1,
+    "Gerindra": 1,
+    "Golkar": 2,
+    "NasDem": 1,
+    "PDI-P": 1,
+    "PKB": 1
+   }
+  },
+  {
+   "kode": "6101",
+   "nama": "KALIMANTAN BARAT I",
+   "kursi": 8,
+   "perolehan": {
+    "Gerindra": 1,
+    "Golkar": 1,
+    "NasDem": 1,
+    "PAN": 1,
+    "PDI-P": 2,
+    "PKB": 1,
+    "PKS": 1
+   }
+  },
+  {
+   "kode": "6102",
+   "nama": "KALIMANTAN BARAT II",
+   "kursi": 4,
+   "perolehan": {
+    "Golkar": 1,
+    "NasDem": 1,
+    "PDI-P": 2
+   }
+  },
+  {
+   "kode": "6201",
+   "nama": "KALIMANTAN TENGAH",
+   "kursi": 6,
+   "perolehan": {
+    "Demokrat": 1,
+    "Gerindra": 1,
+    "Golkar": 1,
+    "NasDem": 1,
+    "PAN": 1,
+    "PDI-P": 1
+   }
+  },
+  {
+   "kode": "6301",
+   "nama": "KALIMANTAN SELATAN I",
+   "kursi": 6,
+   "perolehan": {
+    "Gerindra": 1,
+    "Golkar": 2,
+    "NasDem": 1,
+    "PAN": 1,
+    "PKS": 1
+   }
+  },
+  {
+   "kode": "6302",
+   "nama": "KALIMANTAN SELATAN II",
+   "kursi": 5,
+   "perolehan": {
+    "Gerindra": 1,
+    "Golkar": 1,
+    "NasDem": 1,
+    "PAN": 2
+   }
+  },
+  {
+   "kode": "6401",
+   "nama": "KALIMANTAN TIMUR",
+   "kursi": 8,
+   "perolehan": {
+    "Gerindra": 1,
+    "Golkar": 2,
+    "NasDem": 1,
+    "PAN": 1,
+    "PDI-P": 1,
+    "PKB": 1,
+    "PKS": 1
+   }
+  },
+  {
+   "kode": "6501",
+   "nama": "KALIMANTAN UTARA",
+   "kursi": 3,
+   "perolehan": {
+    "Demokrat": 1,
+    "Gerindra": 1,
+    "PDI-P": 1
+   }
+  },
+  {
+   "kode": "7101",
+   "nama": "SULAWESI UTARA",
+   "kursi": 6,
+   "perolehan": {
+    "Demokrat": 1,
+    "Gerindra": 1,
+    "Golkar": 1,
+    "NasDem": 1,
+    "PDI-P": 2
+   }
+  },
+  {
+   "kode": "7201",
+   "nama": "SULAWESI TENGAH",
+   "kursi": 7,
+   "perolehan": {
+    "Demokrat": 1,
+    "Gerindra": 1,
+    "Golkar": 2,
+    "NasDem": 1,
+    "PAN": 1,
+    "PDI-P": 1
+   }
+  },
+  {
+   "kode": "7301",
+   "nama": "SULAWESI SELATAN I",
+   "kursi": 8,
+   "perolehan": {
+    "Gerindra": 1,
+    "Golkar": 1,
+    "NasDem": 2,
+    "PAN": 1,
+    "PDI-P": 1,
+    "PKB": 1,
+    "PKS": 1
+   }
+  },
+  {
+   "kode": "7302",
+   "nama": "SULAWESI SELATAN II",
+   "kursi": 9,
+   "perolehan": {
+    "Demokrat": 1,
+    "Gerindra": 2,
+    "Golkar": 2,
+    "NasDem": 1,
+    "PAN": 1,
+    "PKB": 1,
+    "PKS": 1
+   }
+  },
+  {
+   "kode": "7303",
+   "nama": "SULAWESI SELATAN III",
+   "kursi": 7,
+   "perolehan": {
+    "Demokrat": 1,
+    "Gerindra": 2,
+    "Golkar": 1,
+    "NasDem": 2,
+    "PAN": 1
+   }
+  },
+  {
+   "kode": "7401",
+   "nama": "SULAWESI TENGGARA",
+   "kursi": 6,
+   "perolehan": {
+    "Demokrat": 1,
+    "Gerindra": 1,
+    "Golkar": 1,
+    "NasDem": 1,
+    "PDI-P": 1,
+    "PKB": 1
+   }
+  },
+  {
+   "kode": "7501",
+   "nama": "GORONTALO",
+   "kursi": 3,
+   "perolehan": {
+    "Gerindra": 1,
+    "Golkar": 1,
+    "NasDem": 1
+   }
+  },
+  {
+   "kode": "7601",
+   "nama": "SULAWESI BARAT",
+   "kursi": 4,
+   "perolehan": {
+    "Demokrat": 1,
+    "NasDem": 1,
+    "PAN": 1,
+    "PDI-P": 1
+   }
+  },
+  {
+   "kode": "8101",
+   "nama": "MALUKU",
+   "kursi": 4,
+   "perolehan": {
+    "Gerindra": 1,
+    "PAN": 1,
+    "PDI-P": 1,
+    "PKS": 1
+   }
+  },
+  {
+   "kode": "8201",
+   "nama": "MALUKU UTARA",
+   "kursi": 3,
+   "perolehan": {
+    "Golkar": 1,
+    "PDI-P": 1,
+    "PKS": 1
+   }
+  },
+  {
+   "kode": "9101",
+   "nama": "PAPUA",
+   "kursi": 3,
+   "perolehan": {
+    "Gerindra": 1,
+    "NasDem": 1,
+    "PDI-P": 1
+   }
+  },
+  {
+   "kode": "9201",
+   "nama": "PAPUA BARAT",
+   "kursi": 3,
+   "perolehan": {
+    "Golkar": 1,
+    "NasDem": 1,
+    "PDI-P": 1
+   }
+  },
+  {
+   "kode": "9301",
+   "nama": "PAPUA SELATAN",
+   "kursi": 3,
+   "perolehan": {
+    "NasDem": 1,
+    "PDI-P": 1,
+    "PKB": 1
+   }
+  },
+  {
+   "kode": "9401",
+   "nama": "PAPUA TENGAH",
+   "kursi": 3,
+   "perolehan": {
+    "Golkar": 1,
+    "NasDem": 1,
+    "PDI-P": 1
+   }
+  },
+  {
+   "kode": "9501",
+   "nama": "PAPUA PEGUNUNGAN",
+   "kursi": 3,
+   "perolehan": {
+    "NasDem": 1,
+    "PAN": 1,
+    "PDI-P": 1
+   }
+  },
+  {
+   "kode": "9601",
+   "nama": "PAPUA BARAT DAYA",
+   "kursi": 3,
+   "perolehan": {
+    "Demokrat": 1,
+    "Golkar": 1,
+    "NasDem": 1
+   }
+  }
+ ]
+}
