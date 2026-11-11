@@ -444,7 +444,7 @@ http://localhost:8000
 
 ## Automated Tests
 
-The `tests` folder contains checks that keep the calculator's results correct whenever the code changes. They load the allocation functions and preset data directly from `index.html`, then verify hand-calculated examples for all five methods, edge cases such as zero total votes and ties, vote and seat totals in the presets, and that Sainte-Laguë reproduces the official seat allocation in all 84 DPR RI 2024 districts under KPU Decree No. 1206 of 2024.
+The `tests` folder contains checks that keep the calculator's results correct whenever the code changes. They load the allocation functions and preset data directly from `index.html`, then verify hand-calculated examples for all five methods, edge cases such as zero total votes and ties, vote and seat totals in the presets, that Sainte-Laguë reproduces the official seat allocation in all 84 DPR RI 2024 districts under KPU Decree No. 1206 of 2024 under all three rounding options, the legislative body modes, and the disproportionality indices. The same checks power the Validation page on the site.
 
 To run them locally, install Node.js and run this from the repository folder:
 
@@ -457,6 +457,20 @@ The same tests also run automatically on GitHub for every push, via `.github/wor
 The Netlify site is built from this repository according to `netlify.toml`: the tests run first, then `tools/build-pages.mjs` generates one page per feature (such as `/multi-dapil/` and `/indeks/`) plus `sitemap.xml`. If the tests fail, the site is not updated.
 
 ## Version History
+
+### v1.4.0 — Rules, Rounding and Validation
+
+* Single-District Calculator now has a threshold rule option named by how it works: threshold computed from votes in the table, eligibility set per party (as for the 2024 DPR RI national threshold), and no threshold (as for DPRD under Law 7/2017 Article 414(2), or a DPR without a parliamentary threshold); loading data never changes the chosen rule, and DPR data counted under another rule is marked as a simulation with a one-click button to apply the 2024 DPR RI rule;
+* new "Load a 2024 DPR RI district" menu that fills in votes, seats and threshold results for any of the 84 districts and shows the official seats for comparison;
+* new quotient option, set separately for the Single-District and Multi-District calculators, with three choices (exact values, two decimals rounded, two decimals truncated), because KPU Regulation 6/2024 Article 13(2) does not say which applies; all three give the official result in every 2024 district;
+* the Calculation Trace tab now summarises the critical seat: the last seat, the closest challenger and the extra votes it would need, or the last and next largest remainders for quota methods;
+* tie warnings now refer to KPU Regulation 6/2024 Article 13(3);
+* new Copy Summary, Copy LaTeX Table and Print / Save PDF buttons, plus a link to more citation formats on Zenodo;
+* new charts: Seat Race (ranked quotients, or remainders for quota methods, with a cut-off line), a half-circle Seat Composition diagram, a Vote and Seat Shares scatter chart with a proportionality diagonal, Seat Composition by Threshold Scenario at 0, 2, 4, 5 and 7 percent, and a Last-Seat Margin line chart; summaries and charts can follow any of the five methods;
+* every result now has an automatic plain-language Result summary paragraph (Single-District, Multi-District national summary, last seat and threshold simulation, Index);
+* new Validation page (`/validasi/`) that reruns every test in the browser, including all 84 districts;
+* Tutorial and Methodology updated for v1.3 and v1.4 features;
+* automated tests expanded to 64 checks, including checks of the chart data for all five methods.
 
 ### v1.3.0 — Multi-District Analysis
 

@@ -444,7 +444,7 @@ http://localhost:8000
 
 ## Uji Otomatis
 
-Folder `tests` berisi uji yang memastikan hitungan kalkulator tetap benar setiap kali kode diubah. Uji ini mengambil fungsi alokasi dan data preset langsung dari `index.html`, lalu memeriksa contoh hitung manual untuk kelima metode, kasus pinggiran seperti total suara nol dan nilai seri, jumlah suara dan kursi pada preset, serta mencocokkan hasil Sainte-Laguë di 84 dapil DPR RI 2024 dengan perolehan kursi resmi menurut Keputusan KPU Nomor 1206 Tahun 2024.
+Folder `tests` berisi uji yang memastikan hitungan kalkulator tetap benar setiap kali kode diubah. Uji ini mengambil fungsi alokasi dan data preset langsung dari `index.html`, lalu memeriksa contoh hitung manual untuk kelima metode, kasus pinggiran seperti total suara nol dan nilai seri, jumlah suara dan kursi pada preset, mencocokkan hasil Sainte-Laguë di 84 dapil DPR RI 2024 dengan perolehan kursi resmi menurut Keputusan KPU Nomor 1206 Tahun 2024 untuk ketiga pilihan pembulatan, serta memeriksa mode lembaga dan indeks disproporsionalitas. Pengecekan yang sama dipakai di halaman Validasi pada situs.
 
 Untuk menjalankannya di komputer sendiri, cukup pasang Node.js lalu jalankan perintah berikut dari folder repositori:
 
@@ -457,6 +457,20 @@ Uji yang sama juga berjalan otomatis di GitHub setiap kali ada perubahan yang di
 Situs di Netlify dibangun dari repositori ini sesuai `netlify.toml`: uji dijalankan lebih dulu, lalu `tools/build-pages.mjs` membuat satu halaman untuk setiap fitur (misalnya `/multi-dapil/` dan `/indeks/`) beserta `sitemap.xml`. Kalau uji gagal, situs tidak diperbarui.
 
 ## Riwayat Versi
+
+### v1.4.0 — Aturan, Pembulatan, dan Validasi
+
+* Kalkulator Satu Dapil kini punya pilihan aturan ambang batas yang dinamai sesuai cara kerjanya, yaitu ambang dihitung dari suara di tabel, kelolosan ditentukan per partai (seperti ambang batas nasional DPR RI 2024), dan tanpa ambang batas (seperti DPRD menurut UU 7/2017 Pasal 414 ayat 2, atau DPR tanpa ambang batas parlemen); memuat data tidak pernah mengubah aturan yang dipilih, dan data DPR yang dihitung dengan aturan lain ditandai sebagai simulasi dengan tombol untuk beralih ke aturan Pemilu DPR RI 2024;
+* menu baru Muat dapil DPR RI 2024 yang mengisi suara, jumlah kursi, dan kelolosan ambang batas untuk setiap dapil dari 84 dapil, lengkap dengan kursi resmi sebagai pembanding;
+* pilihan hasil bagi yang diatur terpisah untuk Kalkulator Satu Dapil dan Multi-Dapil, dengan tiga cara (hitungan murni, dua desimal dibulatkan, dua desimal dipotong), karena PKPU 6/2024 Pasal 13 ayat 2 tidak menegaskan cara yang dipakai; ketiganya menghasilkan kursi resmi di semua dapil 2024;
+* tab Jejak Hitung kini merangkum kursi kritis, yaitu kursi terakhir, penantang terdekat, dan tambahan suara yang dibutuhkannya, atau sisa terbesar terakhir dan berikutnya untuk metode kuota;
+* peringatan nilai seri kini merujuk PKPU 6/2024 Pasal 13 ayat 3;
+* tombol baru Salin Ringkasan, Salin Tabel LaTeX, dan Cetak / Simpan PDF, serta tautan ke format kutipan lain di Zenodo;
+* grafik baru, yaitu Persaingan Kursi (hasil bagi yang diurutkan, atau sisa suara untuk metode kuota, dengan garis batas kursi), diagram Komposisi Kursi setengah lingkaran, grafik sebar Persentase Suara dan Kursi dengan garis proporsional, Komposisi Kursi per Skenario Ambang Batas pada 0, 2, 4, 5, dan 7 persen, serta grafik garis Selisih Kursi Terakhir; ringkasan dan grafik bisa mengikuti kelima metode;
+* setiap hasil kini dilengkapi paragraf Ringkasan hasil yang disusun otomatis (Satu Dapil, ringkasan nasional, kursi terakhir, dan simulasi ambang batas di Multi-Dapil, serta Indeks);
+* halaman baru Validasi (`/validasi/`) yang menjalankan ulang semua uji di browser, termasuk 84 dapil;
+* Tutorial dan Metodologi diperbarui untuk fitur v1.3 dan v1.4;
+* uji otomatis bertambah menjadi 64 pengecekan, termasuk pemeriksaan data grafik untuk kelima metode.
 
 ### v1.3.0 — Analisis Multi-Dapil
 
