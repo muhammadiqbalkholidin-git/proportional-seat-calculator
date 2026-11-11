@@ -25,8 +25,9 @@ function ambilKonstanta(nama) {
 }
 
 const kode = [
-  ...['sainteLague', 'dhondt', 'hare', 'droop', 'divisorNext', 'findTieDivisor', 'findTieQuota',
-    'buildDivisorTrace', 'buildDHondtTrace', 'divisorAt', 'mdSeatOrder', 'mdLastSeat'].map(ambilFungsi),
+  'var roundMode = "none"; var lembaga = "table"; var currentLang = "id";',
+  ...['qv', 'isOut', 'sainteLague', 'dhondt', 'hare', 'droop', 'divisorNext', 'findTieDivisor', 'findTieQuota',
+    'buildDivisorTrace', 'buildDHondtTrace', 'divisorAt', 'mdSeatOrder', 'mdLastSeat', 'fmtNum', 'fmtDec', 'nationalEligible2024', 'idxFormulas', 'raceData', 'buildHareTrace', 'buildDroopTrace', 'quotaRaceData', 'hemicycleLayout', 'voteSeatRows', 'runValidation'].map(ambilFungsi),
   ...['DPR2024', 'DPR2024_SEATS', 'MD_DPR2024_PARTIES', 'MD_DPR2024', 'MD_DPR2024_RESMI'].map(ambilKonstanta),
 ].join('\n');
 const ctx = {};
@@ -94,6 +95,33 @@ const L = mdLastSeat(ptsAceh, aceh[1], 0);
 cek('Aceh I: urutan kursi Sainte-Laguë', L.order.map(r => r.party), ['PKB', 'Golkar', 'PAN', 'NasDem', 'PDI-P', 'Demokrat', 'PKS']);
 cek('Aceh I: kursi terakhir PKS, penantang terdekat PKB (÷3)', [L.last.party, Math.round(L.last.quotient), L.ch.party, L.ch.divisor], ['PKS', 119581, 'PKB', 3]);
 cek('Aceh I: tambahan suara penantang 38.711', L.extra, 38711);
+
+console.log('\n6. Sakelar pembulatan dua desimal (PKPU 6/2024 Pasal 13 ayat 2)');
+const setMode = m => vm.runInContext('roundMode = ' + JSON.stringify(m), ctx);
+setMode('round'); cek('Dibulatkan: 119.581,666 menjadi 119.581,67', ctx.qv(358745 / 3), 119581.67);
+setMode('trunc'); cek('Dipotong: 119.581,666 menjadi 119.581,66', ctx.qv(358745 / 3), 119581.66);
+for (const m of ['round', 'trunc']) {
+  setMode(m);
+  let sama = 0;
+  MD_DPR2024.forEach((r, i) => {
+    const pts = MD_DPR2024_PARTIES.map((p, j) => ({ name: p, votes: r[j + 2] })).filter(x => lolos.includes(x.name));
+    if (JSON.stringify(urut(sainteLague(pts, r[1], 1))) === JSON.stringify(urut(resmi.dapil[i].perolehan))) sama++;
+  });
+  cek(`Mode ${m === 'round' ? 'dibulatkan' : 'dipotong'}: 84 dapil tetap sama dengan kursi resmi`, sama, 84);
+}
+setMode('none');
+
+console.log('\n7. Aturan ambang batas');
+const setL = m => vm.runInContext('lembaga = ' + JSON.stringify(m), ctx);
+const kecil = { name: 'K', votes: 10, pass: false }, besar = { name: 'B', votes: 990, pass: true };
+setL('table'); cek('Ambang dari suara tabel: partai di bawah 4% tidak ikut', [ctx.isOut(kecil, 1000, 4), ctx.isOut(besar, 1000, 4)], [true, false]);
+setL('manual'); cek('Kelolosan per partai: hanya partai yang tidak dicentang yang tidak ikut', [ctx.isOut(kecil, 1000, 4), ctx.isOut({ ...kecil, pass: true }, 1000, 4)], [true, false]);
+setL('none'); cek('Tanpa ambang batas: semua partai ikut', ctx.isOut(kecil, 1000, 4), false);
+setL('table');
+
+console.log('\n8. Halaman Validasi (fungsi yang sama dengan yang berjalan di browser)');
+const grup = ctx.runValidation();
+grup.forEach(g => g.items.forEach(i => cek(g.title.replace(/^\d+\. /, '') + ' | ' + i.name, i.ok, true)));
 
 console.log(`\n${lulus} lulus, ${gagal} gagal\n`);
 process.exit(gagal ? 1 : 0);
