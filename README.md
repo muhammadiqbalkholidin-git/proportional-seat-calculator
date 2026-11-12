@@ -414,6 +414,22 @@ The application is built as a static web application using:
 
 It can be hosted on static hosting platforms such as Netlify.
 
+`index.html` holds the page skeleton, `css/style.css` holds all styling, and the application code is split by area in the `js/` folder, loaded in order by `index.html`:
+
+| File | Contents |
+|---|---|
+| `js/teks.js` | Interface text in Indonesian and English |
+| `js/navigasi.js` | Language, navigation, per-page addresses and titles, citation dialog |
+| `js/data-dpr2024.js` | Data from KPU Decrees No. 360, 1205 and 1206 of 2024 |
+| `js/metode.js` | The five seat allocation methods and their calculation traces |
+| `js/satu-dapil.js` | Single-District input, rounding, threshold rules, presets |
+| `js/satu-dapil-hasil.js` | Calculation, result table, trace, critical seat, export |
+| `js/grafik-ringkasan.js` | Charts and result summary paragraphs |
+| `js/multi-dapil.js` | Multi-District Calculator |
+| `js/indeks.js` | Disproportionality indices |
+| `js/validasi.js` | Validation page |
+| `js/init.js` | Initialisation, loaded last |
+
 ---
 
 ## Local Use
@@ -444,7 +460,7 @@ http://localhost:8000
 
 ## Automated Tests
 
-The `tests` folder contains checks that keep the calculator's results correct whenever the code changes. They load the allocation functions and preset data directly from `index.html`, then verify hand-calculated examples for all five methods, edge cases such as zero total votes and ties, vote and seat totals in the presets, that Sainte-Laguë reproduces the official seat allocation in all 84 DPR RI 2024 districts under KPU Decree No. 1206 of 2024 under all three rounding options, the legislative body modes, and the disproportionality indices. The same checks power the Validation page on the site.
+The `tests` folder contains checks that keep the calculator's results correct whenever the code changes. They load the allocation functions and preset data directly from the `js/` files that `index.html` loads, then verify hand-calculated examples for all five methods, edge cases such as zero total votes and ties, vote and seat totals in the presets, that Sainte-Laguë reproduces the official seat allocation in all 84 DPR RI 2024 districts under KPU Decree No. 1206 of 2024 under all three rounding options, the legislative body modes, and the disproportionality indices. The same checks power the Validation page on the site.
 
 To run them locally, install Node.js and run this from the repository folder:
 
@@ -457,6 +473,12 @@ The same tests also run automatically on GitHub for every push, via `.github/wor
 The Netlify site is built from this repository according to `netlify.toml`: the tests run first, then `tools/build-pages.mjs` generates one page per feature (such as `/multi-dapil/` and `/indeks/`) plus `sitemap.xml`. If the tests fail, the site is not updated.
 
 ## Version History
+
+### v1.4.1 — Code Modularisation
+
+* `index.html`, which used to hold all styling and code, is split into `css/style.css` and eleven files in the `js/` folder, making the code easier to maintain and extend;
+* nothing changes in the interface, calculations or features; this was checked by comparing 66 outputs from the old and new versions (result tables, summaries, traces, charts, Multi-District, Index, Validation and the reading pages) in Indonesian and English;
+* automated tests and the per-page builder are updated for the new file structure.
 
 ### v1.4.0 — Rules, Rounding and Validation
 

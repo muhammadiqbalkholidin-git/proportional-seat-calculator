@@ -414,6 +414,22 @@ Aplikasi ini dibangun sebagai aplikasi web statis menggunakan:
 
 Aplikasi dapat dihosting melalui platform hosting statis seperti Netlify.
 
+Struktur berkasnya sebagai berikut. `index.html` berisi kerangka halaman, `css/style.css` berisi seluruh tampilan, dan kode aplikasi dipecah per bagian di folder `js/`, yang dimuat berurutan oleh `index.html`:
+
+| Berkas | Isi |
+|---|---|
+| `js/teks.js` | Teks antarmuka bahasa Indonesia dan Inggris |
+| `js/navigasi.js` | Bahasa, navigasi, alamat dan judul per halaman, jendela kutipan |
+| `js/data-dpr2024.js` | Data Keputusan KPU Nomor 360, 1205, dan 1206 Tahun 2024 |
+| `js/metode.js` | Lima metode alokasi kursi dan jejak hitungnya |
+| `js/satu-dapil.js` | Masukan Kalkulator Satu Dapil, pembulatan, aturan ambang batas, preset |
+| `js/satu-dapil-hasil.js` | Perhitungan, tabel hasil, jejak hitung, kursi kritis, ekspor |
+| `js/grafik-ringkasan.js` | Grafik dan paragraf ringkasan hasil |
+| `js/multi-dapil.js` | Kalkulator Multi-Dapil |
+| `js/indeks.js` | Indeks disproporsionalitas |
+| `js/validasi.js` | Halaman Validasi |
+| `js/init.js` | Inisialisasi, dimuat paling akhir |
+
 ---
 
 ## Penggunaan Lokal
@@ -444,7 +460,7 @@ http://localhost:8000
 
 ## Uji Otomatis
 
-Folder `tests` berisi uji yang memastikan hitungan kalkulator tetap benar setiap kali kode diubah. Uji ini mengambil fungsi alokasi dan data preset langsung dari `index.html`, lalu memeriksa contoh hitung manual untuk kelima metode, kasus pinggiran seperti total suara nol dan nilai seri, jumlah suara dan kursi pada preset, mencocokkan hasil Sainte-Laguë di 84 dapil DPR RI 2024 dengan perolehan kursi resmi menurut Keputusan KPU Nomor 1206 Tahun 2024 untuk ketiga pilihan pembulatan, serta memeriksa mode lembaga dan indeks disproporsionalitas. Pengecekan yang sama dipakai di halaman Validasi pada situs.
+Folder `tests` berisi uji yang memastikan hitungan kalkulator tetap benar setiap kali kode diubah. Uji ini mengambil fungsi alokasi dan data preset langsung dari berkas `js/` yang dimuat `index.html`, lalu memeriksa contoh hitung manual untuk kelima metode, kasus pinggiran seperti total suara nol dan nilai seri, jumlah suara dan kursi pada preset, mencocokkan hasil Sainte-Laguë di 84 dapil DPR RI 2024 dengan perolehan kursi resmi menurut Keputusan KPU Nomor 1206 Tahun 2024 untuk ketiga pilihan pembulatan, serta memeriksa mode lembaga dan indeks disproporsionalitas. Pengecekan yang sama dipakai di halaman Validasi pada situs.
 
 Untuk menjalankannya di komputer sendiri, cukup pasang Node.js lalu jalankan perintah berikut dari folder repositori:
 
@@ -457,6 +473,12 @@ Uji yang sama juga berjalan otomatis di GitHub setiap kali ada perubahan yang di
 Situs di Netlify dibangun dari repositori ini sesuai `netlify.toml`: uji dijalankan lebih dulu, lalu `tools/build-pages.mjs` membuat satu halaman untuk setiap fitur (misalnya `/multi-dapil/` dan `/indeks/`) beserta `sitemap.xml`. Kalau uji gagal, situs tidak diperbarui.
 
 ## Riwayat Versi
+
+### v1.4.1 — Modularisasi Kode
+
+* `index.html` yang semula memuat seluruh tampilan dan kode dipecah menjadi `css/style.css` dan sebelas berkas di folder `js/`, sehingga kode lebih mudah dirawat dan dikembangkan;
+* tidak ada perubahan pada tampilan, hitungan, maupun fitur; kesamaannya diperiksa dengan membandingkan 66 keluaran versi lama dan baru (tabel hasil, ringkasan, jejak hitung, grafik, Multi-Dapil, Indeks, Validasi, dan halaman bacaan) dalam bahasa Indonesia dan Inggris;
+* uji otomatis dan pembuat halaman per fitur disesuaikan dengan struktur berkas yang baru.
 
 ### v1.4.0 — Aturan, Pembulatan, dan Validasi
 
