@@ -474,6 +474,11 @@ Situs di Netlify dibangun dari repositori ini sesuai `netlify.toml`: uji dijalan
 
 ## Riwayat Versi
 
+### v1.4.2 — Perbaikan Kecil
+
+* angka Hasil Bagi dan kuota di tabel Jejak Hitung kini selalu mengikuti bahasa yang dipilih di kalkulator, tidak lagi bergantung pada bahasa pengaturan browser;
+* teks bawaan footer yang terbaca sebelum halaman selesai dimuat dan oleh mesin pencari diperbarui ke versi yang benar.
+
 ### v1.4.1 — Modularisasi Kode
 
 * `index.html` yang semula memuat seluruh tampilan dan kode dipecah menjadi `css/style.css` dan sebelas berkas di folder `js/`, sehingga kode lebih mudah dirawat dan dikembangkan;

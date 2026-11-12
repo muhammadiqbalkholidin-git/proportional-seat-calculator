@@ -474,6 +474,11 @@ The Netlify site is built from this repository according to `netlify.toml`: the 
 
 ## Version History
 
+### v1.4.2 — Minor Fixes
+
+* quotient and quota figures in the Calculation Trace table now always follow the language chosen in the calculator instead of the browser's language setting;
+* the default footer text, read before the page finishes loading and by search engines, now shows the correct version.
+
 ### v1.4.1 — Code Modularisation
 
 * `index.html`, which used to hold all styling and code, is split into `css/style.css` and eleven files in the `js/` folder, making the code easier to maintain and extend;
