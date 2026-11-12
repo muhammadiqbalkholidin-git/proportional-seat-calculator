@@ -1,6 +1,6 @@
 // Uji otomatis Kalkulator Kursi Pemilu Proporsional.
 // Jalankan dari folder repositori:  node tests/run-tests.mjs
-// Fungsi dan data diambil langsung dari index.html, jadi yang diuji adalah kode yang benar-benar tayang.
+// Fungsi dan data diambil langsung dari berkas js/ yang dimuat index.html, jadi yang diuji adalah kode yang benar-benar tayang.
 
 import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
@@ -8,18 +8,22 @@ import { dirname, join } from 'node:path';
 import vm from 'node:vm';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
-const html = readFileSync(join(root, 'index.html'), 'utf8');
+// Kode aplikasi ada di folder js/, dimuat sesuai urutan tag <script> di index.html.
+const indexHtml = readFileSync(join(root, 'index.html'), 'utf8');
+const urutanJs = [...indexHtml.matchAll(/<script src="(js\/[^"?]+)/g)].map(m => m[1]);
+// Cadangan untuk struktur lama (sebelum v1.4.1), ketika seluruh kode masih berada di dalam index.html.
+const html = urutanJs.length ? urutanJs.map(f => readFileSync(join(root, f), 'utf8')).join('\n') : indexHtml;
 const resmi = JSON.parse(readFileSync(join(root, 'tests/fixtures/dpr2024-kursi-resmi-per-dapil.json'), 'utf8'));
 
 function ambilFungsi(nama) {
   const awal = html.indexOf('\nfunction ' + nama + '(');
-  if (awal < 0) throw new Error('Fungsi tidak ditemukan di index.html: ' + nama);
+  if (awal < 0) throw new Error('Fungsi tidak ditemukan di js/: ' + nama);
   const akhir = html.indexOf('\n}\n', awal);
   return html.slice(awal + 1, akhir + 2);
 }
 function ambilKonstanta(nama) {
   const awal = html.indexOf('const ' + nama + '=');
-  if (awal < 0) throw new Error('Konstanta tidak ditemukan di index.html: ' + nama);
+  if (awal < 0) throw new Error('Konstanta tidak ditemukan di js/: ' + nama);
   const akhir = html.indexOf(';\n', awal);
   return html.slice(awal, akhir + 1).replace(/^const /, 'var ');
 }
