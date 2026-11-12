@@ -2,7 +2,7 @@
 // dan alamat kanonis masing-masing, supaya mesin pencari bisa mengindeks semua fitur.
 // Dijalankan otomatis oleh Netlify (lihat netlify.toml):  node tools/build-pages.mjs
 
-import { readFileSync, writeFileSync, mkdirSync, copyFileSync, rmSync, existsSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdirSync, copyFileSync, cpSync, rmSync, existsSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import vm from 'node:vm';
@@ -11,12 +11,14 @@ const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const dist = join(root, 'dist');
 const SITE = 'https://proportional-seat-calculator.netlify.app';
 const html = readFileSync(join(root, 'index.html'), 'utf8');
+const navJs = readFileSync(join(root, 'js/navigasi.js'), 'utf8');
 
 function ambilKonstanta(nama) {
-  const awal = html.indexOf('const ' + nama + '=');
-  const akhir = html.indexOf('};\n', awal);
+  const awal = navJs.indexOf('const ' + nama + '=');
+  if (awal < 0) throw new Error('Konstanta tidak ditemukan di js/navigasi.js: ' + nama);
+  const akhir = navJs.indexOf('};\n', awal);
   const ctx = {};
-  vm.runInNewContext('var ' + html.slice(awal + 6, akhir + 2), ctx);
+  vm.runInNewContext('var ' + navJs.slice(awal + 6, akhir + 2), ctx);
   return ctx[nama];
 }
 const PATHS = ambilKonstanta('PAGE_PATHS');
@@ -36,6 +38,8 @@ for (const [id, path] of Object.entries(PATHS)) {
   const [judul, deskripsi] = META[id].id;
   const url = SITE + path;
   let h = html;
+  // Halaman ada di subfolder (misalnya /multi-dapil/), jadi alamat CSS dan JS dibuat absolut.
+  h = h.replace(/(href|src)="(css|js)\//g, '$1="/$2/');
   h = ganti(h, /<html lang="id">/, `<html lang="id" data-page="${id}">`, 'html');
   h = ganti(h, /<title>[^<]*<\/title>/, `<title>${esc(judul)}</title>`, 'title');
   h = ganti(h, /<meta name="description" content="[^"]*">/, `<meta name="description" content="${esc(deskripsi)}">`, 'description');
@@ -50,6 +54,7 @@ for (const [id, path] of Object.entries(PATHS)) {
 }
 
 for (const f of ['favicon.svg', 'og-image.png', 'apple-touch-icon.png', 'robots.txt']) copyFileSync(join(root, f), join(dist, f));
+for (const d of ['css', 'js']) cpSync(join(root, d), join(dist, d), { recursive: true });
 
 const tanggal = new Date().toISOString().slice(0, 10);
 writeFileSync(join(dist, 'sitemap.xml'),
