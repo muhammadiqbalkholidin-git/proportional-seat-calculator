@@ -575,7 +575,7 @@ Diperbaiki:
 
 Jika menggunakan aplikasi ini dalam tulisan akademik, analisis kebijakan, bahan ajar, jurnalisme, presentasi, atau dokumentasi publik, mohon sitasi sebagai berikut.
 
-DOI di atas selalu mengarah ke versi terbaru. Setiap rilis juga punya DOI sendiri di Zenodo; versi 1.4.1 adalah 10.5281/zenodo.24156876, versi 1.4.0 adalah 10.5281/zenodo.24130643, dan versi 1.3.0 adalah 10.5281/zenodo.24105964.
+DOI di atas selalu mengarah ke versi terbaru. Setiap rilis juga punya DOI sendiri di Zenodo; versi 2.0.0 adalah 10.5281/zenodo.24187298, versi 1.4.1 adalah 10.5281/zenodo.24156876, versi 1.4.0 adalah 10.5281/zenodo.24130643, dan versi 1.3.0 adalah 10.5281/zenodo.24105964.
 
 ### APA
 

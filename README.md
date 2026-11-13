@@ -575,7 +575,7 @@ Improved:
 
 If you use this application in academic writing, policy analysis, teaching material, journalism, presentations, or public documentation, please cite it as follows.
 
-The DOI above always points to the latest version. Each release also has its own DOI on Zenodo; version 1.4.1 is 10.5281/zenodo.24156876, version 1.4.0 is 10.5281/zenodo.24130643 and version 1.3.0 is 10.5281/zenodo.24105964.
+The DOI above always points to the latest version. Each release also has its own DOI on Zenodo; version 2.0.0 is 10.5281/zenodo.24187298, version 1.4.1 is 10.5281/zenodo.24156876, version 1.4.0 is 10.5281/zenodo.24130643 and version 1.3.0 is 10.5281/zenodo.24105964.
 
 ### APA
 
