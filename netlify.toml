@@ -1,7 +1,14 @@
 # Setiap commit diuji dulu; kalau uji gagal, situs tidak diperbarui.
+# Urutan: uji hitungan, bangun halaman per alamat, lalu uji hasil build.
 [build]
-  command = "node tests/run-tests.mjs && node tools/build-pages.mjs"
+  command = "node tests/run-tests.mjs && node tools/build-pages.mjs && node tests/check-dist.mjs"
   publish = "dist"
 
 [build.environment]
   NODE_VERSION = "20"
+
+# Isi gabungan semua halaman hanya untuk pemuat di browser, bukan untuk hasil pencarian.
+[[headers]]
+  for = "/halaman.html"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
