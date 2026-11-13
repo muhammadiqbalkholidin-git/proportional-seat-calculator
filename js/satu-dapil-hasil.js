@@ -15,7 +15,7 @@ function renderTrace(){
     else if(traceMethodIndex===1)rows=buildDivisorTrace(elig.map(p=>({...p})),seats,1.4);
     else rows=buildDHondtTrace(elig.map(p=>({...p})),seats);
     const display=rows.slice(0,MAX);
-    traceInfo=`<div style="font-size:0.75rem;color:#64748b;margin-bottom:9px">${s.trace_showing} <strong>${display.length}</strong> ${s.trace_of} <strong>${rows.length}</strong> ${s.trace_rows}</div>`;
+    traceInfo=`<div style="font-size:0.75rem;color:var(--muted);margin-bottom:9px">${s.trace_showing} <strong>${display.length}</strong> ${s.trace_of} <strong>${rows.length}</strong> ${s.trace_rows}</div>`;
     const cols=[s.th_seat_no,s.th_party,s.th_votes,s.th_prev,s.th_divisor,s.th_quotient];
     tableHTML=`<div class="ow"><table class="trace-tbl"><thead><tr>${cols.map(c=>`<th>${c}</th>`).join('')}</tr></thead><tbody>${display.map(r=>`<tr><td>${r.seat}</td><td class="tl">${r.party}</td><td style="text-align:right">${fmtNum(r.votes)}</td><td>${r.prev}</td><td>${fmtDec(Number.isInteger(r.divisor)?r.divisor:r.divisor,1)}</td><td class="trace-q">${r.quotient.toLocaleString(currentLang==='en'?'en-US':'id-ID',{maximumFractionDigits:2})}</td></tr>`).join('')}</tbody></table></div>`;
     lastTraceData={method:MNAMES[traceMethodIndex],cols,rows:rows.map(r=>[r.seat,r.party,r.votes,r.prev,Number.isInteger(r.divisor)?r.divisor:r.divisor.toFixed(1),r.quotient.toFixed(4)])};
@@ -23,13 +23,13 @@ function renderTrace(){
   } else {
     const{quota,rows}=traceMethodIndex===3?buildHareTrace(elig.map(p=>({...p})),seats):buildDroopTrace(elig.map(p=>({...p})),seats);
     const display=rows.slice(0,MAX);
-    traceInfo=`<div style="font-size:0.75rem;color:#64748b;margin-bottom:9px">${s.trace_showing} <strong>${display.length}</strong> ${s.trace_of} <strong>${rows.length}</strong> ${s.trace_rows} &nbsp;·&nbsp; <strong>${en?'Quota':'Kuota'}:</strong> ${quota.toLocaleString(currentLang==='en'?'en-US':'id-ID',{maximumFractionDigits:4})}</div>`;
+    traceInfo=`<div style="font-size:0.75rem;color:var(--muted);margin-bottom:9px">${s.trace_showing} <strong>${display.length}</strong> ${s.trace_of} <strong>${rows.length}</strong> ${s.trace_rows} &nbsp;·&nbsp; <strong>${en?'Quota':'Kuota'}:</strong> ${quota.toLocaleString(currentLang==='en'?'en-US':'id-ID',{maximumFractionDigits:4})}</div>`;
     const cols=[s.th_party,s.th_votes,s.th_quota,s.th_initial,s.th_remainder,s.th_additional,s.th_total_seats];
     tableHTML=`<div class="ow"><table class="trace-tbl"><thead><tr>${cols.map(c=>`<th>${c}</th>`).join('')}</tr></thead><tbody>${display.map(r=>`<tr><td class="tl">${r.party}</td><td style="text-align:right">${fmtNum(r.votes)}</td><td style="text-align:right">${quota.toLocaleString(currentLang==='en'?'en-US':'id-ID',{maximumFractionDigits:4})}</td><td>${r.initial}</td><td style="text-align:right">${fmtNum(traceMethodIndex===3?r.remainder.toFixed(6):r.remainder)}</td><td class="${r.additional>0?'trace-add':''}">${r.additional}</td><td class="trace-q">${r.total}</td></tr>`).join('')}</tbody></table></div>`;
     lastTraceData={method:MNAMES[traceMethodIndex],cols,rows:rows.map(r=>[r.party,r.votes,quota.toFixed(4),r.initial,traceMethodIndex===3?r.remainder.toFixed(6):r.remainder,r.additional,r.total])};
     traceInfo=critQuotaHTML(rows,traceMethodIndex,quota)+traceInfo;
   }
-  el.innerHTML=`<div style="margin-bottom:14px"><div style="font-size:0.72rem;font-weight:700;color:#1e40af;text-transform:uppercase;letter-spacing:1.2px;margin-bottom:8px">${s.trace_method_label}</div><div style="display:flex;gap:6px;flex-wrap:wrap">${methodBtns}</div></div><div class="ibox" style="margin-bottom:11px"><strong>${MNAMES[traceMethodIndex]}</strong><br><span style="font-size:0.77rem;color:#475569">${s.trace_note}</span></div>${traceInfo}${tableHTML}<div class="mnote" style="margin-top:11px">${s.trace_tie}</div><div style="margin-top:11px"><button class="btn bg" onclick="downloadFullTrace()" style="font-size:0.78rem">${s.trace_dl}</button></div>`;
+  el.innerHTML=`<div style="margin-bottom:14px"><div style="font-size:0.72rem;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:1.2px;margin-bottom:8px">${s.trace_method_label}</div><div style="display:flex;gap:6px;flex-wrap:wrap">${methodBtns}</div></div><div class="ibox" style="margin-bottom:11px"><strong>${MNAMES[traceMethodIndex]}</strong><br><span style="font-size:0.77rem;color:var(--ink-2)">${s.trace_note}</span></div>${traceInfo}${tableHTML}<div class="mnote" style="margin-top:11px">${s.trace_tie}</div><div style="margin-top:11px"><button class="btn bg" onclick="downloadFullTrace()" style="font-size:0.78rem">${s.trace_dl}</button></div>`;
 }
 function fmtQ(x){return roundMode==='none'?fmtDec(x,4):fmtDec(x,2);}
 function critDivisorHTML(elig,seats,mi){
@@ -92,19 +92,19 @@ function calculate(silent){
     });
     h+=`</tr>`;
   });
-  h+=`<tr style="background:#1e3a8a;font-weight:700"><td colspan="3" style="color:#fff">${s.lbl_total}</td>`;
+  h+=`<tr style="background:var(--btn-2);font-weight:700"><td colspan="3" style="color:#fff">${s.lbl_total}</td>`;
   results.forEach(r=>h+=`<td style="color:#fff">${Object.values(r).reduce((a,b)=>a+b,0)}</td>`);h+=`</tr></tbody>`;
   tbl.innerHTML=h;
   const hasBelow=pdata.some(p=>isOut(p,tot,thresh));
-  document.getElementById('resLegend').innerHTML=`<span>${s.lg_seat}</span>`+(anyDiff?`<span><i class="lg-sw" style="background:#ecfdf5;border:1px solid #a7f3d0"></i>${s.lg_up}</span><span><i class="lg-sw" style="background:#fef2f2;border:1px solid #fecaca"></i>${s.lg_dn}</span>`:'')+(hasBelow?`<span><span class="bt-tag" style="margin-left:0">${(lembaga==='manual'?s.bt_tag_dpr:s.bt_tag)}</span>${(lembaga==='manual'?s.lg_bt_dpr:s.lg_bt)}</span>`:'');
+  document.getElementById('resLegend').innerHTML=`<span>${s.lg_seat}</span>`+(anyDiff?`<span><i class="lg-sw" style="background:var(--good-soft);border:1px solid #a7f3d0"></i>${s.lg_up}</span><span><i class="lg-sw" style="background:var(--bad-soft);border:1px solid var(--bad-line)"></i>${s.lg_dn}</span>`:'')+(hasBelow?`<span><span class="bt-tag" style="margin-left:0">${(lembaga==='manual'?s.bt_tag_dpr:s.bt_tag)}</span>${(lembaga==='manual'?s.lg_bt_dpr:s.lg_bt)}</span>`:'');
   if(chartInst){chartInst.destroy();chartInst=null;}
   const ctx=document.getElementById('myChart').getContext('2d');
   lastCalcCtx={seats,thresh,tot,elig,ties};
   renderSingleNarr();
   renderSingleCharts();
-  if(typeof Chart!=='undefined')chartInst=new Chart(ctx,{type:'bar',data:{labels:elig.map(p=>p.name),datasets:MNAMES.map((m,mi)=>({label:m,data:elig.map(p=>results[mi][p.name]||0),backgroundColor:METHOD_COLORS[mi],borderRadius:4,maxBarThickness:28}))},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{color:'#334155',boxWidth:12,boxHeight:12,font:{size:11,family:'Open Sans'}}}},scales:{x:{ticks:{color:'#475569'},grid:{display:false}},y:{ticks:{color:'#64748b'},grid:{color:'#f1f5f9'},beginAtZero:true}}}});
+  if(typeof Chart!=='undefined')chartInst=new Chart(ctx,{type:'bar',data:{labels:elig.map(p=>p.name),datasets:MNAMES.map((m,mi)=>({label:m,data:elig.map(p=>results[mi][p.name]||0),backgroundColor:METHOD_COLORS[mi],borderRadius:4,maxBarThickness:28}))},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{color:CC('ink2'),boxWidth:12,boxHeight:12,font:{size:11,family:'Open Sans'}}}},scales:{x:{ticks:{color:CC('ink2')},grid:{display:false}},y:{ticks:{color:CC('muted')},grid:{color:CC('grid')},beginAtZero:true}}}});
   const di=en?['Odd divisors. Most proportional.','First divisor 1.4. Slightly favours larger parties.',"Integer divisors. Most widely used.",'Quota = Total ÷ Seats.','Quota = ⌊Total÷(Seats+1)⌋+1.']:['Pembagi ganjil. Paling proporsional.','Pembagi pertama 1,4. Sedikit pro-besar.',"Pembagi bulat. Paling banyak dipakai.",'Kuota = Total ÷ Kursi.','Kuota = ⌊Total÷(Kursi+1)⌋+1.'];
-  let dd='';results.forEach((r,i)=>{dd+=`<div class="ibox"><strong>${MNAMES[i]}</strong> · ${Object.values(r).reduce((a,b)=>a+b,0)} ${en?'seats':'kursi'} &nbsp;<span style="font-size:0.74rem;color:#64748b">${di[i]}</span><div style="margin-top:7px">${elig.map(p=>`<span class="badge">${p.name}: ${r[p.name]||0}</span>`).join('')}</div></div>`;});
+  let dd='';results.forEach((r,i)=>{dd+=`<div class="ibox"><strong>${MNAMES[i]}</strong> · ${Object.values(r).reduce((a,b)=>a+b,0)} ${en?'seats':'kursi'} &nbsp;<span style="font-size:0.74rem;color:var(--muted)">${di[i]}</span><div style="margin-top:7px">${elig.map(p=>`<span class="badge">${p.name}: ${r[p.name]||0}</span>`).join('')}</div></div>`;});
   document.getElementById('detailDiv').innerHTML=dd;
   document.getElementById('resCard').classList.remove('hidden');
   if(silent){const tr=document.getElementById('t3');if(tr&&!tr.classList.contains('hidden'))renderTrace();return;}

@@ -11,6 +11,7 @@ function withRound(names,get){names.forEach(n=>{const f=window[n];if(typeof f!==
 withRound(['calculate','renderTrace','downloadFullTrace','downloadCSV','copySummary','copyLatex','printResult','renderSingleCharts','renderSingleNarr'],()=>roundSingle);
 withRound(['calculateMultiDapil','renderMdNational','renderMdNatExtra','renderMdDistrictTable','renderMdTrace','downloadMdTraceCSV','renderMdLast','downloadMdLastCSV','renderMdSim','renderMdSimTable','renderMdScenario','downloadMultiNationalCSV','downloadMultiDistrictCSV','renderMdInfo'],()=>roundMulti);
 populateDapilSel();
+if(window.Chart){Chart.defaults.color=CC('muted');Chart.defaults.borderColor=CC('grid');}
 setLang(currentLang);
 goTo(pageFromPath(),{noPush:true,noScroll:true});
 try{history.replaceState({page:currentPage},'',location.href);}catch(e){}

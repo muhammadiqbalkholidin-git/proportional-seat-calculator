@@ -1,7 +1,7 @@
 /* Kalkulator Satu Dapil: masukan data, impor CSV, pembantu umum, pembulatan, aturan ambang batas, dan preset. */
 /* ================================================================ MAIN CALCULATOR ================================================================ */
 const COLORS=['#1d4ed8','#dc2626','#059669','#d97706','#7c3aed','#db2777','#0891b2','#65a30d','#ea580c','#4f46e5','#0d9488','#be123c','#a16207','#9333ea','#0284c7','#15803d','#c2410c','#475569'];
-const METHOD_COLORS=['#1e3a8a','#3b82f6','#93c5fd','#0d9488','#99f6e4'];
+const METHOD_COLORS=['#2552b8','#3b82f6','#93c5fd','#0d9488','#99f6e4'];
 const MNAMES_ID=["Sainte-Laguë","SL Modifikasi","D'Hondt","Kuota Hare","Kuota Droop"];
 const MNAMES_EN=["Sainte-Laguë","Modified SL","D'Hondt","Hare Quota","Droop Quota"];
 const getMNames=()=>currentLang==='en'?MNAMES_EN:MNAMES_ID;

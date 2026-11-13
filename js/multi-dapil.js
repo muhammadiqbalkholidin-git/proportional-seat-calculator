@@ -281,10 +281,10 @@ function renderMdNational(){
     [sl,slm,dh,ha,dr].forEach(v=>h+=offCell(v,off?(offNat[p]||0):null));h+=`</tr>`;
   });
   const en=currentLang==='en';
-  h+=`<tr style="background:#1e3a8a;font-weight:700"><td colspan="${off?5:4}" style="color:#fff;text-align:left">${en?'TOTAL SEATS':'TOTAL KURSI'}</td>`;
+  h+=`<tr style="background:var(--btn-2);font-weight:700"><td colspan="${off?5:4}" style="color:#fff;text-align:left">${en?'TOTAL SEATS':'TOTAL KURSI'}</td>`;
   ['sl','slmod','dh','hare','droop'].forEach(m=>h+=`<td style="color:#fff">${Object.values(natSeats[m]).reduce((a,b)=>a+b,0)}</td>`);
   h+=`</tr></tbody></table></div>`;
-  if(off)h+=`<div class="res-legend"><span>${s.md_off_legend}</span><span><i class="lg-sw" style="background:#ecfdf5;border:1px solid #a7f3d0"></i>${s.md_off_more}</span><span><i class="lg-sw" style="background:#fef2f2;border:1px solid #fecaca"></i>${s.md_off_less}</span></div>`;
+  if(off)h+=`<div class="res-legend"><span>${s.md_off_legend}</span><span><i class="lg-sw" style="background:var(--good-soft);border:1px solid #a7f3d0"></i>${s.md_off_more}</span><span><i class="lg-sw" style="background:var(--bad-soft);border:1px solid var(--bad-line)"></i>${s.md_off_less}</span></div>`;
   h+=`<div id="mdNatExtra"></div>`;
   document.getElementById('mdNationalDiv').innerHTML=h;
   renderMdNatExtra();
@@ -322,7 +322,7 @@ function renderMdDistrictTable(){
   });
   h+=`</tbody></table></div>`;
   if(off){const changed=lastMdCalc.districts.filter(d=>lastMdCalc.distResults.some(r=>r.district===d&&MD_KEYS.some(k=>(r[k]||0)!==(off[d+'|'+r.party]||0))));
-    h=`<div class="mnote" style="margin-bottom:10px">${T('md_changed_note',{n:changed.length,t:lastMdCalc.districts.length})}</div>`+h+`<div class="res-legend"><span>${s.md_off_legend}</span><span><i class="lg-sw" style="background:#ecfdf5;border:1px solid #a7f3d0"></i>${s.md_off_more}</span><span><i class="lg-sw" style="background:#fef2f2;border:1px solid #fecaca"></i>${s.md_off_less}</span></div>`;}
+    h=`<div class="mnote" style="margin-bottom:10px">${T('md_changed_note',{n:changed.length,t:lastMdCalc.districts.length})}</div>`+h+`<div class="res-legend"><span>${s.md_off_legend}</span><span><i class="lg-sw" style="background:var(--good-soft);border:1px solid #a7f3d0"></i>${s.md_off_more}</span><span><i class="lg-sw" style="background:var(--bad-soft);border:1px solid var(--bad-line)"></i>${s.md_off_less}</span></div>`;}
   document.getElementById('mdDistrictDiv').innerHTML=h;
 }
 
@@ -359,8 +359,8 @@ function renderMdSim(){
   if(typeof Chart!=='undefined'){
     mdSimChart=new Chart(document.getElementById('mdSimChart').getContext('2d'),{type:'line',
       data:{labels:steps.map(x=>fmtDec(x,1)+'%'),datasets:shown.map(p=>{const c=COLORS[allParties.indexOf(p)%COLORS.length];return{label:p,data:series.map(r=>r[p]),borderColor:c,backgroundColor:c,borderWidth:2,pointRadius:2,tension:0};})},
-      options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},plugins:{legend:{position:'bottom',labels:{boxWidth:10,boxHeight:10,color:'#334155',font:{size:11,family:'Open Sans'}}}},
-        scales:{x:{title:{display:true,text:s.md_sim_x,color:'#64748b'},ticks:{color:'#475569'},grid:{display:false}},y:{title:{display:true,text:s.md_sim_y,color:'#64748b'},beginAtZero:true,ticks:{color:'#64748b'},grid:{color:'#f1f5f9'}}}}});
+      options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},plugins:{legend:{position:'bottom',labels:{boxWidth:10,boxHeight:10,color:CC('ink2'),font:{size:11,family:'Open Sans'}}}},
+        scales:{x:{title:{display:true,text:s.md_sim_x,color:CC('muted')},ticks:{color:CC('ink2')},grid:{display:false}},y:{title:{display:true,text:s.md_sim_y,color:CC('muted')},beginAtZero:true,ticks:{color:CC('muted')},grid:{color:CC('grid')}}}}});
   }
   renderMdSimTable();
   renderMdScenario();
@@ -408,8 +408,8 @@ function mdTraceSelectors(){
   if(!mdTraceDist||!districts.includes(mdTraceDist))mdTraceDist=districts[0];
   const opts=districts.map(d=>`<option value="${d}"${d===mdTraceDist?' selected':''}>${d}</option>`).join('');
   const mbtn=MN.map((m,i)=>`<button class="btn ${i===mdTraceMethod?'bp':'bx'}" style="font-size:0.74rem;padding:5px 11px" onclick="mdTraceMethod=${i};renderMdTrace()">${m}</button>`).join('');
-  return `<div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:10px"><label style="font-size:0.8rem;font-weight:600;color:#334155">${s.md_filter_label}</label><select onchange="mdTraceDist=this.value;renderMdTrace()">${opts}</select></div>
-  <div style="font-size:0.72rem;font-weight:700;color:#1e40af;text-transform:uppercase;letter-spacing:1.2px;margin-bottom:8px">${s.trace_method_label}</div><div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px">${mbtn}</div>`;
+  return `<div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:10px"><label style="font-size:0.8rem;font-weight:600;color:var(--ink-2)">${s.md_filter_label}</label><select onchange="mdTraceDist=this.value;renderMdTrace()">${opts}</select></div>
+  <div style="font-size:0.72rem;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:1.2px;margin-bottom:8px">${s.trace_method_label}</div><div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px">${mbtn}</div>`;
 }
 function divisionMatrixHTML(pts,seats,mi,order){
   const s=STRINGS[currentLang];
@@ -480,7 +480,7 @@ function renderMdLast(){
   let h=`<div class="mnote" style="margin-bottom:10px">${s.md_last_intro}</div><div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px">${mbtn}</div>`+narrBox(narrMdLast(rows))+`<div class="ch-blk" style="margin-top:16px"><div class="ch-head"><h3>${T('ch_last_title')}</h3><button class="btn bg" onclick="downloadCanvas('mdLastChart','selisih_kursi_terakhir.png')">${T('ch_dl')}</button></div><div class="ch-note">${T('ch_last_note')}</div><div style="position:relative;height:300px"><canvas id="mdLastChart"></canvas></div></div>`;
   h+=`<div style="margin-bottom:10px"><button class="btn bg" onclick="downloadMdLastCSV()">${s.md_dl_last}</button></div>`;
   h+=`<div class="ow"><table class="trace-tbl"><thead><tr><th>#</th><th class="tl">${s.md_col_dapil}</th><th>${s.md_col_seats}</th><th class="tl">${s.md_last_seat}</th><th>${s.th_quotient}</th><th class="tl">${s.md_challenger}</th><th>${s.th_quotient}</th><th>${s.md_extra_votes}</th></tr></thead><tbody>`;
-  rows.forEach((r,i)=>{h+=`<tr><td>${i+1}</td><td class="tl"><a href="#" onclick="mdTraceDist='${r.dist.replace(/'/g,"\\'")}';mdTraceMethod=${mdLastMethod};switchMdTab(3);return false" style="color:#1e40af">${r.dist}</a></td><td>${r.seats}</td><td class="tl">${r.last.party}</td><td class="num">${fmtNum(Math.round(r.last.quotient))}</td><td class="tl">${r.ch.party}</td><td class="num">${fmtNum(Math.round(r.ch.quotient))}</td><td class="num"><strong>${fmtNum(r.extra)}</strong></td></tr>`;});
+  rows.forEach((r,i)=>{h+=`<tr><td>${i+1}</td><td class="tl"><a href="#" onclick="mdTraceDist='${r.dist.replace(/'/g,"\\'")}';mdTraceMethod=${mdLastMethod};switchMdTab(3);return false" style="color:var(--blue)">${r.dist}</a></td><td>${r.seats}</td><td class="tl">${r.last.party}</td><td class="num">${fmtNum(Math.round(r.last.quotient))}</td><td class="tl">${r.ch.party}</td><td class="num">${fmtNum(Math.round(r.ch.quotient))}</td><td class="num"><strong>${fmtNum(r.extra)}</strong></td></tr>`;});
   el.innerHTML=h+`</tbody></table></div><div class="mnote" style="margin-top:10px">${s.md_extra_note}</div>`;
   drawMdLastChart(rows);
 }

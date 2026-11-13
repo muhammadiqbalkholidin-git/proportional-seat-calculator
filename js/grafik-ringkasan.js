@@ -10,7 +10,7 @@ function mkChart(id,cfg){
 function downloadCanvas(id,file){
   const canvas=document.getElementById(id);if(!canvas||!CH[id]){notify(T('err_calc_first'));return;}
   const tmp=document.createElement('canvas');tmp.width=canvas.width;tmp.height=canvas.height;
-  const c2=tmp.getContext('2d');c2.fillStyle='#ffffff';c2.fillRect(0,0,tmp.width,tmp.height);c2.drawImage(canvas,0,0);
+  const c2=tmp.getContext('2d');c2.fillStyle=CC('surface');c2.fillRect(0,0,tmp.width,tmp.height);c2.drawImage(canvas,0,0);
   tmp.toBlob(b=>triggerDownload(b,file),'image/png');
 }
 function downloadSVG(boxId,file){
@@ -19,9 +19,9 @@ function downloadSVG(boxId,file){
   const lg=[...box.querySelectorAll('.hemi-lg span')].map(s=>({c:s.querySelector('i').style.background,t:s.textContent.trim()}));
   const rows=Math.ceil(lg.length/3);const h=vb.height*sc+rows*22*sc/1.5+20;
   const img=new Image();
-  img.onload=()=>{const c=document.createElement('canvas');c.width=w;c.height=h;const g=c.getContext('2d');g.fillStyle='#fff';g.fillRect(0,0,w,h);g.drawImage(img,0,0,w,vb.height*sc);
+  img.onload=()=>{const c=document.createElement('canvas');c.width=w;c.height=h;const g=c.getContext('2d');g.fillStyle=CC('surface');g.fillRect(0,0,w,h);g.drawImage(img,0,0,w,vb.height*sc);
     g.font=`${13*sc/1.5}px Open Sans, sans-serif`;g.textBaseline='middle';
-    lg.forEach((it,i)=>{const col=i%3,row=Math.floor(i/3);const x=20+col*(w-40)/3,y=vb.height*sc+10+row*22*sc/1.5+11*sc/1.5;g.fillStyle=it.c;g.beginPath();g.arc(x+6,y,6,0,7);g.fill();g.fillStyle='#334155';g.fillText(it.t,x+18,y);});
+    lg.forEach((it,i)=>{const col=i%3,row=Math.floor(i/3);const x=20+col*(w-40)/3,y=vb.height*sc+10+row*22*sc/1.5+11*sc/1.5;g.fillStyle=it.c;g.beginPath();g.arc(x+6,y,6,0,7);g.fill();g.fillStyle=CC('ink2');g.fillText(it.t,x+18,y);});
     c.toBlob(b=>triggerDownload(b,file),'image/png');};
   img.src='data:image/svg+xml;charset=utf-8,'+encodeURIComponent(new XMLSerializer().serializeToString(svg));
 }
@@ -76,7 +76,7 @@ function hemicycleSVG(parts){
   const dot=Math.max(2,Math.min(16,(R*0.55/rows)*0.42,R*Math.PI/(pos.filter(p=>Math.abs(Math.hypot(p.x,p.y)-1)<1e-9).length||1)*0.42));
   const cols=[];list.forEach(p=>{for(let i=0;i<p.seats;i++)cols.push(p.color);});
   const circles=pos.map((p,i)=>`<circle cx="${(cx+p.x*R).toFixed(1)}" cy="${(cy-p.y*R).toFixed(1)}" r="${dot.toFixed(1)}" fill="${cols[i]}"/>`).join('');
-  const txt=`<text x="${cx}" y="${cy-8}" text-anchor="middle" font-family="Open Sans, sans-serif" font-size="30" font-weight="700" fill="#0f172a">${fmtNum(n)}</text><text x="${cx}" y="${cy+12}" text-anchor="middle" font-family="Open Sans, sans-serif" font-size="13" fill="#64748b">${T('cfg_seats').toLowerCase()}</text>`;
+  const txt=`<text x="${cx}" y="${cy-8}" text-anchor="middle" font-family="Open Sans, sans-serif" font-size="30" font-weight="700" fill="${CC('ink')}">${fmtNum(n)}</text><text x="${cx}" y="${cy+12}" text-anchor="middle" font-family="Open Sans, sans-serif" font-size="13" fill="${CC('muted')}">${T('cfg_seats').toLowerCase()}</text>`;
   const lg=list.map(p=>`<span><i style="background:${p.color}"></i>${p.name} ${p.seats}</span>`).join('');
   return `<svg class="hemi" viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="${T('ch_hemi_title')}">${circles}${txt}</svg><div class="hemi-lg">${lg}</div>`;
 }
@@ -89,17 +89,17 @@ const cutLinePlugin={id:'cutLine',afterDraw(ch,args,o){
 }};
 const pointLabelPlugin={id:'pointLabel',afterDatasetsDraw(ch){
   const ds=ch.data.datasets[0];if(!ds||!ds.labels)return;const meta=ch.getDatasetMeta(0);const g=ch.ctx;
-  g.save();g.font='600 11px Open Sans, sans-serif';g.fillStyle='#334155';g.textBaseline='middle';
+  g.save();g.font='600 11px Open Sans, sans-serif';g.fillStyle=CC('ink2');g.textBaseline='middle';
   meta.data.forEach((pt,i)=>{const r=ds.data[i];if(r.x<2&&r.y===0)return;g.fillText(ds.labels[i],pt.x+8,pt.y);});g.restore();
 }};
 function drawVoteSeat(id,rows){
   const mx=Math.max(5,...rows.map(r=>Math.max(r.vp,r.sp)))*1.1;const top=Math.ceil(mx/5)*5;
   return mkChart(id,{type:'scatter',data:{datasets:[
     {label:T('ch_vs_y'),data:rows.map(r=>({x:+r.vp.toFixed(2),y:+r.sp.toFixed(2)})),labels:rows.map(r=>r.name),pointBackgroundColor:rows.map((r,i)=>r.color||COLORS[i%COLORS.length]),pointRadius:6,pointHoverRadius:8},
-    {type:'line',label:T('ch_vs_line'),data:[{x:0,y:0},{x:top,y:top}],borderColor:'#94a3b8',borderDash:[6,4],borderWidth:1.5,pointRadius:0,fill:false}]},
+    {type:'line',label:T('ch_vs_line'),data:[{x:0,y:0},{x:top,y:top}],borderColor:CC('line'),borderDash:[6,4],borderWidth:1.5,pointRadius:0,fill:false}]},
     options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},
       tooltip:{filter:it=>it.datasetIndex===0,callbacks:{label:c=>`${c.dataset.labels[c.dataIndex]}: ${T('ch_vs_x').toLowerCase()} ${fmtDec(c.parsed.x,2)}%, ${T('ch_vs_y').toLowerCase()} ${fmtDec(c.parsed.y,2)}%`}}},
-      scales:{x:{min:0,max:top,title:{display:true,text:T('ch_vs_x')+' (%)',color:'#64748b'},ticks:{color:'#64748b'},grid:{color:'#f1f5f9'}},y:{min:0,max:top,title:{display:true,text:T('ch_vs_y')+' (%)',color:'#64748b'},ticks:{color:'#64748b'},grid:{color:'#f1f5f9'}}}},
+      scales:{x:{min:0,max:top,title:{display:true,text:T('ch_vs_x')+' (%)',color:CC('muted')},ticks:{color:CC('muted')},grid:{color:CC('grid')}},y:{min:0,max:top,title:{display:true,text:T('ch_vs_y')+' (%)',color:CC('muted')},ticks:{color:CC('muted')},grid:{color:CC('grid')}}}},
     plugins:[pointLabelPlugin]});
 }
 
@@ -123,7 +123,7 @@ function renderSingleCharts(){
     document.getElementById('raceWrap').style.height=Math.max(220,shown.length*24+70)+'px';
     mkChart('raceChart',{type:'bar',data:{labels:shown.map(it=>`${it.rank}. ${it.party} ÷${fmtDiv(it.div)}`),datasets:[{data:shown.map(it=>it.q),backgroundColor:shown.map(it=>colorOf(it.party)+(it.won?'':'55')),borderRadius:3,barThickness:16}]},
       options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},cutLine:{cut:n-from,label:T('ch_race_cut')},tooltip:{callbacks:{label:x=>`${T('ch_race_axis')}: ${fmtQ(x.parsed.x)}`}}},
-        scales:{x:{beginAtZero:true,title:{display:true,text:T('ch_race_axis'),color:'#64748b'},ticks:{color:'#64748b',callback:v=>fmtNum(v)},grid:{color:'#f1f5f9'}},y:{ticks:{color:'#334155',font:{size:11}},grid:{display:false}}}},
+        scales:{x:{beginAtZero:true,title:{display:true,text:T('ch_race_axis'),color:CC('muted')},ticks:{color:CC('muted'),callback:v=>fmtNum(v)},grid:{color:CC('grid')}},y:{ticks:{color:CC('ink2'),font:{size:11}},grid:{display:false}}}},
       plugins:[cutLinePlugin]});
   }else{
     const{items,cut}=quotaRaceData(c.elig,c.seats,mi);const shown=items.slice(0,Math.min(items.length,Math.max(cut+5,8)));
@@ -132,7 +132,7 @@ function renderSingleCharts(){
     document.getElementById('raceWrap').style.height=Math.max(220,shown.length*24+70)+'px';
     mkChart('raceChart',{type:'bar',data:{labels:shown.map((it,i)=>`${i+1}. ${it.party}`),datasets:[{data:shown.map(it=>Math.round(it.rem)),backgroundColor:shown.map(it=>colorOf(it.party)+(it.won?'':'55')),borderRadius:3,barThickness:16}]},
       options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},cutLine:{cut,label:T('ch_race_cut')},tooltip:{callbacks:{label:x=>`${T('ch_race_axis_quota')}: ${fmtNum(x.parsed.x)}`}}},
-        scales:{x:{beginAtZero:true,title:{display:true,text:T('ch_race_axis_quota'),color:'#64748b'},ticks:{color:'#64748b',callback:v=>fmtNum(v)},grid:{color:'#f1f5f9'}},y:{ticks:{color:'#334155',font:{size:11}},grid:{display:false}}}},
+        scales:{x:{beginAtZero:true,title:{display:true,text:T('ch_race_axis_quota'),color:CC('muted')},ticks:{color:CC('muted'),callback:v=>fmtNum(v)},grid:{color:CC('grid')}},y:{ticks:{color:CC('ink2'),font:{size:11}},grid:{display:false}}}},
       plugins:[cutLinePlugin]});
   }
   document.getElementById('hemiSingle').innerHTML=hemicycleSVG(pdata.map(p=>({name:p.name,seats:lastResults[mi][p.name]||0,color:colorOf(p.name)})));
@@ -260,8 +260,8 @@ function narrMdLast(rows){
 function drawMdLastChart(rows){
   mkChart('mdLastChart',{type:'line',data:{labels:rows.map((r,i)=>i+1),datasets:[{data:rows.map(r=>Math.max(1,r.extra)),borderColor:'#1d4ed8',backgroundColor:'#1d4ed8',borderWidth:2,pointRadius:2.5,tension:0,dists:rows.map(r=>r.dist)}]},
     options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{title:it=>it[0].dataset.dists[it[0].dataIndex],label:c=>`${T('ch_last_y')}: ${fmtNum(c.parsed.y)}`}}},
-      scales:{x:{title:{display:true,text:T('ch_last_x'),color:'#64748b'},ticks:{color:'#64748b',maxTicksLimit:12},grid:{display:false}},
-        y:{type:'logarithmic',title:{display:true,text:T('ch_last_y'),color:'#64748b'},ticks:{color:'#64748b',callback:v=>[100,1000,10000,100000,1000000].includes(v)?fmtNum(v):''},grid:{color:'#f1f5f9'}}}}});
+      scales:{x:{title:{display:true,text:T('ch_last_x'),color:CC('muted')},ticks:{color:CC('muted'),maxTicksLimit:12},grid:{display:false}},
+        y:{type:'logarithmic',title:{display:true,text:T('ch_last_y'),color:CC('muted')},ticks:{color:CC('muted'),callback:v=>[100,1000,10000,100000,1000000].includes(v)?fmtNum(v):''},grid:{color:CC('grid')}}}}});
 }
 const SCN_THRESH=[0,2,4,5,7];
 function scenarioShares(th,mi){
@@ -275,17 +275,17 @@ function renderMdScenario(){
   const res=th.map(x=>scenarioShares(x,mdSimMethod));
   const shown=allParties.filter(p=>res.some(r=>r.seats[p]>0));
   mkChart('mdScnChart',{type:'bar',data:{labels:th.map(x=>T('ch_scn_label',{t:fmtDec(x,1)})+(x===thresh?' *':'')),
-      datasets:shown.map(p=>({label:p,data:res.map(r=>+r.share[p].toFixed(2)),seatN:res.map(r=>r.seats[p]),backgroundColor:COLORS[allParties.indexOf(p)%COLORS.length],borderWidth:0.5,borderColor:'#fff'}))},
-    options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{boxWidth:11,boxHeight:11,color:'#334155',font:{size:11,family:'Open Sans'}}},
+      datasets:shown.map(p=>({label:p,data:res.map(r=>+r.share[p].toFixed(2)),seatN:res.map(r=>r.seats[p]),backgroundColor:COLORS[allParties.indexOf(p)%COLORS.length],borderWidth:0.5,borderColor:CC('surface')}))},
+    options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{boxWidth:11,boxHeight:11,color:CC('ink2'),font:{size:11,family:'Open Sans'}}},
       tooltip:{callbacks:{label:c=>`${c.dataset.label}: ${c.dataset.seatN[c.dataIndex]} ${currentLang==='en'?'seats':'kursi'} (${fmtDec(c.parsed.x,2)}%)`}}},
-      scales:{x:{stacked:true,min:0,max:100,title:{display:true,text:T('ch_scn_axis')+' (%)',color:'#64748b'},ticks:{color:'#64748b',callback:v=>v+'%'},grid:{color:'#f1f5f9'}},y:{stacked:true,ticks:{color:'#334155'},grid:{display:false}}}}});
+      scales:{x:{stacked:true,min:0,max:100,title:{display:true,text:T('ch_scn_axis')+' (%)',color:CC('muted')},ticks:{color:CC('muted'),callback:v=>v+'%'},grid:{color:CC('grid')}},y:{stacked:true,ticks:{color:CC('ink2')},grid:{display:false}}}}});
 }
 function downloadPNG(){
   if(!chartInst){notify(currentLang==='en'?'Please calculate first!':'Hitung dulu!');return;}
   switchTab(1);
   setTimeout(()=>{
     const canvas=document.getElementById('myChart');const tmp=document.createElement('canvas');tmp.width=canvas.width;tmp.height=canvas.height;
-    const ctx2=tmp.getContext('2d');ctx2.fillStyle='#ffffff';ctx2.fillRect(0,0,tmp.width,tmp.height);ctx2.drawImage(canvas,0,0);
+    const ctx2=tmp.getContext('2d');ctx2.fillStyle=CC('surface');ctx2.fillRect(0,0,tmp.width,tmp.height);ctx2.drawImage(canvas,0,0);
     const url=tmp.toDataURL('image/png');const arr=atob(url.split(',')[1]);const u8=new Uint8Array(arr.length);
     for(let i=0;i<arr.length;i++)u8[i]=arr.charCodeAt(i);triggerDownload(new Blob([u8],{type:'image/png'}),'grafik_pemilu.png');
   },300);
