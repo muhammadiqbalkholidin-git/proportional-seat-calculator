@@ -419,7 +419,7 @@ It can be hosted on static hosting platforms such as Netlify.
 | File | Contents |
 |---|---|
 | `js/teks.js` | Interface text in Indonesian and English |
-| `js/navigasi.js` | Language, navigation, per-page addresses and titles, citation dialog |
+| `js/navigasi.js` | Language, navigation, per-page addresses and titles, menu, light/dark mode, citation dialog |
 | `js/data-dpr2024.js` | Data from KPU Decrees No. 360, 1205 and 1206 of 2024 |
 | `js/metode.js` | The five seat allocation methods and their calculation traces |
 | `js/satu-dapil.js` | Single-District input, rounding, threshold rules, presets |
@@ -470,9 +470,20 @@ node tests/run-tests.mjs
 
 The same tests also run automatically on GitHub for every push, via `.github/workflows/tests.yml`.
 
-The Netlify site is built from this repository according to `netlify.toml`: the tests run first, then `tools/build-pages.mjs` generates one page per feature (such as `/multi-dapil/` and `/indeks/`) plus `sitemap.xml`. If the tests fail, the site is not updated.
+The Netlify site is built from this repository according to `netlify.toml`: the tests run first, then `tools/build-pages.mjs` generates one page per feature (Home at `/`, then for example `/satu-dapil/`, `/multi-dapil/`, and `/indeks/`) plus `sitemap.xml`. If the tests fail, the site is not updated.
 
 ## Version History
+
+### v2.0.0 — New Design and Home Page
+
+* a new **Home** page at the main address of the site summarises all three calculators, how they work, and the Validation result; the Single-District Calculator has moved to `/satu-dapil/`;
+* a new design on every page: blue gradient page headers, white cards, cleaner tables and buttons, and the calculator logo in the header and footer;
+* **light and dark modes** that follow the device setting on the first visit and remember the user's choice; charts and downloaded PNG images follow the selected mode;
+* a new menu: Home, Single District, Multi-District, Index, Guide (Tutorial, Methodology, Validation), and Profile, with a dedicated menu for phone screens;
+* the Profile page is updated with a biography, research areas, experience, selected publications with links, an illustrated portrait, and links to ORCID and the Kompas columns;
+* the Tutorial gains Section Q on the Home page, menu, and dark mode; Methodology Section 1 explains that these changes concern the display only;
+* automated tests now also check page addresses, menu buttons, completeness of both languages, completeness of the dark-mode colours, and the Google Search Console verification tag;
+* calculations are unchanged; this was checked by comparing 60 calculation outputs of the old and new versions in Indonesian and English.
 
 ### v1.4.2 — Minor Fixes
 

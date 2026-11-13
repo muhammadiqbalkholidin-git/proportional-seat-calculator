@@ -419,7 +419,7 @@ Struktur berkasnya sebagai berikut. `index.html` berisi kerangka halaman, `css/s
 | Berkas | Isi |
 |---|---|
 | `js/teks.js` | Teks antarmuka bahasa Indonesia dan Inggris |
-| `js/navigasi.js` | Bahasa, navigasi, alamat dan judul per halaman, jendela kutipan |
+| `js/navigasi.js` | Bahasa, navigasi, alamat dan judul per halaman, menu, mode terang/gelap, jendela kutipan |
 | `js/data-dpr2024.js` | Data Keputusan KPU Nomor 360, 1205, dan 1206 Tahun 2024 |
 | `js/metode.js` | Lima metode alokasi kursi dan jejak hitungnya |
 | `js/satu-dapil.js` | Masukan Kalkulator Satu Dapil, pembulatan, aturan ambang batas, preset |
@@ -470,9 +470,20 @@ node tests/run-tests.mjs
 
 Uji yang sama juga berjalan otomatis di GitHub setiap kali ada perubahan yang diunggah, melalui berkas `.github/workflows/tests.yml`.
 
-Situs di Netlify dibangun dari repositori ini sesuai `netlify.toml`: uji dijalankan lebih dulu, lalu `tools/build-pages.mjs` membuat satu halaman untuk setiap fitur (misalnya `/multi-dapil/` dan `/indeks/`) beserta `sitemap.xml`. Kalau uji gagal, situs tidak diperbarui.
+Situs di Netlify dibangun dari repositori ini sesuai `netlify.toml`: uji dijalankan lebih dulu, lalu `tools/build-pages.mjs` membuat satu halaman untuk setiap fitur (Beranda di `/`, lalu misalnya `/satu-dapil/`, `/multi-dapil/`, dan `/indeks/`) beserta `sitemap.xml`. Kalau uji gagal, situs tidak diperbarui.
 
 ## Riwayat Versi
+
+### v2.0.0 — Tampilan Baru dan Halaman Beranda
+
+* halaman **Beranda** baru di alamat utama situs yang merangkum ketiga kalkulator, cara kerja, dan hasil uji Validasi; Kalkulator Satu Dapil pindah ke alamat `/satu-dapil/`;
+* tampilan baru di semua halaman: kepala halaman bergradasi biru, kartu putih, tabel dan tombol yang lebih rapi, serta logo kalkulator di kepala dan kaki halaman;
+* **mode terang dan gelap** yang mengikuti pengaturan perangkat pada kunjungan pertama dan mengingat pilihan pengguna; grafik dan gambar PNG yang diunduh ikut menyesuaikan;
+* menu baru: Beranda, Satu Dapil, Multi-Dapil, Indeks, Panduan (Tutorial, Metodologi, Validasi), dan Profil, dengan menu khusus untuk layar ponsel;
+* halaman Profil diperbarui dengan biografi, bidang kajian, pengalaman, publikasi terpilih beserta tautannya, ilustrasi wajah, serta tautan ORCID dan kolom Kompas;
+* Tutorial mendapat Bagian Q tentang Beranda, menu, dan mode gelap; Metodologi Bagian 1 menjelaskan bahwa perubahan ini hanya menyangkut tampilan;
+* uji otomatis ditambah pemeriksaan alamat halaman, tombol menu, kelengkapan teks dua bahasa, kelengkapan warna mode gelap, dan tag verifikasi Google Search Console;
+* hitungan tidak berubah; kesamaannya diperiksa dengan membandingkan 60 keluaran perhitungan versi lama dan baru dalam bahasa Indonesia dan Inggris.
 
 ### v1.4.2 — Perbaikan Kecil
 
