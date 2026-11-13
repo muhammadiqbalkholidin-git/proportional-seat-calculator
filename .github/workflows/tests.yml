@@ -13,3 +13,5 @@ jobs:
         with:
           node-version: 20
       - run: node tests/run-tests.mjs
+      - run: node tools/build-pages.mjs
+      - run: node tests/check-dist.mjs
