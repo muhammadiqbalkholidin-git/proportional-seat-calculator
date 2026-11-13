@@ -127,5 +127,28 @@ console.log('\n8. Halaman Validasi (fungsi yang sama dengan yang berjalan di bro
 const grup = ctx.runValidation();
 grup.forEach(g => g.items.forEach(i => cek(g.title.replace(/^\d+\. /, '') + ' | ' + i.name, i.ok, true)));
 
+console.log('\n9. Halaman, menu, teks, dan mode tampilan (v2.0.0)');
+{
+  const navJs = readFileSync(join(root, 'js/navigasi.js'), 'utf8');
+  const ambilObj = nama => { const a = navJs.indexOf('const ' + nama + '='); const b = navJs.indexOf('};\n', a); const c = {}; vm.runInNewContext('var ' + navJs.slice(a + 6, b + 2), c); return c[nama]; };
+  const PATHS = ambilObj('PAGE_PATHS'), META = ambilObj('PAGE_META');
+  cek('Beranda ada di alamat utama, Satu Dapil di /satu-dapil/', [PATHS.home, PATHS.calc], ['/', '/satu-dapil/']);
+  const alamat = Object.values(PATHS);
+  cek('Setiap halaman punya alamat yang berbeda', new Set(alamat).size, alamat.length);
+  const ids = Object.keys(PATHS);
+  cek('Setiap alamat punya elemen halaman di index.html', ids.filter(id => !indexHtml.includes('id="page-' + id + '"')), []);
+  cek('Setiap halaman punya tombol menu', ids.filter(id => !indexHtml.includes('id="nb-' + id + '"')), []);
+  cek('Setiap halaman punya judul dan deskripsi ID/EN', ids.filter(id => !(META[id] && META[id].id && META[id].en && META[id].id.length === 2 && META[id].en.length === 2)), []);
+  const sc = {}; vm.runInNewContext(readFileSync(join(root, 'js/teks.js'), 'utf8').replace('const STRINGS=', 'var STRINGS='), sc);
+  const kunci = [...new Set([...indexHtml.matchAll(/data-i18n(?:-title)?="([^"]+)"/g)].map(m => m[1]))];
+  cek('Setiap teks di halaman tersedia dalam bahasa Indonesia', kunci.filter(k => sc.STRINGS.id[k] === undefined), []);
+  cek('Setiap teks di halaman tersedia dalam bahasa Inggris', kunci.filter(k => sc.STRINGS.en[k] === undefined), []);
+  const css = readFileSync(join(root, 'css/style.css'), 'utf8');
+  const blok = sel => { const a = css.indexOf(sel + '{'); return a < 0 ? [] : [...css.slice(a, css.indexOf('}', a)).matchAll(/(--[a-z0-9-]+):/g)].map(m => m[1]).sort(); };
+  const terang = blok(':root'), gelap = blok(':root[data-theme="dark"]');
+  cek('Mode gelap mendefinisikan semua warna mode terang', terang.filter(v => !gelap.includes(v)), []);
+  cek('Tag verifikasi Google Search Console tetap terpasang', indexHtml.includes('name="google-site-verification" content="TLq7FvQ8f8-oUe4l9dHdMwVho1fnSDwMET4ZLl99cEE"'), true);
+}
+
 console.log(`\n${lulus} lulus, ${gagal} gagal\n`);
 process.exit(gagal ? 1 : 0);
