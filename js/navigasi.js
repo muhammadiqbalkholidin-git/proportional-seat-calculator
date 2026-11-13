@@ -62,7 +62,7 @@ function goTo(id,opts){
   if(!document.getElementById('page-'+id))id='home';
   currentPage=id;
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('show'));
-  document.querySelectorAll('.mainnav button').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('.mainnav [id^="nb-"]').forEach(b=>b.classList.remove('active'));
   document.getElementById('page-'+id).classList.add('show');
   const nb=document.getElementById('nb-'+id);if(nb)nb.classList.add('active');
   const dd=document.getElementById('ddGuide');if(dd){dd.classList.toggle('active',['tutorial','meth','validasi'].includes(id));dd.classList.remove('open');}

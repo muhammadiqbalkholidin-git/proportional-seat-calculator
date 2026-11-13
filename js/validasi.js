@@ -122,7 +122,7 @@ function renderValidation(){
   const d=new Date().toLocaleString(en?'en-GB':'id-ID',{day:'numeric',month:'long',year:'numeric',hour:'2-digit',minute:'2-digit'});
   const sum=document.getElementById('valSummary');
   sum.classList.toggle('bad',pass!==all.length);
-  sum.innerHTML=`<span class="vs-num">${pass} / ${all.length}</span><span>${pass===all.length?L('uji lulus. Semua hasil sesuai harapan.','tests passed. All results are as expected.'):L('uji lulus. Ada uji yang gagal, mohon laporkan lewat email.','tests passed. Some tests failed, please report this by email.')}<br><small>${L('Dijalankan','Run on')} ${d} · ${L('versi','version')} 2.0.0</small></span>`;
+  sum.innerHTML=`<span class="vs-num">${pass} / ${all.length}</span><span>${pass===all.length?L('uji lulus. Semua hasil sesuai harapan.','tests passed. All results are as expected.'):L('uji lulus. Ada uji yang gagal, mohon laporkan lewat email.','tests passed. Some tests failed, please report this by email.')}<br><small>${L('Dijalankan','Run on')} ${d} · ${L('versi','version')} 2.0.1</small></span>`;
   const ok=v=>v?`<span class="val-ok">✓ ${L('Lulus','Pass')}</span>`:`<span class="val-bad">✗ ${L('Gagal','Fail')}</span>`;
   box.innerHTML=groups.map(g=>{
     let h=`<div class="val-grp"><h2>${g.title}</h2><div class="vg-desc">${g.desc}</div><div class="ow"><table class="val-tbl"><thead><tr><th>${L('Uji','Test')}</th><th>${L('Hasil','Result')}</th><th>${L('Rincian','Detail')}</th></tr></thead><tbody>`+
