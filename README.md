@@ -470,9 +470,18 @@ node tests/run-tests.mjs
 
 The same tests also run automatically on GitHub for every push, via `.github/workflows/tests.yml`.
 
-The Netlify site is built from this repository according to `netlify.toml`: the tests run first, then `tools/build-pages.mjs` generates one page per feature (Home at `/`, then for example `/satu-dapil/`, `/multi-dapil/`, and `/indeks/`) plus `sitemap.xml`. If the tests fail, the site is not updated.
+The Netlify site is built from this repository according to `netlify.toml`: the tests run first, then `tools/build-pages.mjs` generates one page per feature (Home at `/`, then for example `/satu-dapil/`, `/multi-dapil/`, and `/indeks/`) plus `sitemap.xml`, and `tests/check-dist.mjs` then checks the result. If any test fails, the site is not updated.
 
 ## Version History
+
+### v2.0.1 — Search Engine Fixes
+
+* the initial HTML of every address now already contains the Indonesian text, shows its own page right away, and only carries that page's content, so search engines no longer see eight addresses with identical content; the other pages are fetched from `halaman.html` (not indexed) before the calculator code runs;
+* the menu, footer links, and in-page links use real addresses (such as `/satu-dapil/`), so search engines can follow them;
+* structured data is added: the author's profile on the Profile page and breadcrumbs on the other pages;
+* the link preview image is updated to the new design, a 404 page is added, and month names in the Profile writing list follow the selected language;
+* a new test, `tests/check-dist.mjs`, checks the build before the site is updated: the page shown, the active menu item, no empty text, the canonical address, and distinct content for every address;
+* calculations are unchanged; all 60 calculation outputs are identical to the previous version.
 
 ### v2.0.0 — New Design and Home Page
 

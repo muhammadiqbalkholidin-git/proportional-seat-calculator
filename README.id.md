@@ -470,9 +470,18 @@ node tests/run-tests.mjs
 
 Uji yang sama juga berjalan otomatis di GitHub setiap kali ada perubahan yang diunggah, melalui berkas `.github/workflows/tests.yml`.
 
-Situs di Netlify dibangun dari repositori ini sesuai `netlify.toml`: uji dijalankan lebih dulu, lalu `tools/build-pages.mjs` membuat satu halaman untuk setiap fitur (Beranda di `/`, lalu misalnya `/satu-dapil/`, `/multi-dapil/`, dan `/indeks/`) beserta `sitemap.xml`. Kalau uji gagal, situs tidak diperbarui.
+Situs di Netlify dibangun dari repositori ini sesuai `netlify.toml`: uji dijalankan lebih dulu, lalu `tools/build-pages.mjs` membuat satu halaman untuk setiap fitur (Beranda di `/`, lalu misalnya `/satu-dapil/`, `/multi-dapil/`, dan `/indeks/`) beserta `sitemap.xml`, lalu `tests/check-dist.mjs` memeriksa hasilnya. Kalau salah satu uji gagal, situs tidak diperbarui.
 
 ## Riwayat Versi
+
+### v2.0.1 — Perbaikan untuk Mesin Pencari
+
+* HTML awal setiap alamat kini sudah berisi teks bahasa Indonesia, langsung menampilkan halamannya sendiri, dan hanya memuat isi halaman itu, sehingga mesin pencari tidak lagi melihat delapan alamat dengan isi yang sama; isi halaman lain diambil dari `halaman.html` (tidak diindeks) sebelum kode kalkulator dijalankan;
+* menu, tautan kaki halaman, dan tautan antarhalaman memakai alamat sungguhan (misalnya `/satu-dapil/`), sehingga bisa diikuti mesin pencari;
+* data terstruktur ditambahkan: profil pembuat di halaman Profil dan jejak navigasi di halaman lain;
+* gambar pratinjau tautan diperbarui ke tampilan baru, halaman 404 ditambahkan, dan nama bulan di daftar tulisan Profil mengikuti bahasa yang dipilih;
+* uji baru `tests/check-dist.mjs` memeriksa hasil build sebelum situs diperbarui: halaman yang tampil, menu aktif, tidak ada teks kosong, alamat kanonis, dan isi tiap alamat yang berbeda;
+* hitungan tidak berubah; 60 keluaran perhitungan sama persis dengan versi sebelumnya.
 
 ### v2.0.0 — Tampilan Baru dan Halaman Beranda
 

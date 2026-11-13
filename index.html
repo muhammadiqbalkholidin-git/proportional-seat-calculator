@@ -25,7 +25,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <script>(function(){try{var t=localStorage.getItem('kk-theme');if(!t&&window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches)t='dark';if(t==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();</script>
-<link rel="stylesheet" href="css/style.css?v=2.0.0">
+<link rel="stylesheet" href="css/style.css?v=2.0.1">
 </head>
 <body>
 
@@ -57,17 +57,17 @@
 <header class="hdr" id="hdr"><div class="hdr-in">
   <a class="brand" href="/" onclick="goTo('home');return false"><span class="brand-logo"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="3" width="7" height="9" rx="1.5" fill="white" opacity="0.9"/><rect x="3" y="15" width="7" height="6" rx="1.5" fill="white" opacity="0.5"/><rect x="14" y="3" width="7" height="5" rx="1.5" fill="white" opacity="0.5"/><rect x="14" y="11" width="7" height="10" rx="1.5" fill="white" opacity="0.9"/></svg></span><span class="brand-tx"><b data-i18n="brand_short">Kalkulator Kursi</b><small data-i18n="brand_sub">Pemilu Proporsional · Iqbal Kholidin</small></span></a>
   <nav class="mainnav" aria-label="Menu utama">
-    <button id="nb-home" class="active" onclick="goTo('home')" data-i18n="nav_home">Beranda</button>
-    <button id="nb-calc" onclick="goTo('calc')" data-i18n="nav_s_calc">Satu Dapil</button>
-    <button id="nb-multi" onclick="goTo('multi')" data-i18n="nav_s_multi">Multi-Dapil</button>
-    <button id="nb-index" onclick="goTo('index')" data-i18n="nav_index">Indeks</button>
+    <a id="nb-home" class="active" href="/" onclick="goTo('home');return false" data-i18n="nav_home">Beranda</a>
+    <a id="nb-calc" href="/satu-dapil/" onclick="goTo('calc');return false" data-i18n="nav_s_calc">Satu Dapil</a>
+    <a id="nb-multi" href="/multi-dapil/" onclick="goTo('multi');return false" data-i18n="nav_s_multi">Multi-Dapil</a>
+    <a id="nb-index" href="/indeks/" onclick="goTo('index');return false" data-i18n="nav_index">Indeks</a>
     <div class="dd" id="ddGuide"><button class="dd-btn" onclick="toggleGuide(event)" aria-haspopup="true"><span data-i18n="nav_guide">Panduan</span><span class="chev">&#9662;</span></button>
       <div class="dd-menu">
-        <button id="nb-tutorial" onclick="goTo('tutorial')"><span data-i18n="nav_tutorial">Tutorial</span><small data-i18n="nav_g_tut">Langkah memakai kalkulator</small></button>
-        <button id="nb-meth" onclick="goTo('meth')"><span data-i18n="nav_meth">Metodologi</span><small data-i18n="nav_g_meth">Rumus, dasar hukum, dan rujukan</small></button>
-        <button id="nb-validasi" onclick="goTo('validasi')"><span data-i18n="nav_validasi">Validasi</span><small data-i18n="nav_g_val">Uji hasil terhadap data resmi</small></button>
+        <a id="nb-tutorial" href="/tutorial/" onclick="goTo('tutorial');return false"><span data-i18n="nav_tutorial">Tutorial</span><small data-i18n="nav_g_tut">Langkah memakai kalkulator</small></a>
+        <a id="nb-meth" href="/metodologi/" onclick="goTo('meth');return false"><span data-i18n="nav_meth">Metodologi</span><small data-i18n="nav_g_meth">Rumus, dasar hukum, dan rujukan</small></a>
+        <a id="nb-validasi" href="/validasi/" onclick="goTo('validasi');return false"><span data-i18n="nav_validasi">Validasi</span><small data-i18n="nav_g_val">Uji hasil terhadap data resmi</small></a>
       </div></div>
-    <button id="nb-about" onclick="goTo('about')" data-i18n="nav_about">Profil</button>
+    <a id="nb-about" href="/profil/" onclick="goTo('about');return false" data-i18n="nav_about">Profil</a>
   </nav>
   <div class="hdr-tools">
     <div class="lang-sw"><button id="lang-id" class="on" onclick="setLang('id')">ID</button><button id="lang-en" onclick="setLang('en')">EN</button></div>
@@ -120,13 +120,13 @@
     <div class="home-cards">
       <div class="hcard hc1" onclick="goTo('calc')"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8 15v-3M12 15V9M16 15v-5"/></svg></div>
         <h3 data-i18n="home_c1_h">Kalkulator Satu Dapil</h3><p data-i18n="home_c1_p"></p>
-        <ul><li data-i18n="home_c1_l1"></li><li data-i18n="home_c1_l2"></li><li data-i18n="home_c1_l3"></li></ul><span class="go" data-i18n="home_go">Buka kalkulator →</span></div>
+        <ul><li data-i18n="home_c1_l1"></li><li data-i18n="home_c1_l2"></li><li data-i18n="home_c1_l3"></li></ul><a class="go" href="/satu-dapil/" onclick="event.stopPropagation();goTo('calc');return false" data-i18n="home_go">Buka kalkulator →</a></div>
       <div class="hcard hc2" onclick="goTo('multi')"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="3" y="4" width="8" height="7" rx="2"/><rect x="13" y="4" width="8" height="7" rx="2"/><rect x="3" y="13" width="8" height="7" rx="2"/><rect x="13" y="13" width="8" height="7" rx="2"/></svg></div>
         <h3 data-i18n="home_c2_h">Kalkulator Multi-Dapil</h3><p data-i18n="home_c2_p"></p>
-        <ul><li data-i18n="home_c2_l1"></li><li data-i18n="home_c2_l2"></li><li data-i18n="home_c2_l3"></li></ul><span class="go" data-i18n="home_go">Buka kalkulator →</span></div>
+        <ul><li data-i18n="home_c2_l1"></li><li data-i18n="home_c2_l2"></li><li data-i18n="home_c2_l3"></li></ul><a class="go" href="/multi-dapil/" onclick="event.stopPropagation();goTo('multi');return false" data-i18n="home_go">Buka kalkulator →</a></div>
       <div class="hcard hc3" onclick="goTo('index')"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 19h16"/><path d="M6 15l4-5 3 3 5-7"/></svg></div>
         <h3 data-i18n="home_c3_h">Indeks Disproporsionalitas</h3><p data-i18n="home_c3_p"></p>
-        <ul><li data-i18n="home_c3_l1"></li><li data-i18n="home_c3_l2"></li><li data-i18n="home_c3_l3"></li></ul><span class="go" data-i18n="home_go">Buka kalkulator →</span></div>
+        <ul><li data-i18n="home_c3_l1"></li><li data-i18n="home_c3_l2"></li><li data-i18n="home_c3_l3"></li></ul><a class="go" href="/indeks/" onclick="event.stopPropagation();goTo('index');return false" data-i18n="home_go">Buka kalkulator →</a></div>
     </div>
   </div></section>
 
@@ -541,12 +541,12 @@
       </ol>
       <div class="pf-sub" data-i18n="pf_pub_s2">Tulisan populer</div>
       <ul class="pf-pubs pf-op">
-        <li><a href="https://www.newmandala.org/the-cost-of-low-cost-local-elections-in-indonesia/" target="_blank" rel="noopener">The cost of ‘low-cost’ local elections in Indonesia</a> <span>New Mandala, 23 Feb 2026 (<span data-i18n="pf_with">bersama</span> Kahfi Adlan Hafiz)</span></li>
-        <li><a href="https://nasional.kompas.com/read/2026/10/06/16400071/revisi-uu-pemilu--memastikan-kesetaraan-politik-penyandang-disabilitas" target="_blank" rel="noopener">Revisi UU Pemilu: Memastikan Kesetaraan Politik Penyandang Disabilitas</a> <span>Kompas.com, 6 Okt 2026</span></li>
-        <li><a href="https://www.hukumonline.com/berita/a/dapil-khusus-luar-negeri--menata-representasi-politik-dalam-revisi-uu-pemilu-lt6a7c4dbef3a62/" target="_blank" rel="noopener">Dapil Khusus Luar Negeri: Menata Representasi Politik dalam Revisi UU Pemilu</a> <span>Hukumonline, 12 Agu 2026</span></li>
-        <li><a href="https://rumahpemilu.or.id/quo-vadis-ambang-batas-parlemen/" target="_blank" rel="noopener">Quo Vadis Ambang Batas Parlemen?</a> <span>Rumah Pemilu, 20 Feb 2026</span></li>
-        <li><a href="https://nasional.kompas.com/read/2025/12/28/08300061/pilkada-tidak-langsung-dan-logika-efisiensi-yang-keliru" target="_blank" rel="noopener">Pilkada Tidak Langsung dan Logika Efisiensi yang Keliru</a> <span>Kompas.com, 28 Des 2025</span></li>
-        <li><a href="https://news.detik.com/kolom/d-7881613/usulan-untuk-perbaikan-sistem-pemilu" target="_blank" rel="noopener">Usulan untuk Perbaikan Sistem Pemilu</a> <span>detik.com, 23 Apr 2025</span></li>
+        <li><a href="https://www.newmandala.org/the-cost-of-low-cost-local-elections-in-indonesia/" target="_blank" rel="noopener">The cost of ‘low-cost’ local elections in Indonesia</a> <span>New Mandala, 23 <span data-i18n="m_feb">Feb</span> 2026 (<span data-i18n="pf_with">bersama</span> Kahfi Adlan Hafiz)</span></li>
+        <li><a href="https://nasional.kompas.com/read/2026/10/06/16400071/revisi-uu-pemilu--memastikan-kesetaraan-politik-penyandang-disabilitas" target="_blank" rel="noopener">Revisi UU Pemilu: Memastikan Kesetaraan Politik Penyandang Disabilitas</a> <span>Kompas.com, 6 <span data-i18n="m_oct">Okt</span> 2026</span></li>
+        <li><a href="https://www.hukumonline.com/berita/a/dapil-khusus-luar-negeri--menata-representasi-politik-dalam-revisi-uu-pemilu-lt6a7c4dbef3a62/" target="_blank" rel="noopener">Dapil Khusus Luar Negeri: Menata Representasi Politik dalam Revisi UU Pemilu</a> <span>Hukumonline, 12 <span data-i18n="m_aug">Agu</span> 2026</span></li>
+        <li><a href="https://rumahpemilu.or.id/quo-vadis-ambang-batas-parlemen/" target="_blank" rel="noopener">Quo Vadis Ambang Batas Parlemen?</a> <span>Rumah Pemilu, 20 <span data-i18n="m_feb">Feb</span> 2026</span></li>
+        <li><a href="https://nasional.kompas.com/read/2025/12/28/08300061/pilkada-tidak-langsung-dan-logika-efisiensi-yang-keliru" target="_blank" rel="noopener">Pilkada Tidak Langsung dan Logika Efisiensi yang Keliru</a> <span>Kompas.com, 28 <span data-i18n="m_dec">Des</span> 2025</span></li>
+        <li><a href="https://news.detik.com/kolom/d-7881613/usulan-untuk-perbaikan-sistem-pemilu" target="_blank" rel="noopener">Usulan untuk Perbaikan Sistem Pemilu</a> <span>detik.com, 23 <span data-i18n="m_apr">Apr</span> 2025</span></li>
       </ul>
     </section>
     <section class="card">
@@ -727,14 +727,14 @@ Dua desimal, dipotong    → 106.677,66</div>
       <a class="brand" href="/" onclick="goTo('home');return false"><span class="brand-logo"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="3" width="7" height="9" rx="1.5" fill="white" opacity="0.9"/><rect x="3" y="15" width="7" height="6" rx="1.5" fill="white" opacity="0.5"/><rect x="14" y="3" width="7" height="5" rx="1.5" fill="white" opacity="0.5"/><rect x="14" y="11" width="7" height="10" rx="1.5" fill="white" opacity="0.9"/></svg></span><span class="brand-tx"><b data-i18n="brand_short">Kalkulator Kursi</b><small data-i18n="brand_sub">Pemilu Proporsional · Iqbal Kholidin</small></span></a>
     </div>
     <div class="footer-links">
-      <span onclick="goTo('home')" data-i18n="nav_home">Beranda</span><span class="footer-sep">·</span>
-      <span onclick="goTo('calc')" data-i18n="nav_calc">Kalkulator Satu Dapil</span><span class="footer-sep">·</span>
-      <span onclick="goTo('multi')" data-i18n="nav_multi">Kalkulator Multi-Dapil</span><span class="footer-sep">·</span>
-      <span onclick="goTo('index')" data-i18n="nav_index">Indeks</span><span class="footer-sep">·</span>
-      <span onclick="goTo('tutorial')" data-i18n="nav_tutorial">Tutorial</span><span class="footer-sep">·</span>
-      <span onclick="goTo('meth')" data-i18n="nav_meth">Metodologi</span><span class="footer-sep">·</span>
-      <span onclick="goTo('validasi')" data-i18n="nav_validasi">Validasi</span><span class="footer-sep">·</span>
-      <span onclick="goTo('about')" data-i18n="nav_about">Profil</span><span class="footer-sep">·</span>
+      <a href="/" onclick="goTo('home');return false" data-i18n="nav_home">Beranda</a><span class="footer-sep">·</span>
+      <a href="/satu-dapil/" onclick="goTo('calc');return false" data-i18n="nav_calc">Kalkulator Satu Dapil</a><span class="footer-sep">·</span>
+      <a href="/multi-dapil/" onclick="goTo('multi');return false" data-i18n="nav_multi">Kalkulator Multi-Dapil</a><span class="footer-sep">·</span>
+      <a href="/indeks/" onclick="goTo('index');return false" data-i18n="nav_index">Indeks</a><span class="footer-sep">·</span>
+      <a href="/tutorial/" onclick="goTo('tutorial');return false" data-i18n="nav_tutorial">Tutorial</a><span class="footer-sep">·</span>
+      <a href="/metodologi/" onclick="goTo('meth');return false" data-i18n="nav_meth">Metodologi</a><span class="footer-sep">·</span>
+      <a href="/validasi/" onclick="goTo('validasi');return false" data-i18n="nav_validasi">Validasi</a><span class="footer-sep">·</span>
+      <a href="/profil/" onclick="goTo('about');return false" data-i18n="nav_about">Profil</a><span class="footer-sep">·</span>
       <span onclick="openCiteModal()" data-i18n="cite_footer_link">Cara Mengutip</span><span class="footer-sep">·</span>
       <a href="https://orcid.org/0009-0008-4313-7644" target="_blank" rel="noopener">ORCID</a><span class="footer-sep">·</span>
       <a href="https://www.linkedin.com/in/muhammadiqbalkholidin/" target="_blank" rel="noopener">LinkedIn</a><span class="footer-sep">·</span>
@@ -745,16 +745,16 @@ Dua desimal, dipotong    → 106.677,66</div>
   </div>
 </footer>
 
-<script src="js/teks.js?v=2.0.0"></script>
-<script src="js/navigasi.js?v=2.0.0"></script>
-<script src="js/data-dpr2024.js?v=2.0.0"></script>
-<script src="js/metode.js?v=2.0.0"></script>
-<script src="js/satu-dapil.js?v=2.0.0"></script>
-<script src="js/satu-dapil-hasil.js?v=2.0.0"></script>
-<script src="js/grafik-ringkasan.js?v=2.0.0"></script>
-<script src="js/multi-dapil.js?v=2.0.0"></script>
-<script src="js/indeks.js?v=2.0.0"></script>
-<script src="js/validasi.js?v=2.0.0"></script>
-<script src="js/init.js?v=2.0.0"></script>
+<script src="js/teks.js?v=2.0.1"></script>
+<script src="js/navigasi.js?v=2.0.1"></script>
+<script src="js/data-dpr2024.js?v=2.0.1"></script>
+<script src="js/metode.js?v=2.0.1"></script>
+<script src="js/satu-dapil.js?v=2.0.1"></script>
+<script src="js/satu-dapil-hasil.js?v=2.0.1"></script>
+<script src="js/grafik-ringkasan.js?v=2.0.1"></script>
+<script src="js/multi-dapil.js?v=2.0.1"></script>
+<script src="js/indeks.js?v=2.0.1"></script>
+<script src="js/validasi.js?v=2.0.1"></script>
+<script src="js/init.js?v=2.0.1"></script>
 </body>
 </html>
